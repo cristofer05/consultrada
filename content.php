@@ -38,7 +38,6 @@ else {
 		include "modules/user/view.php";
 	}
 
-
 	elseif ($_GET['module'] == 'form_user') {
 		include "modules/user/form.php";
 	}
@@ -54,6 +53,9 @@ else {
 
 	elseif ($_GET['module'] == 'password') {
 		include "modules/password/view.php";
+	}
+	elseif ($_GET['module'] == 'entrada_corte') {
+		include "modules/entrada_corte/view.php";
 	}
 }
 ?>
