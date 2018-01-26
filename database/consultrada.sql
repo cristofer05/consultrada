@@ -28,6 +28,7 @@ SET time_zone = "-04:00";
 CREATE TABLE `productos` (
   `id_producto` int(6) NOT NULL,
   `barcode` varchar(18) NOT NULL,
+  `barcode_final` varchar(18) NOT NULL,
   `nombre_producto` varchar(100) NOT NULL,
   `condicion` varchar(20) NOT NULL,
   `missing` varchar(20) NOT NULL,
@@ -44,10 +45,10 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `socios`
 --
 
-INSERT INTO `productos` (`id_producto`, `barcode`, `nombre_producto`, `condicion`, `missing`, `qty`, `nu_foto`, `comentario`, `realizado`, `imagen`, `fecha_creacion`, `qty_total`) VALUES
-('1', '888182998397', 'HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, '101', 'N/A', 'NO', 'notebook.jpg', '2018-01-25 18:43:20',5),
-('2', '013803238310', 'Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, '102', 'N/A', 'NO', 'playstation.jpg', '2018-01-25 18:43:20',10),
-('3', '884420736783', 'AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, '103', 'N/A', 'NO', 'iphone.jpg', '2018-01-25 18:43:20',25);
+INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_fina`, `nombre_producto`, `condicion`, `missing`, `qty`, `nu_foto`, `comentario`, `realizado`, `imagen`, `fecha_creacion`, `qty_total`) VALUES
+('1', '888182998397', '888182998397 GA B','HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, '101', 'N/A', 'NO', 'notebook.jpg', '2018-01-25 18:43:20',5),
+('2', '013803238310', '888182998397 O M','Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, '102', 'N/A', 'NO', 'playstation.jpg', '2018-01-25 18:43:20',10),
+('3', '884420736783', '888182998397','AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, '103', 'N/A', 'NO', 'iphone.jpg', '2018-01-25 18:43:20',25);
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,7 @@ INSERT INTO `socios` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `transaccion_medicamentos`
+-- Estructura de tabla para la tabla `logs`
 --
 
 CREATE TABLE `logs` (
@@ -136,12 +137,19 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_user`, `username`, `name_user`, `password`, `email`, `telefono`, `foto`, `permisos_acceso`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Sistemas Webs', '21232f297a57a5a743894a0e4a801fc3', 'info@elcapacitador.com', '7025', 'user-default.png', 'Super Admin', 'activo', '2017-04-01 08:15:15', '2017-07-25 23:35:23'),
-(2, 'juan', 'juan', 'a94652aa97c7211ba8954dd15a3cf838', 'juab@juan.com', '12000', NULL, 'Almacen', 'activo', '2017-07-25 22:34:03', '2017-07-25 22:42:00');
+(1, 'admin', 'Lord Computer Admin', '21232f297a57a5a743894a0e4a801fc3', 'info@lordcomputer.com', '827-123-4564', 'foto.png', 'Super Admin', 'activo', '2017-01-26 08:15:15', '2017-01-26 08:15:15'),
+(2, 'demo', 'Demostracion', '21232f297a57a5a743894a0e4a801fc3', 'demo@demo.com', '809-000-9999', '1469574176_users-7.png', 'Almacen', 'activo', '2017-01-26 22:34:03', '2017-01-26 22:34:03');
+
+--                              --
+-- Índices para tablas volcadas --
+--                              --
 
 --
--- Índices para tablas volcadas
+-- Indices de la tabla `socios`
 --
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id_producto`),
+  ADD UNIQUE KEY `barcode_final` (`barcode_final`);
 
 --
 -- Indices de la tabla `socios`
@@ -154,18 +162,20 @@ ALTER TABLE `socios`
 --
 -- Indices de la tabla `transaccion_medicamentos`
 --
-/*
-ALTER TABLE `transaccion_medicamentos`
-  ADD PRIMARY KEY (`codigo_transaccion`),
+
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id_log`),
   ADD KEY `id_barang` (`codigo`),
-  ADD KEY `created_user` (`created_user`);
-*/
+  ADD KEY `barcode_final` (`barcode_final`);
+
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_user`),
   ADD KEY `level` (`permisos_acceso`);
+  ADD UNIQUE KEY `user_name` (`user_name`),
+  ADD UNIQUE KEY `user_email` (`user_email`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
