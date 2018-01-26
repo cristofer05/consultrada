@@ -26,7 +26,7 @@ else {
 		$_SESSION['permisos_acceso'] = $data['permisos_acceso'];
 		$_SESSION['logueado']   = "si";
 
-		header("Location: main.php?module=start");
+		header("Location: main.php?module=dashboard");
 	}
 
 

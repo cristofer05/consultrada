@@ -8,7 +8,7 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])){
 	echo "<meta http-equiv='refresh' content='0; url=index.php?alert=1'>";
 }
 else {
-	if ($_GET['module'] == 'start') {
+	if ($_GET['module'] == 'dashboard') {
 		include "modules/start/view.php";
 	}
 
@@ -19,12 +19,12 @@ else {
 	elseif ($_GET['module'] == 'form_socios') {
 		include "modules/socios/form.php";
 	}
-	
+
 
 	elseif ($_GET['module'] == 'escanear') {
 		include "modules/escanear/form.php";
 	}
-	
+
 
 	elseif ($_GET['module'] == 'lista_socios') {
 		include "modules/lista_socios/view.php";

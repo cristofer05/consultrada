@@ -1,20 +1,20 @@
-<?php 
+<?php
 
 if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 
     <ul class="sidebar-menu">
         <li class="header">MENU</li>
 
-	<?php 
+	<?php
 
-	if ($_GET["module"]=="start") { 
+	if ($_GET["module"]=="dashboard") {
 		$active_home="active";
 	} else {
 		$active_home="";
 	}
 	?>
 		<li class="<?php echo $active_home;?>">
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=dashboard"><i class="fa fa-tachometer"></i> Dashboard </a>
 	  	</li>
 	<?php
 
@@ -135,22 +135,22 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 }
 
 elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
-	<!-- sidebar menu start -->
+	<!-- sidebar menu dashboard -->
     <ul class="sidebar-menu">
         <li class="header">MENU</li>
 
-	<?php 
+	<?php
 
-	if ($_GET["module"]=="start") { ?>
+	if ($_GET["module"]=="dashboard") { ?>
 		<li class="active">
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=dashboard"><i class="fa fa-home"></i> Inicio </a>
 	  	</li>
 	<?php
 	}
 
 	else { ?>
 		<li>
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=dashboard"><i class="fa fa-home"></i> Inicio </a>
 	  	</li>
 	<?php
 	}
@@ -214,18 +214,18 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
     <ul class="sidebar-menu">
         <li class="header">MENU</li>
 
-	<?php 
+	<?php
 
-  if ($_GET["module"]=="start") { ?>
+  if ($_GET["module"]=="dashboard") { ?>
     <li class="active">
-      <a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+      <a href="?module=dashboard"><i class="fa fa-home"></i> Inicio </a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+      <a href="?module=dashboard"><i class="fa fa-home"></i> Inicio </a>
       </li>
   <?php
   }

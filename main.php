@@ -1,4 +1,4 @@
-<?php  
+<?php
 session_start();
 date_default_timezone_set('America/Santo_Domingo');
 ?>
@@ -12,14 +12,14 @@ date_default_timezone_set('America/Santo_Domingo');
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Sistema de entradas y consultas de lordcomputer">
     <meta name="author" content="MediaExperto - Khriz" />
-    
+
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
 
     <!-- Bootstrap 3.3.2 -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- FontAwesome 4.3.0 -->
-    <link href="assets/plugins/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
+    <link href="assets/plugins/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- DATA TABLES -->
     <link href="assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- Datepicker -->
@@ -52,8 +52,8 @@ date_default_timezone_set('America/Santo_Domingo');
               x.style.display = "block";
           } else {
               x.style.display = "none";
-          }  
-              
+          }
+
       };
 
       function ocultar() {
@@ -63,7 +63,7 @@ date_default_timezone_set('America/Santo_Domingo');
 
       window.onload = ocultar;
     </script>
-    
+
 
     <script language="javascript">
       function getkey(e)
@@ -81,18 +81,18 @@ date_default_timezone_set('America/Santo_Domingo');
         var key, keychar;
         key = getkey(e);
         if (key == null) return true;
-       
+
         keychar = String.fromCharCode(key);
         keychar = keychar.toLowerCase();
         goods = goods.toLowerCase();
-       
+
         // check goodkeys
         if (goods.indexOf(keychar) != -1)
             return true;
         // control keys
         if ( key==null || key==0 || key==8 || key==9 || key==27 )
           return true;
-          
+
         if (key == 13) {
           var i;
           for (i = 0; i < field.form.elements.length; i++)
@@ -132,11 +132,11 @@ date_default_timezone_set('America/Santo_Domingo');
   </head>
   <body class="skin-blue fixed">
     <div class="wrapper">
-      
+
       <header class="main-header">
         <!-- Logo -->
-        <a href="?module=start" class="logo">
-          <img style="margin-top:-8px;margin-right:5px" width="150" src="assets/img/lordcomputer_logo.png" alt="Logo"> 
+        <a href="?module=dashboard" class="logo">
+          <img style="margin-top:-8px;margin-right:5px" width="150" src="assets/img/lordcomputer_logo.png" alt="Logo">
           <span style="font-size:20px"></span>
         </a>
 
@@ -153,7 +153,7 @@ date_default_timezone_set('America/Santo_Domingo');
             <ul class="nav navbar-nav">
 
               <?php include "top-menu.php" ?>
-              
+
             </ul>
           </div>
         </nav>
@@ -203,7 +203,7 @@ date_default_timezone_set('America/Santo_Domingo');
     <!-- jQuery 2.1.3 -->
     <script src="assets/plugins/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>    
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- datepicker -->
     <script src="assets/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- chosen select -->
@@ -232,9 +232,9 @@ date_default_timezone_set('America/Santo_Domingo');
         });
 
         // chosen select
-        $('.chosen-select').chosen({allow_single_deselect:true}); 
+        $('.chosen-select').chosen({allow_single_deselect:true});
         //resize the chosen on window resize
-        
+
         // mask money
         $('#harga_beli').maskMoney({thousands:'.', decimal:',', precision:0});
         $('#harga_jual').maskMoney({thousands:'.', decimal:',', precision:0});
@@ -255,8 +255,8 @@ date_default_timezone_set('America/Santo_Domingo');
              $this.next().css({'width': $this.parent().width()});
           })
         });
-    
-    
+
+
         $('#chosen-multiple-style .btn').on('click', function(e){
           var target = $(this).find('input[type=radio]');
           var which = parseInt(target.val());

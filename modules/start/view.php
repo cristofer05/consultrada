@@ -7,7 +7,7 @@
       <li><a href="?module=beranda"><i class="fa fa-home"></i> Inicio</a></li>
     </ol>
   </section>
-  
+
   <!-- Main content -->
   <section class="content">
     <div class="row">
@@ -16,108 +16,117 @@
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <p style="font-size:15px">
             <i class="icon fa fa-user"></i> Bienvenido <strong><?php echo $_SESSION['name_user']; ?></strong> a la aplicación de administracion de membresias.
-          </p>        
+          </p>
         </div>
-      </div>  
+      </div>
     </div>
-   
+
     <!-- Small boxes (Stat box) -->
     <div class="row">
-      <div class="col-lg-6 col-xs-12">
+      <div class="col-lg-4 col-sm-6 col-xs-12">
         <!-- small box -->
-        <div style="background-color:#00c0ef;color:#fff" class="small-box">
-        <?php  
-          if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=form_socios&form=add" class="small-box-footer"  data-toggle="tooltip">
-          <div class="inner">
-            <?php  
-          
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM socios")
-                                            or die('Error '.mysqli_error($mysqli));
-
-           
-            $data = mysqli_fetch_assoc($query);
-            ?>
-            <h3><?php // echo $data['numero']; ?></h3>
-            <h3>NUEVO SOCIO</h3>
+        <div class="panel panel-box clearfix">
+         <div class="panel-icon pull-left bg-green">
+           <i class="glyphicon glyphicon-user"></i>
           </div>
-          </a>
-          <div class="icon">
-            <i class="fa fa-folder"></i>
-          </div>
-            <a href="?module=form_socios&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+        <div class="panel-value pull-right">
           <?php
-          } else { ?>
-            <a class="small-box-footer"><i class="fa"></i></a>
-          <?php
-          }
+          $query = mysqli_query($mysqli, "SELECT COUNT(id_user) as numero FROM usuarios")
+                                          or die('Error'.mysqli_error($mysqli));
+          $data = mysqli_fetch_assoc($query);
           ?>
+          <h2 class="margin-top"> <?php echo $data['numero']; ?> </h2>
+          <p class="text-muted">Usuarios</p>
         </div>
+       </div>
       </div><!-- ./col -->
 
-      <div class="col-lg-6 col-xs-12">
+      <div class="col-lg-4 col-sm-6 col-xs-12">
         <!-- small box -->
-        <div style="background-color:#f39c12;color:#fff" class="small-box">
-          <a href="?module=escanear" class="small-box-footer"  data-toggle="tooltip">
-          <div class="inner">
-            
-            <h3></h3>
-            <h3>ESCANEAR CODIGO</h3>
-          </div>
-          </a>
-          <div class="icon">
-            <i class="fa fa-sign-in"></i>
-          </div>
-          <?php  
-          if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=escanear" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+        <div class="panel panel-box clearfix">
+         <div class="panel-icon pull-left bg-red">
+          <i class="glyphicon glyphicon-list"></i>
+        </div>
+        <div class="panel-value pull-right">
           <?php
-          } else { ?>
-            <a class="small-box-footer"><i class="fa"></i></a>
-          <?php
-          }
+          $query = mysqli_query($mysqli, "SELECT COUNT(id_corte) as numero FROM cortes")
+                                          or die('Error'.mysqli_error($mysqli));
+          $data = mysqli_fetch_assoc($query);
           ?>
+          <h2 class="margin-top"> <?php echo $data['numero']; ?> </h2>
+          <p class="text-muted">Cortes</p>
         </div>
+       </div>
       </div><!-- ./col -->
 
-      <div class="col-lg-6 col-xs-12">
+      <div class="col-lg-4 col-sm-6 col-xs-12">
         <!-- small box -->
-        <div style="background-color:#424242;color:#fff" class="small-box">
-        <a href="?module=socios" class="small-box-footer" data-toggle="tooltip">
-          <div class="inner">
-            <?php  
-  
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM socios")
-                                            or die('Error'.mysqli_error($mysqli));
-
-            $data = mysqli_fetch_assoc($query);
-            ?>
-            <h3></h3>
-            <h3>MOSTRAR SOCIOS (<?php echo $data['numero']; ?>)</h3>
-          </div>
-          </a>
-          <div class="icon">
-            <i class="fa fa-file-text-o"></i>
-          </div>
-          <a href="?module=socios" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
+        <div class="panel panel-box clearfix">
+         <div class="panel-icon pull-left bg-blue">
+          <i class="glyphicon glyphicon-shopping-cart"></i>
         </div>
+        <div class="panel-value pull-right">
+          <?php
+          $query = mysqli_query($mysqli, "SELECT COUNT(id_producto) as numero FROM productos")
+                                          or die('Error'.mysqli_error($mysqli));
+          $data = mysqli_fetch_assoc($query);
+          ?>
+          <h2 class="margin-top"> <?php echo $data['numero']; ?> </h2>
+          <p class="text-muted">Productos</p>
+        </div>
+       </div>
       </div><!-- ./col -->
 
-      <div class="col-lg-6 col-xs-12">
+      <div class="col-lg-4 col-sm-6 col-xs-12">
         <!-- small box -->
-        <div style="background-color:#CCC;color:#fff" class="small-box">
-        <a href="?module=filtro_socios" class="small-box-footer" data-toggle="tooltip">
-          <div class="inner">
-          
-            <h3></h3>
-            <h3>REPORTES</h3>
-          </div>
-          </a>
-          <div class="icon">
-            <i class="fa fa-clone"></i>
-          </div>
-          <a href="?module=filtro_socios" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
+        <div class="panel panel-box clearfix">
+         <div class="panel-icon pull-left bg-yellow">
+          <i class="glyphicon glyphicon-usd"></i>
         </div>
+        <div class="panel-value pull-right">
+          <?php
+          $query = mysqli_query($mysqli, "SELECT COUNT(id_corte) as numero FROM cortes")
+                                          or die('Error'.mysqli_error($mysqli));
+          $data = mysqli_fetch_assoc($query);
+          ?>
+          <h2 class="margin-top"> <?php  echo $data['numero']; ?></h2>
+          <p class="text-muted">Cortes</p>
+        </div>
+       </div>
+      </div><!-- ./col -->
+      <div class="col-lg-4 col-sm-6 col-xs-12">
+        <!-- small box -->
+        <div class="panel panel-box clearfix">
+         <div class="panel-icon pull-left bg-orange">
+          <i class="glyphicon glyphicon-usd"></i>
+        </div>
+        <div class="panel-value pull-right">
+          <?php
+      //    $query = mysqli_query($mysqli, "SELECT COUNT(id_malo) as numero FROM malos")
+      //                                    or die('Error'.mysqli_error($mysqli));
+      //    $data = mysqli_fetch_assoc($query);
+          ?>
+          <h2 class="margin-top"> <?php // echo $data['numero']; ?></h2>
+          <p class="text-muted">Malos</p>
+        </div>
+       </div>
+      </div><!-- ./col -->
+      <div class="col-lg-4 col-sm-6 col-xs-12">
+        <!-- small box -->
+        <div class="panel panel-box clearfix">
+         <div class="panel-icon pull-left bg-purple">
+          <i class="glyphicon glyphicon-usd"></i>
+        </div>
+        <div class="panel-value pull-right">
+          <?php
+        //  $query = mysqli_query($mysqli, "SELECT COUNT(id_return) as numero FROM returns")
+        //                                  or die('Error'.mysqli_error($mysqli));
+        //  $data = mysqli_fetch_assoc($query);
+          ?>
+          <h2 class="margin-top"> <?php // echo $data['numero']; ?></h2>
+          <p class="text-muted">Returns</p>
+        </div>
+       </div>
       </div><!-- ./col -->
     </div><!-- /.row -->
   </section><!-- /.content -->
