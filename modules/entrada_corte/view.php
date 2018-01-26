@@ -88,58 +88,38 @@
                 <th class="center">Comentario</th>
                 <th class="center">QTY</th>
                 <th class="center">Nombre</th>
+            <!--    <th class="center">Localidad</th> -->
                 <th class="center">Realizado</th>
-                <th class="center">Acciones</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
             <?php
             $no = 1;
-            $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM socios ORDER BY codigo DESC")
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode_final,comentario,imagen,nombre_producto FROM productos ORDER BY nu_foto DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
             while ($data = mysqli_fetch_assoc($query)) {
-              //determinando edad
-                $nacimiento = new DateTime($data['fnacimiento']);
-                $hoy = new DateTime();
-                $edad = $hoy->diff($nacimiento);
-
-              echo "<tr>
+            echo "<tr>
                       <td width='5' class='center'>$no</td>
-                      <td width='100' class='center'>$data[codigo]</td>
-                      <td width='150'>$data[nombres] $data[apellidos]</td>
-                      <td width='110'>$data[cedula]</td>
-                      <td width='20'>".$edad->y."</td>
-                      <td width='20' title='";
-                      switch ($data['sexo']) {
-                        case "F": echo "FEMENINO"; break;
-                        case "M": echo "MASCULINO"; break;
-                        }
-                      echo "'>$data[sexo]</td>";
-                  //    <td width='120'>$data[localidad]</td>
-                      echo "
-                      <td width='20' title='";
-                      switch ($data['categoria']) {
-                        case "A": echo "ALUMNO"; break;
-                        case "B": echo "ALUMNO - PREMIUM"; break;
-                        case "C": echo "CENTRO DE CAPACITACION"; break;
-                        case "F": echo "FACILIADOR"; break;
-                        case "E": echo "ESTABLECIMIENTO"; break;
-                        }
-                      echo "'>$data[categoria]</td>
-                      <td class='center' width='200'>
+                      <td width='100' class='center'><spam class='nufoto'>$data[nu_foto]</spam></td>
+                      <td width='150'>$data[barcode_final]</td>
+                      <td width='110'>$data[comentario]</td>
+                      <td width='20'>$data[qty_total]</td>
+                      <td width='350'>$data[nombre_producto]</td>
+                      <td width='100'><label class='input-label'><input class='input-toggle' type='checkbox' checked> Toggle</label></td>
+                      <td class='center' width='360'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_socios&form=edit&id=$data[codigo]'>
-                              <i style='color:#fff' class='glyphicon glyphicon-edit'></i>
+                          <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_socios&form=edit&id=$data[id_producto]'>
+                              <i style='color:#fff' class='glyphicon glyphicon-edit'>Amazon</i>
                           </a>";
             ?>
-                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="modules/socios/print.php?&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de Imprimir a <?php echo $data['nombre']; ?> ?');">
-                              <i style="color:#fff" class="glyphicon glyphicon-print"></i>
+                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="modules/socios/print.php?&id=<?php echo $data['id_producto'];?>">
+                              <i style="color:#fff" class="glyphicon glyphicon-print">eBay</i>
                           </a>
 
-                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/socios/proses.php?act=delete&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
-                              <i style="color:#fff" class="glyphicon glyphicon-trash"></i>
+                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/socios/proses.php?act=delete&id=<?php echo $data['id_producto'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
+                              <i style="color:#fff" class="glyphicon glyphicon-trash">Google</i>
                           </a>
             <?php
               echo "    </div>
