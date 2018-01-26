@@ -1,9 +1,10 @@
+
 <?php
 session_start();
 
 if (isset($_SESSION['logueado']) && $_SESSION['logueado'] == "si") {
     header("Location: main.php?module=start");
-} 
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +36,11 @@ if (isset($_SESSION['logueado']) && $_SESSION['logueado'] == "si") {
       <div style="color:#3c8dbc" class="login-logo">
         <img style="margin-top:-12px" src="assets/img/el-capacitador-logo.png" alt="Logo" height="50"> <b>Membresias</b>
       </div><!-- /.login-logo -->
-      <?php  
- 
+      <?php
+
       if (empty($_GET['alert'])) {
         echo "";
-      } 
+      }
       elseif ($_GET['alert'] == 1) {
         echo "<div class='alert alert-danger alert-dismissable'>
                 <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
