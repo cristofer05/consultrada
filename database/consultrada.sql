@@ -45,7 +45,7 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `socios`
 --
 
-INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_fina`, `nombre_producto`, `condicion`, `missing`, `qty`, `nu_foto`, `comentario`, `realizado`, `imagen`, `fecha_creacion`, `qty_total`) VALUES
+INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_final`, `nombre_producto`, `condicion`, `missing`, `qty`, `nu_foto`, `comentario`, `realizado`, `imagen`, `fecha_creacion`, `qty_total`) VALUES
 ('1', '888182998397', '888182998397 GA B','HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, '101', 'N/A', 'NO', 'notebook.jpg', '2018-01-25 18:43:20',5),
 ('2', '013803238310', '888182998397 O M','Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, '102', 'N/A', 'NO', 'playstation.jpg', '2018-01-25 18:43:20',10),
 ('3', '884420736783', '888182998397','AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, '103', 'N/A', 'NO', 'iphone.jpg', '2018-01-25 18:43:20',25);
@@ -104,7 +104,7 @@ CREATE TABLE `logs` (
 
 
 --
--- Volcado de datos para la tabla `transaccion_medicamentos`
+-- Volcado de datos para la tabla `logs`
 --
 
 INSERT INTO `logs` (`id_log`, `id_producto`, `id_usuario`, `fecha_log`, `registro`, `qty`,`edicion`) VALUES
@@ -113,6 +113,17 @@ INSERT INTO `logs` (`id_log`, `id_producto`, `id_usuario`, `fecha_log`, `registr
 (3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo');
 
 -- --------------------------------------------------------
+--
+-- Estructura de tabla para la tabla `cortes`
+--
+
+CREATE TABLE `cortes` (
+  `id_corte` int(3) NOT NULL,
+  `nombre_corte` varchar(100) NOT NULL,
+  `fecha` varchar(50) NOT NULL,
+  `qty_productos` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Estructura de tabla para la tabla `usuarios`
@@ -145,7 +156,7 @@ INSERT INTO `usuarios` (`id_user`, `username`, `name_user`, `password`, `email`,
 --                              --
 
 --
--- Indices de la tabla `socios`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`),
@@ -165,17 +176,23 @@ ALTER TABLE `socios`
 
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id_log`),
-  ADD KEY `id_barang` (`codigo`),
-  ADD KEY `barcode_final` (`barcode_final`);
+  ADD KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_user`),
-  ADD KEY `level` (`permisos_acceso`);
-  ADD UNIQUE KEY `user_name` (`user_name`),
-  ADD UNIQUE KEY `user_email` (`user_email`);
+  ADD KEY `level` (`permisos_acceso`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indices de la tabla `cortes`
+--
+  ALTER TABLE `cortes`
+    ADD PRIMARY KEY (`id_corte`),
+    ADD UNIQUE KEY `nombre_corte` (`nombre_corte`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -186,6 +203,24 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `products`
+--
+ALTER TABLE `productos`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cortes`
+--
+ALTER TABLE `cortes`
+  MODIFY `id_corte` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Restricciones para tablas volcadas
 --
