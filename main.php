@@ -1,16 +1,17 @@
 <?php  
 session_start();
+date_default_timezone_set('America/Santo_Domingo');
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Panel de administración | Administracion de Membresias</title>
+    <title>CONSULTRADA | APP</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Gestion de Membresias">
-    <meta name="author" content="Gestion de Membresias - Sistemas Web" />
+    <meta name="description" content="Sistema de entradas y consultas de lordcomputer">
+    <meta name="author" content="MediaExperto - Khriz" />
     
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
@@ -135,8 +136,8 @@ session_start();
       <header class="main-header">
         <!-- Logo -->
         <a href="?module=start" class="logo">
-          <img style="margin-top:0px;margin-right:5px" width="30" src="assets/img/el-capacitador-logo-mini.png" alt="Logo"> 
-          <span style="font-size:20px">Socios</span>
+          <img style="margin-top:-8px;margin-right:5px" width="150" src="assets/img/lordcomputer_logo.png" alt="Logo"> 
+          <span style="font-size:20px"></span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">
@@ -144,6 +145,10 @@ session_start();
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
+          <div class="fecha">
+            <span class="fecha_titulo">Fecha actual: </span>
+            <strong><?php echo date("d/m/Y"." - "."g:i a");?></strong>
+          </div>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
@@ -191,7 +196,7 @@ session_start();
       </div><!-- /.content-wrapper -->
 
       <footer class="main-footer">
-        <strong>Copyright &copy; <?php echo date('Y');?> - <a href="http://obedalvarado.pw/" target="_blank">El Capacitador</a>.</strong>
+        <strong>Copyright &copy; <?php echo date('Y');?> - <a href="http://lordcomputer.com" target="_blank">Lord Computer</a>.</strong>
       </footer>
     </div><!-- ./wrapper -->
 
