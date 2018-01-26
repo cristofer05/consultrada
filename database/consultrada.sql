@@ -8,7 +8,7 @@
 -- Versión de PHP: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "-04:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -17,8 +17,37 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `medisys`
+-- Base de datos: `consultradadb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
+--
+CREATE TABLE `productos` (
+  `id_producto` int(6) NOT NULL,
+  `barcode` varchar(18) NOT NULL,
+  `nombre_producto` varchar(100) NOT NULL,
+  `condicion` varchar(20) NOT NULL,
+  `missing` varchar(20) NOT NULL,
+  `qty` int(6) NOT NULL,
+  `nu_foto` varchar(20) NOT NULL,
+  `comentario` varchar(200) NOT NULL,
+  `realizado` varchar(20) NOT NULL,
+  `imagen` varchar(70) NOT NULL,
+  `id_corte` int(6) NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `qty_total` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--
+-- Volcado de datos para la tabla `socios`
+--
+
+INSERT INTO `productos` (`id_producto`, `barcode`, `nombre_producto`, `condicion`, `missing`, `qty`, `nu_foto`, `comentario`, `realizado`, `imagen`, `fecha_creacion`, `qty_total`) VALUES
+('1', '888182998397', 'HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, '101', 'N/A', 'NO', 'notebook.jpg', '2018-01-25 18:43:20',5),
+('2', '013803238310', 'Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, '102', 'N/A', 'NO', 'playstation.jpg', '2018-01-25 18:43:20',10),
+('3', '884420736783', 'AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, '103', 'N/A', 'NO', 'iphone.jpg', '2018-01-25 18:43:20',25);
 
 -- --------------------------------------------------------
 
@@ -61,27 +90,27 @@ INSERT INTO `socios` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento`,
 --
 -- Estructura de tabla para la tabla `transaccion_medicamentos`
 --
-/*
-CREATE TABLE `transaccion_medicamentos` (
-  `codigo_transaccion` varchar(15) NOT NULL,
-  `fecha` date NOT NULL,
-  `codigo` varchar(10) NOT NULL,
-  `numero` int(11) NOT NULL,
-  `created_user` int(3) NOT NULL,
-  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tipo_transaccion` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-*/
+
+CREATE TABLE `logs` (
+  `id_log` int(6) NOT NULL,
+  `id_producto` int(6) NOT NULL,
+  `id_usuario` int(6) NOT NULL,
+  `fecha_log` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `registro` varchar(200) NOT NULL,
+  `qty` int(6) NOT NULL,
+  `edicion` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Volcado de datos para la tabla `transaccion_medicamentos`
 --
-/*
-INSERT INTO `transaccion_medicamentos` (`codigo_transaccion`, `fecha`, `codigo`, `numero`, `created_user`, `created_date`, `tipo_transaccion`) VALUES
-('TM-2017-0000001', '2017-07-26', 'CAP-000362', 5, 1, '2017-07-26 02:09:06', 'Entrada'),
-('TM-2017-0000002', '2017-07-26', 'CAP-000363', 10, 1, '2017-07-26 02:09:28', 'Entrada'),
-('TM-2017-0000003', '2017-07-26', 'CAP-000364', 5, 1, '2017-07-26 02:09:36', 'Salida');
-*/
+
+INSERT INTO `logs` (`id_log`, `id_producto`, `id_usuario`, `fecha_log`, `registro`, `qty`,`edicion`) VALUES
+(1, 1, 1, '2018-01-25 17:09:06', 'Articulo creado', 5,'condicion'),
+(2, 2, 1, '2018-01-25 17:09:06', 'Articulo creado', 2,'cantidad'),
+(3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo');
+
 -- --------------------------------------------------------
 
 --
@@ -100,7 +129,7 @@ CREATE TABLE `usuarios` (
   `status` enum('activo','bloqueado') NOT NULL DEFAULT 'activo',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`

@@ -4,7 +4,7 @@
 $server   = "localhost";
 $username = "root";
 $password = "";
-$database = "capmemb";
+$database = "consultradadb";
 
 
 $mysqli = new mysqli($server, $username, $password, $database);

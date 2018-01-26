@@ -1,4 +1,12 @@
-<!-- Hola mundo 2 -->
+
+<?php
+session_start();
+
+if (isset($_SESSION['logueado']) && $_SESSION['logueado'] == "si") {
+    header("Location: main.php?module=start");
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
