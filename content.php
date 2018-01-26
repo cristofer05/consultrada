@@ -8,8 +8,12 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])){
 	echo "<meta http-equiv='refresh' content='0; url=index.php?alert=1'>";
 }
 else {
-	if ($_GET['module'] == 'start') {
-		include "modules/start/view.php";
+	if ($_GET['module'] == 'dboard') {
+		include "modules/dboard/view.php";
+	}
+
+	elseif ($_GET['module'] == 'entrada_corte') {
+		include "modules/entrada_corte/view.php";
 	}
 
 	elseif ($_GET['module'] == 'socios') {
@@ -19,12 +23,12 @@ else {
 	elseif ($_GET['module'] == 'form_socios') {
 		include "modules/socios/form.php";
 	}
-	
+
 
 	elseif ($_GET['module'] == 'escanear') {
 		include "modules/escanear/form.php";
 	}
-	
+
 
 	elseif ($_GET['module'] == 'lista_socios') {
 		include "modules/lista_socios/view.php";

@@ -1,33 +1,33 @@
-<?php 
+<?php
 
 if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 
     <ul class="sidebar-menu">
         <li class="header">MENU</li>
 
-	<?php 
+	<?php
 
-	if ($_GET["module"]=="start") { 
+	if ($_GET["module"]=="dboard") {
 		$active_home="active";
 	} else {
 		$active_home="";
 	}
 	?>
 		<li class="<?php echo $active_home;?>">
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=dboard"><i class="fa fa-home"></i> Inicio </a>
 	  	</li>
 	<?php
 
-  if ($_GET["module"]=="socios") { ?>
+  if ($_GET["module"]=="entrada_corte") { ?>
     <li class="active">
-      <a href="?module=socios"><i class="fa fa-folder"></i> Socios Registrados</a>
+      <a href="?module=entrada_corte"><i class="fa fa-folder"></i> Entrada Corte</a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=socios"><i class="fa fa-folder"></i> Socios Registrados </a>
+      <a href="?module=entrada_corte"><i class="fa fa-folder"></i> Entrada corte </a>
       </li>
   <?php
   }
@@ -135,22 +135,22 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 }
 
 elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
-	<!-- sidebar menu start -->
+	<!-- sidebar menu dboard -->
     <ul class="sidebar-menu">
         <li class="header">MENU</li>
 
-	<?php 
+	<?php
 
-	if ($_GET["module"]=="start") { ?>
+	if ($_GET["module"]=="dboard") { ?>
 		<li class="active">
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=dboard"><i class="fa fa-home"></i> Inicio </a>
 	  	</li>
 	<?php
 	}
 
 	else { ?>
 		<li>
-			<a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+			<a href="?module=dboard"><i class="fa fa-home"></i> Inicio </a>
 	  	</li>
 	<?php
 	}
@@ -214,18 +214,18 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
     <ul class="sidebar-menu">
         <li class="header">MENU</li>
 
-	<?php 
+	<?php
 
-  if ($_GET["module"]=="start") { ?>
+  if ($_GET["module"]=="dboard") { ?>
     <li class="active">
-      <a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+      <a href="?module=dboard"><i class="fa fa-home"></i> Inicio </a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=start"><i class="fa fa-home"></i> Inicio </a>
+      <a href="?module=dboard"><i class="fa fa-home"></i> Inicio </a>
       </li>
   <?php
   }
