@@ -18,16 +18,16 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 	  	</li>
 	<?php
 
-  if ($_GET["module"]=="socios") { ?>
+  if ($_GET["module"]=="entrada_corte") { ?>
     <li class="active">
-      <a href="?module=socios"><i class="fa fa-folder"></i> Socios Registrados</a>
+      <a href="?module=entrada_corte"><i class="fa fa-folder"></i> Entrada Corte</a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=socios"><i class="fa fa-folder"></i> Socios Registrados </a>
+      <a href="?module=entrada_corte"><i class="fa fa-folder"></i> Entrada corte </a>
       </li>
   <?php
   }

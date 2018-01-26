@@ -9,7 +9,7 @@ if (empty($_SESSION['username']) && empty($_SESSION['password'])){
 }
 else {
 	if ($_GET['module'] == 'dashboard') {
-		include "modules/start/view.php";
+		include "modules/dboard/view.php";
 	}
 
 	elseif ($_GET['module'] == 'socios') {
