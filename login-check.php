@@ -24,7 +24,7 @@ else {
 		$_SESSION['password']  = $data['password'];
 		$_SESSION['name_user'] = $data['name_user'];
 		$_SESSION['permisos_acceso'] = $data['permisos_acceso'];
-	
+
 		header("Location: main.php?module=start");
 	}
 
@@ -33,4 +33,5 @@ else {
 		header("Location: index.php?alert=1");
 	}
 }
+// COMENTARIO
 ?>
