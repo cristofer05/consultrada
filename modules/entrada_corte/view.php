@@ -105,9 +105,9 @@
                       <td width='100' class='center'><spam class='nufoto'>$data[nu_foto]</spam></td>
                       <td width='150'>$data[barcode_final]</td>
                       <td width='110'>$data[comentario]</td>
-                      <td width='20'>$data[qty_total]</td>
+                      <td width='20' class='center'>$data[qty_total]</td>
                       <td width='350'>$data[nombre_producto]</td>
-                      <td width='100'><label class='input-label'><input class='input-toggle' type='checkbox' checked> Toggle</label></td>
+                      <td width='100' class='center'><input class='input-toggle' type='checkbox'></td>
                       <td class='center' width='360'>
                         <div>
                           <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_socios&form=edit&id=$data[id_producto]'>
@@ -118,7 +118,7 @@
                               <i style="color:#fff" class="glyphicon glyphicon-print">eBay</i>
                           </a>
 
-                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/socios/proses.php?act=delete&id=<?php echo $data['id_producto'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
+                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/socios/proses.php?act=delete&id=<?php echo $data['id_producto'];?>">
                               <i style="color:#fff" class="glyphicon glyphicon-trash">Google</i>
                           </a>
             <?php

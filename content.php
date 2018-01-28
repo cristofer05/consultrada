@@ -57,5 +57,8 @@ else {
 	elseif ($_GET['module'] == 'entrada_corte') {
 		include "modules/entrada_corte/view.php";
 	}
+	elseif ($_GET['module'] == 'consultrada') {
+		include "modules/consultrada/view.php";
+	}
 }
 ?>

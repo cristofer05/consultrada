@@ -1,3 +1,16 @@
+#logo{
+	margin:70px;
+}
+
+.upc, .btn-crear{
+	margin: 0px auto !important;
+	float: none !important;
+}
+
+button.btn.btn-primary.sku{
+	font-size: 40px !important;
+}
+
 .bg-login {
 	background-image: url("../../../images/bg-md.jpg");
 	width: 100%;

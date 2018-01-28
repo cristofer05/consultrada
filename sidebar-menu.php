@@ -17,6 +17,19 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 			<a href="?module=dashboard"><i class="fa fa-tachometer"></i> Dashboard </a>
 	  	</li>
 	<?php
+  if ($_GET["module"]=="consultrada") { ?>
+    <li class="active">
+      <a href="?module=consultrada"><i class="fa fa-home"></i> INICIO </a>
+      </li>
+  <?php
+  }
+
+  else { ?>
+    <li>
+      <a href="?module=consultrada"><i class="fa fa-home"></i> INICIO </a>
+      </li>
+  <?php
+  }
 
   if ($_GET["module"]=="entrada_corte") { ?>
     <li class="active">
