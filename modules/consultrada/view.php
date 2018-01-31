@@ -19,15 +19,18 @@
   						<input type="text" class="form-control" id="q" placeholder="UPC del articulo" onkeyup="load(1);" onkeypress="return pulsar(event)" autofocus="">
   					</div>
   					<div class="col-md-12 text-center">
-  						<span id="loader"><img src="images/loader.gif" width="70px"></span>
+  						<span id="loader"></span>
   					</div>
   				</div>
 				<hr>
 				<div class="row-fluid">
+          <div id="botonEntrada">
+            <a data-toggle="modal" data-target="#Entrada"  title='Dar Entrada' class='btn btn-primary btn-sm' href=''>
+              <i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i>
+            </a>
+          </div>
 					<div class="mostrar">
-						<!-- MENSAJE DE SUCESS PARA LISTA DE PRODUCTOS -->
-
-						<!-- FIN MENSAJE DE SUCESS PARA LISTA DE PRODUCTOS -->
+            
 					</div><!-- Carga los datos ajax -->
 				</div>
 				</div>

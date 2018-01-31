@@ -95,11 +95,12 @@ if($action == 'ajax'){
 				</div>
 			
 			<?php
-		} else {
+		} elseif ($numrows<1) {
 		?>
-			<a data-toggle="modal" data-target="#Entrada"  title='Dar Entrada' class='btn btn-primary btn-sm' href=''>
-				<i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i>
-	        </a>
+			<script>
+				document.getElementById("botonEntrada").innerHTML = "<a data-toggle='modal' data-target='#Entrada'  title='Dar Entrada' class='btn btn-primary btn-sm' href=''><i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>";
+			</script>
+			
 		<?php
 		}
 	}
