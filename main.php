@@ -127,10 +127,9 @@ date_default_timezone_set('America/Santo_Domingo');
           evt.currentTarget.className += " active";
       }
 
-       var timestamp = '<?=time();?>';
         function updateTime(){
-          $('#time').html(Date(timestamp));
-          timestamp++;
+          var hora = new Date();
+          $('#time').html(hora.toUTCString());
         }
         $(function(){
           setInterval(updateTime, 1000);
@@ -157,8 +156,8 @@ date_default_timezone_set('America/Santo_Domingo');
             <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="fecha">
-            <span class="fecha_titulo"></span>
-            <strong id="time"><?php // echo date("d/m/Y"." - "."g:i a");?></strong>
+            <span class="fecha_titulo">Fecha actual: </span>
+            <strong id="time"></strong>
           </div>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
@@ -232,6 +231,8 @@ date_default_timezone_set('America/Santo_Domingo');
     <script src="assets/js/jquery.maskMoney.min.js"></script>
     <!-- AdminLTE App -->
     <script src="assets/js/app.min.js" type="text/javascript"></script>
+    <!-- Busqueda ajax -->
+    <script type="text/javascript" src="js/busqueda.js"></script>
 
     <!-- page script -->
     <script type="text/javascript">
