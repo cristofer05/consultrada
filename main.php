@@ -34,10 +34,12 @@ date_default_timezone_set('America/Santo_Domingo');
     <link href="assets/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 
     <!-- Actividar o desactivar edicion -->
     <script language="javascript">
+
       function HaEdicion() {
 
         var x = document.getElementById("Ver");
@@ -125,6 +127,15 @@ date_default_timezone_set('America/Santo_Domingo');
           evt.currentTarget.className += " active";
       }
 
+       var timestamp = '<?=time();?>';
+        function updateTime(){
+          $('#time').html(Date(timestamp));
+          timestamp++;
+        }
+        $(function(){
+          setInterval(updateTime, 1000);
+        });
+
     </script>
 
 
@@ -146,8 +157,8 @@ date_default_timezone_set('America/Santo_Domingo');
             <span class="sr-only">Toggle navigation</span>
           </a>
           <div class="fecha">
-            <span class="fecha_titulo">Fecha actual: </span>
-            <strong><?php echo date("d/m/Y"." - "."g:i a");?></strong>
+            <span class="fecha_titulo"></span>
+            <strong id="time"><?php // echo date("d/m/Y"." - "."g:i a");?></strong>
           </div>
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
@@ -208,7 +219,7 @@ date_default_timezone_set('America/Santo_Domingo');
     <script src="assets/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
     <!-- chosen select -->
     <script src="assets/plugins/chosen/js/chosen.jquery.min.js"></script>
-    <!-- DATA TABES SCRIPT -->
+    <!-- DATA TABLES SCRIPT -->
     <script src="assets/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
     <script src="assets/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
     <!-- Datepicker -->

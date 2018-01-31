@@ -23,7 +23,124 @@
 				<div class="row-fluid">
 					<div id="resultados">
 						<!-- MENSAJE DE SUCESS PARA LISTA DE PRODUCTOS -->
-												<!-- FIN MENSAJE DE SUCESS PARA LISTA DE PRODUCTOS -->
+            <div class="limiter">
+              <div class="container-table100">
+                <div class="wrap-table100">
+                  <div class="table100">
+                    <table>
+                      <thead>
+                        <tr class="table100-head">
+                          <th class="column1">#</th>
+                          <th class="column2">Foto</th>
+                          <th class="column3">Barcode</th>
+                          <th class="column4">Qty</th>
+                          <th class="column5">Nombre</th>
+                          <th class="column6">Comentario</th>
+                          <th class="column7">Realizado</th>
+                          <th class="column8">Accion</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                            <td class="column1">1</td>
+                            <td class="column2"><spam class='nufoto'>105</spam></td>
+                            <td class="column3">08456312541 GA</td>
+                            <td class="column4">8</td>
+                            <td class="column5">RadioShack Cargador de laptop</td>
+                            <td class="column6">Azul</td>
+                            <td class="column7"><input class='input-toggle' type='checkbox'></td>
+                            <td class="column8">
+                              <div>
+                                <a data-toggle='tooltip' data-placement='top' title='Ver en Amazon' style='margin-right:5px' class='btn btn-primary btn-sm' href="https://www.amazon.com/s/?url=search-alias%3Daps&field-keywords=<?php echo "8888"; ?>">
+                                    <i style='color:#fff' class='glyphicon glyphicon-edit'>Amazon</i>
+                                </a>
+                               <a data-toggle="tooltip" data-placement="top" target="_blank" title="Ver en eBay" class="btn btn-primary btn-sm" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo "8888"; ?>&rt=nc&LH_PrefLoc=1&_trksid=p2045573.m1684">
+                                    <i style="color:#fff" class="glyphicon glyphicon-print">eBay</i>
+                                </a>
+
+                                <a data-toggle="tooltip" data-placement="top" title="Ver en Google" class="btn btn-danger btn-sm" href="https://www.google.com.do/search?q=<?php echo "888"; ?>">
+                                    <i style="color:#fff" class="glyphicon glyphicon-trash">Google</i>
+                                </a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="column1">1</td>
+                            <td class="column2"><spam class='nufoto'>105</spam></td>
+                            <td class="column3">08456312541 GA</td>
+                            <td class="column4">8</td>
+                            <td class="column5">RadioShack Cargador de laptop</td>
+                            <td class="column6">Azul</td>
+                            <td class="column7"><input class='input-toggle' type='checkbox'></td>
+                            <td class="column8">
+                              <div>
+                                <a data-toggle='tooltip' data-placement='top' title='Ver en Amazon' style='margin-right:5px' class='btn btn-primary btn-sm' href="https://www.amazon.com/s/?url=search-alias%3Daps&field-keywords=<?php echo "8888"; ?>">
+                                    <i style='color:#fff' class='glyphicon glyphicon-edit'>Amazon</i>
+                                </a>
+                               <a data-toggle="tooltip" data-placement="top" target="_blank" title="Ver en eBay" class="btn btn-primary btn-sm" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo "8888"; ?>&rt=nc&LH_PrefLoc=1&_trksid=p2045573.m1684">
+                                    <i style="color:#fff" class="glyphicon glyphicon-print">eBay</i>
+                                </a>
+
+                                <a data-toggle="tooltip" data-placement="top" title="Ver en Google" class="btn btn-danger btn-sm" href="https://www.google.com.do/search?q=<?php echo "888"; ?>">
+                                    <i style="color:#fff" class="glyphicon glyphicon-trash">Google</i>
+                                </a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="column1">1</td>
+                            <td class="column2"><spam class='nufoto'>105</spam></td>
+                            <td class="column3">08456312541 GA</td>
+                            <td class="column4">8</td>
+                            <td class="column5">RadioShack Cargador de laptop</td>
+                            <td class="column6">Azul</td>
+                            <td class="column7"><input class='input-toggle' type='checkbox'></td>
+                            <td class="column8">
+                              <div>
+                                <a data-toggle='tooltip' data-placement='top' title='Ver en Amazon' style='margin-right:5px' class='btn btn-primary btn-sm' href="https://www.amazon.com/s/?url=search-alias%3Daps&field-keywords=<?php echo "8888"; ?>">
+                                    <i style='color:#fff' class='glyphicon glyphicon-edit'>Amazon</i>
+                                </a>
+                               <a data-toggle="tooltip" data-placement="top" target="_blank" title="Ver en eBay" class="btn btn-primary btn-sm" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo "8888"; ?>&rt=nc&LH_PrefLoc=1&_trksid=p2045573.m1684">
+                                    <i style="color:#fff" class="glyphicon glyphicon-print">eBay</i>
+                                </a>
+
+                                <a data-toggle="tooltip" data-placement="top" title="Ver en Google" class="btn btn-danger btn-sm" href="https://www.google.com.do/search?q=<?php echo "888"; ?>">
+                                    <i style="color:#fff" class="glyphicon glyphicon-trash">Google</i>
+                                </a>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td class="column1">1</td>
+                            <td class="column2"><spam class='nufoto'>105</spam></td>
+                            <td class="column3">08456312541 GA</td>
+                            <td class="column4">8</td>
+                            <td class="column5">RadioShack Cargador de laptop</td>
+                            <td class="column6">Azul</td>
+                            <td class="column7"><input class='input-toggle' type='checkbox'></td>
+                            <td class="column8">
+                              <div>
+                                <a data-toggle='tooltip' data-placement='top' title='Ver en Amazon' style='margin-right:5px' class='btn btn-primary btn-sm' href="https://www.amazon.com/s/?url=search-alias%3Daps&field-keywords=<?php echo "8888"; ?>">
+                                    <i style='color:#fff' class='glyphicon glyphicon-edit'>Amazon</i>
+                                </a>
+                               <a data-toggle="tooltip" data-placement="top" target="_blank" title="Ver en eBay" class="btn btn-primary btn-sm" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo "8888"; ?>&rt=nc&LH_PrefLoc=1&_trksid=p2045573.m1684">
+                                    <i style="color:#fff" class="glyphicon glyphicon-print">eBay</i>
+                                </a>
+
+                                <a data-toggle="tooltip" data-placement="top" title="Ver en Google" class="btn btn-danger btn-sm" href="https://www.google.com.do/search?q=<?php echo "888"; ?>">
+                                    <i style="color:#fff" class="glyphicon glyphicon-trash">Google</i>
+                                </a>
+                              </div>
+                            </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+						<!-- FIN MENSAJE DE SUCESS PARA LISTA DE PRODUCTOS -->
 					</div><!-- Carga los datos ajax -->
 				</div>
 

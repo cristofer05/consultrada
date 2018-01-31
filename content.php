@@ -44,8 +44,7 @@ else {
 
 	elseif ($_GET['module'] == 'profile') {
 		include "modules/profile/view.php";
-		}
-
+	}
 
 	elseif ($_GET['module'] == 'form_profile') {
 		include "modules/profile/form.php";
@@ -54,9 +53,11 @@ else {
 	elseif ($_GET['module'] == 'password') {
 		include "modules/password/view.php";
 	}
+
 	elseif ($_GET['module'] == 'entrada_corte') {
 		include "modules/entrada_corte/view.php";
 	}
+
 	elseif ($_GET['module'] == 'consultrada') {
 		include "modules/consultrada/view.php";
 	}
