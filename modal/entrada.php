@@ -1,6 +1,6 @@
 <div class="modal fade" id="Entrada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
-		<div class="modal-content">
+		<div class="modal-content modal-lg">
 		  <div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			<h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-edit'></i> Agregar nuevo producto</h4>
@@ -8,22 +8,40 @@
 		  <div class="modal-body">
 			<form class="form-horizontal" method="post" id="guardar_producto" name="guardar_producto">
 			<div id="resultados_ajax_productos"></div>
-
-			  <div class="form-group">
-				<label for="codigo" class="col-sm-3 control-label">Código</label>
-				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Código del producto" required>
-				</div>
-			  </div>
-			  
-			  <div class="form-group">
-				<label for="nombre" class="col-sm-3 control-label">Nombre</label>
-				<div class="col-sm-8">
-					<textarea class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="255" ></textarea>
+				<div class="row col-md-6">
+				  <div class="form-group">
+					<label for="codigo" class="col-sm-2 control-label">Barcode</label>
+					<div class="col-sm-9">
+					  <input type="number" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" required>
+					</div>
+				  </div>
 				  
-				</div>
-			  </div>
-			  
+				  <div class="form-group">
+					<label for="nombre" class="col-sm-2 control-label">Nombre</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="200" >
+					  
+					</div>
+				  </div>
+			  	</div>
+			  	<div class="row col-md-6">
+				  <div class="form-group">
+					<label for="codigo" class="col-sm-2 control-label">Barcode</label>
+					<div class="col-sm-9">
+					  <input type="number" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" required>
+					</div>
+				  </div>
+				  
+				  <div class="form-group">
+					<label for="nombre" class="col-sm-2 control-label">Nombre</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="200" >
+					  
+					</div>
+				  </div>
+			  	</div>
+
+
 			  <div class="form-group">
 				<label for="categoria" class="col-sm-3 control-label">Categoría</label>
 				<div class="col-sm-8">
