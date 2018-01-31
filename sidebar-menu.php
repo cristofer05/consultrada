@@ -126,21 +126,6 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 	  	</li>
 	<?php
 	}
-
-
-	if ($_GET["module"]=="password") { ?>
-		<li class="active">
-			<a href="?module=password"><i class="fa fa-lock"></i> Cambiar contraseña</a>
-		</li>
-	<?php
-	}
-
-	else { ?>
-		<li>
-			<a href="?module=password"><i class="fa fa-lock"></i> Cambiar contraseña</a>
-		</li>
-	<?php
-	}
 	?>
 	</ul>
 
@@ -205,23 +190,6 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
       </li>
     <?php
   }
-
-	if ($_GET["module"]=="password") { ?>
-		<li class="active">
-			<a href="?module=password"><i class="fa fa-lock"></i> Cambiar contraseña</a>
-		</li>
-	<?php
-	}
-	else { ?>
-		<li>
-			<a href="?module=password"><i class="fa fa-lock"></i> Cambiar contraseña</a>
-		</li>
-	<?php
-	}
-	?>
-	</ul>
-<?php
-}
 if ($_SESSION['permisos_acceso']=='Almacen') { ?>
 
     <ul class="sidebar-menu">
@@ -305,21 +273,39 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
       </li>
     <?php
   }
-
-	if ($_GET["module"]=="password") { ?>
-		<li class="active">
-			<a href="?module=password"><i class="fa fa-lock"></i> Cambiar contraseña</a>
-		</li>
-	<?php
-	}
-	else { ?>
-		<li>
-			<a href="?module=password"><i class="fa fa-lock"></i> Cambiar contraseña</a>
-		</li>
-	<?php
 	}
 	?>
 	</ul>
 <?php
 }
 ?>
+
+<div class="logbar">
+  <H3 color="white">Log de usuario</H3>
+  <table id="logbarTable">
+    <thead>
+      <tr>
+        <th class="center">No.</th>
+        <th class="center">Bcode</th>
+        <th class="center">UBI</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php
+    $no = 1;
+    $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode_final,ubicacion,comentario,imagen,nombre_producto FROM productos ORDER BY nu_foto DESC")
+                                    or die('error: '.mysqli_error($mysqli));
+
+    while ($data = mysqli_fetch_assoc($query)) {
+    echo "<tr>
+              <td width='5' class='center'>$no</td>
+              <td width='250'>$data[barcode_final]</td>
+              <td width='80'>$data[ubicacion]</td>
+            </tr>";
+      $no++;
+    }
+    ?>
+    </tbody>
+  </table>
+</div>

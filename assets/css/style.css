@@ -480,6 +480,50 @@ table td.r, table th.r {
   text-align: center;
 }
 
+.logbar table thead tr {
+    height: 35px;
+    background: #FFF !important;
+}
+
+.logbar table td, table th {
+    padding-left: 0px;
+}
+.logbar table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 0px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.logbar table tbody tr {
+		height: auto;
+		padding: 2px 0;
+		border: 0px #36304a solid !important;
+	}
+.logbar table tbody tr td {
+    padding-left: 0% !important;
+    margin-bottom: 0px;
+		border: 1px #36304a solid !important;
+  }
+
+.logbar	table tbody tr {
+		border: 1px #36304a solid !important;
+	  height: 100%;
+	}
+.logbar	table tbody td {
+		border: 0px #36304a solid !important;
+	}
+
+.logbar	tbody tr {
+	  font-family: OpenSans-Regular;
+	  font-size: 16px;
+	  color: #808080;
+	  line-height: 1.2;
+	  font-weight: unset;
+	}
 
 .table100-head th{
   font-family: OpenSans-Regular;
@@ -558,14 +602,27 @@ tbody tr:hover {
   }
   table tbody tr {
     height: auto;
-    padding: 37px 0;
-		border: 5px #36304a solid !important;
+    padding: 0px 0;
+		border: 0px #36304a solid !important;
   }
-  table tbody tr td {
+
+#logbar table tbody tr {
+		height: auto;
+		padding: 37px 0;
+		border: 5px #36304a solid !important;
+	}
+#logbar table tbody tr td {
+    padding-left: 0% !important;
+    margin-bottom: 20px;
+		border: 0px #36304a solid !important;
+  }
+
+	table tbody tr td {
     padding-left: 40% !important;
     margin-bottom: 24px;
 		border: 0px #36304a solid !important;
   }
+
   table tbody tr td:last-child {
     margin-bottom: 0;
   }
