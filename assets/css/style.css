@@ -480,23 +480,32 @@ table td.r, table th.r {
   text-align: center;
 }
 
+.logbar {
+	height: 450px;
+	width: 235px;
+	border: 0px solid #ddd;
+	overflow-y: scroll;
+}
 .logbar table thead tr {
     height: 35px;
-    background: #FFF !important;
+    background: #000 !important;
+		color: White;
 }
 
 .logbar table td, table th {
     padding-left: 0px;
+		color: White;
 }
 .logbar table {
   border-spacing: 0;
   border-collapse: collapse;
-  background: white;
   border-radius: 0px;
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
   position: relative;
+	background-color:#1e282c;
+
 }
 .logbar table tbody tr {
 		height: auto;
@@ -504,9 +513,11 @@ table td.r, table th.r {
 		border: 0px #36304a solid !important;
 	}
 .logbar table tbody tr td {
+		background-color:#1e282c;
     padding-left: 0% !important;
     margin-bottom: 0px;
 		border: 1px #36304a solid !important;
+		color:White !important;
   }
 
 .logbar	table tbody tr {

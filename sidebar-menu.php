@@ -279,9 +279,8 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
 <?php
 }
 ?>
-
+<H3 class="text-center"style="color:White;">USER LOG</H3>
 <div class="logbar">
-  <H3 color="white">Log de usuario</H3>
   <table id="logbarTable">
     <thead>
       <tr>
@@ -306,6 +305,102 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
       $no++;
     }
     ?>
+<!-- EJEMPLO -->
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
+            <tr>
+              <td width='5' class='center'>1</td>
+              <td width='250'>123458546314 GA</td>
+              <td width='80'>B25</td>
+            </tr>
     </tbody>
   </table>
 </div>
