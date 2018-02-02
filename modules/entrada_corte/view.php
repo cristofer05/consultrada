@@ -107,19 +107,19 @@
               }
 
             echo "<SCRIPT>
+            document.getElementById('myInput$no').readOnly = true;
             function myFunction$no() {
             var copyText = document.getElementById('myInput$no');
             copyText.select();
             document.execCommand('Copy');
             alert('Copied the text: ' + copyText.value);
-            document.getElementById('myInput$no').readOnly = true;
         }</SCRIPT>
             ";
             echo "<tr>
                       <td width='5' class='center'>$no</td>
                       <td width='100' class='center'><spam class='nufoto'>$data[nu_foto]</spam></td>
                       <td width='150'>
-                      <input type='text' style='border:0px;' value='$data[barcode_final]' id='myInput$no'>
+                      <input type='text' style='border:0px;' value='$data[barcode_final]' id='myInput$no' readOnly>
                       <button onclick='myFunction$no()'>Copiar!</button>
 
                       <td width='110'>$data[comentario]</td>
