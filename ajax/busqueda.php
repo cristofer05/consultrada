@@ -33,6 +33,7 @@ if($action == 'ajax'){
 		//loop through fetched data
 		if ($numrows>0){
 			?>
+      <input type="hidden" id="value_q" value="<?php echo $q; ?>">
 			<div class="limiter">
               <div class="container-table100">
                 <div class="wrap-table100">
@@ -96,13 +97,30 @@ if($action == 'ajax'){
 			<?php
 		} elseif ($numrows<1) {
 		?>
+      <input type='hidden' id='value_q2' value='<?php echo $q; ?>'>
 			<script>
-				document.getElementById("botonEntrada").innerHTML = "<a data-toggle='modal' data-target='#Entrada'  title='Dar Entrada' class='btn btn-primary btn-sm' href=''><i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>";
+				document.getElementById("botonEntrada").innerHTML = "<a data-toggle='modal' data-target='#Entrada'  title='Dar Entrada' class='btn btn-primary btn-sm' href='' ><i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>";
 			</script>
-
+      
 		<?php
 		}
-	}
+	}elseif (strlen($_REQUEST['q']) < 1 ) {
+
+    $query_id = mysqli_query($mysqli, "SELECT RIGHT(barcode_final,10) as barcode FROM productos WHERE barcode = 'Does not apply' ORDER BY id_producto DESC LIMIT 1") or die('error '.mysqli_error($mysqli));
+
+    $count = mysqli_num_rows($query_id);
+    if ($count <> 0) {
+        $data_id = mysqli_fetch_assoc($query_id);
+        $barcode = $data_id['barcode']+1;
+    } else {
+        $barcode = "0";
+    }
+    $buat_id   = str_pad($barcode, 10, "0", STR_PAD_LEFT);
+    $barcode = "LC$buat_id";
+    ?>
+    <input type='hidden' id='value_q3' value='<?php echo $barcode; ?>'>
+    <?php
+  }
 }
 
 ?>

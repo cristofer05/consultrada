@@ -316,6 +316,18 @@ var idioma_español= {
         "sSortDescending": ": Activar para ordenar la columna de manera descendente"
     }
 }
+    /**********PASANDO VALOR DEL CAMPO BUSQUEDA A MODAL **************/
+        $('#Entrada').on('shown.bs.modal', function () {  
+            var value_q = $('#value_q').val();
+              if(value_q) {
+                //tiene contenido
+              }else {
+                var value_q = $('#value_q2').val();
+              }
+            
+            document.getElementById("barcode").value = value_q;
+            $("#barcode").focus();
+        });
 
     </script>
   </body>

@@ -726,3 +726,26 @@ tbody tr:hover {
     padding-right: 15px;
   }
 }
+
+/*********MODAL ENTRADA*************/
+
+.btn-group-vertical>.btn, .btn-group>.btn {
+  font-size: 20px !important;
+}
+
+.btn-esp {
+    background-color: #d0d0d0 !important;
+    border-color: #bfbdbd !important;
+    color: #4c4a4a;
+    font-size: 20px !important;
+}
+
+.btn-esp.active {
+    background-color: #23b511 !important;
+    border-color: #bfbdbd !important;
+}
+
+.btn-esp.focus {
+    background-color: #000 !important;
+    border-color: #bfbdbd !important;
+}
