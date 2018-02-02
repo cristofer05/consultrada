@@ -87,6 +87,7 @@
                 <th class="center">Bcode</th>
                 <th class="center">Comentario</th>
                 <th class="center">QTY</th>
+                <th class="center">UBICACION</th>
                 <th class="center">Nombre</th>
             <!--    <th class="center">Localidad</th> -->
                 <th class="center">Realizado</th>
@@ -96,18 +97,36 @@
             <tbody>
             <?php
             $no = 1;
-            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,barcode_final,comentario,imagen,nombre_producto FROM productos ORDER BY nu_foto DESC")
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado FROM productos ORDER BY nu_foto DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
             while ($data = mysqli_fetch_assoc($query)) {
+              $estado=" ";
+              if ($data['realizado']=="SI") {
+                $estado = "Checked";
+              }
+
+            echo "<SCRIPT>
+            function myFunction$no() {
+            var copyText = document.getElementById('myInput$no');
+            copyText.select();
+            document.execCommand('Copy');
+            alert('Copied the text: ' + copyText.value);
+            document.getElementById('myInput$no').readOnly = true;
+        }</SCRIPT>
+            ";
             echo "<tr>
                       <td width='5' class='center'>$no</td>
                       <td width='100' class='center'><spam class='nufoto'>$data[nu_foto]</spam></td>
-                      <td width='150'>$data[barcode_final]</td>
+                      <td width='150'>
+                      <input type='text' style='border:0px;' value='$data[barcode_final]' id='myInput$no'>
+                      <button onclick='myFunction$no()'>Copiar!</button>
+
                       <td width='110'>$data[comentario]</td>
                       <td width='20' class='center'>$data[qty_total]</td>
+                      <td width='45' class='center'>$data[ubicacion]</td>
                       <td width='350'>$data[nombre_producto]</td>
-                      <td width='100' class='center'><input type='checkbox' data-toggle='toggle' data-on='LISTO' data-off='NO LISTO' data-onstyle='success' data-offstyle='danger'></td>
+                      <td width='100' class='center'><input type='checkbox' data-toggle='toggle' data-on='LISTO' data-off='NO LISTO' data-onstyle='success' data-offstyle='danger' ".$estado." ></td>
                       <td class='center' width='360'>
                         <div>
                           <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' target='_blank' class='btn btn-warning btn-sm' href='https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=$data[barcode]'>

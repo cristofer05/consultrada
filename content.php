@@ -61,5 +61,8 @@ else {
 	elseif ($_GET['module'] == 'consultrada') {
 		include "modules/consultrada/view.php";
 	}
+	elseif ($_GET['module'] == 'detalles') {
+		include "modules/consultrada/detalles.php";
+	}
 }
 ?>
