@@ -96,7 +96,7 @@
             <tbody>
             <?php
             $no = 1;
-            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode_final,comentario,imagen,nombre_producto FROM productos ORDER BY nu_foto DESC")
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,barcode_final,comentario,imagen,nombre_producto FROM productos ORDER BY nu_foto DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
             while ($data = mysqli_fetch_assoc($query)) {
@@ -107,19 +107,19 @@
                       <td width='110'>$data[comentario]</td>
                       <td width='20' class='center'>$data[qty_total]</td>
                       <td width='350'>$data[nombre_producto]</td>
-                      <td width='100' class='center'><input class='input-toggle' type='checkbox'></td>
+                      <td width='100' class='center'><input type='checkbox' data-toggle='toggle' data-on='LISTO' data-off='NO LISTO' data-onstyle='success' data-offstyle='danger'></td>
                       <td class='center' width='360'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_socios&form=edit&id=$data[id_producto]'>
-                              <i style='color:#fff' class='glyphicon glyphicon-edit'>Amazon</i>
+                          <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' target='_blank' class='btn btn-warning btn-sm' href='https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=$data[barcode]'>
+                              <i style='color:#fff' class='glyphicon glyphicon-search'> Amazon</i>
                           </a>";
             ?>
-                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="modules/socios/print.php?&id=<?php echo $data['id_producto'];?>">
-                              <i style="color:#fff" class="glyphicon glyphicon-print">eBay</i>
+                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo $data['barcode'];?>">
+                              <i style="color:#fff" class="glyphicon glyphicon-search"> eBay</i>
                           </a>
 
-                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/socios/proses.php?act=delete&id=<?php echo $data['id_producto'];?>">
-                              <i style="color:#fff" class="glyphicon glyphicon-trash">Google</i>
+                          <a data-toggle="tooltip" data-placement="top" target='_blank' title="Eliminar" class="btn btn-danger btn-sm" href="https://www.google.com.do/search?q=<?php echo $data['barcode'];?>">
+                              <i style="color:#fff" class="glyphicon glyphicon-search"> Google</i>
                           </a>
             <?php
               echo "    </div>

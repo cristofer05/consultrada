@@ -1,3 +1,9 @@
+.toggle-off.btn {
+    top: -5px !important;
+}
+.toggle-on.btn {
+    top: -5px !important;
+}
 #logo{
 	margin:70px;
 }
@@ -8,7 +14,7 @@
 }
 
 .table100{
-	font-size: 50px !important;
+	font-size: 25px !important;
 }
 
 button.btn.btn-primary.sku{
@@ -463,6 +469,7 @@ table tbody tr {
 }
 table tbody td {
 	border: 5px #36304a solid !important;
+	vertical-align: middle !important;
 }
 table tbody tr:last-child {
   border: 0;
@@ -572,21 +579,21 @@ tbody tr:hover {
 }
 
 .column3 {
-  width: 200px;
+  width: 250px;
 }
 
 .column4 {
-  width: 20px;
+  width: 400px;
   text-align: center;
 }
 
 .column5 {
-  width: 300px;
+  width: 200px;
   text-align: left;
 }
 
 .column6 {
-  width: 120px;
+  width: 80px;
   text-align: center;
 }
 

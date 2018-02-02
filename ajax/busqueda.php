@@ -5,7 +5,7 @@ $action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['a
 
 if($action == 'ajax'){
 	if (strlen($_REQUEST['q']) > 0 ) {
-		
+
 
 
 		// escaping, additionally removing everything that could be (html/javascript-) code
@@ -44,11 +44,10 @@ if($action == 'ajax'){
                           <th class="column1">#</th>
                           <th class="column2">Foto</th>
                           <th class="column3">Barcode</th>
-                          <th class="column5">Nombre</th>
-                          <th class="column6">Comentario</th>
-                          <th class="column7">Ubicacion</th>
-                          <th class="column8">Realizado</th>
-                          <th class="column8">Accion</th>
+                          <th class="column4">Nombre</th>
+                          <th class="column5">Comentario</th>
+                          <th class="column6">Ubicacion</th>
+                          <th class="column7">Accion</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -57,24 +56,23 @@ if($action == 'ajax'){
 				$no=1;
 				while ($data = mysqli_fetch_assoc($query)) {
             echo "<tr>
-            			 
+
                       <td class='column1'>$no</td>
                       <td class='column2'><spam class='nufoto'>$data[nu_foto]</spam></td>
                       <td class='column3'>$data[barcode_final]</td>
                       <td class='column4'>$data[nombre_producto]</td>
                       <td class='column5'>$data[comentario]</td>
                       <td class='column6'>$data[ubicacion]</td>
-                      <td class='column7'><input class='input-toggle' type='checkbox'></td>
-                      <td class='column8'>
+                      <td class='column7'>
                         <div>
                           <a data-toggle='tooltip' data-placement='top' title='Ver articulo' style='margin-right:5px' class='btn btn-primary btn-sm' href='https://www.amazon.com/s/?url=search-alias%3Daps&field-keywords='>
-                                    <i style='color:#fff' class='glyphicon glyphicon-eye-open'> VER</i>
+                                    <i style='color:#fff' class='glyphicon glyphicon-eye-open'> DETALLES</i>
                                 </a>
 
                            <a data-toggle='tooltip' data-placement='top' target='_blank' title='Dar Entrada' class='btn btn-primary btn-sm' href='https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw='>
                                     <i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i>
                                 </a>";
-           
+
               echo "    </div>
                       </td>
                     </tr>";
@@ -93,14 +91,14 @@ if($action == 'ajax'){
 				//	 echo paginate($reload, $page, $total_pages, $adjacents);
 					?></div>
 				</div>
-			
+
 			<?php
 		} elseif ($numrows<1) {
 		?>
 			<script>
 				document.getElementById("botonEntrada").innerHTML = "<a data-toggle='modal' data-target='#Entrada'  title='Dar Entrada' class='btn btn-primary btn-sm' href=''><i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>";
 			</script>
-			
+
 		<?php
 		}
 	}

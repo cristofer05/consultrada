@@ -35,7 +35,9 @@ date_default_timezone_set('America/Santo_Domingo');
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+    <!-- Toggle-->
+    <link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="assets/js/bootstrap-toggle.min.js"></script>
 
     <!-- Actividar o desactivar edicion -->
     <script language="javascript">
