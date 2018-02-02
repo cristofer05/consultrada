@@ -41,8 +41,10 @@
 </center>
 
 <script>
+
 function pulsar(e) { 
   tecla = (document.all) ? e.keyCode :e.which; 
   return (tecla!=13); 
 } 
+
 </script>

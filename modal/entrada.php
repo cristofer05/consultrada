@@ -1,3 +1,4 @@
+
 <div class="modal fade" id="Entrada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content modal-lg">
@@ -12,94 +13,123 @@
 				  <div class="form-group">
 					<label for="codigo" class="col-sm-2 control-label">Barcode</label>
 					<div class="col-sm-9">
-					  <input type="number" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" required>
+					  <input type="number" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" value="<?php if (isset($barcode)) {	echo $barcode; }  ?>" required autofocus>
+					  <input type="text" class="form-control" id="barcode2" name="barcode2" placeholder="Código del producto 2" value="<?php if (isset($barcode)) {	echo $barcode; }  ?>" required autofocus>
 					</div>
 				  </div>
 				  
 				  <div class="form-group">
 					<label for="nombre" class="col-sm-2 control-label">Nombre</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="200" >
-					  
+						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="200" value="E--639--13803269536 GA--">
 					</div>
 				  </div>
 			  	</div>
 			  	<div class="row col-md-6">
-				  <div class="form-group">
-					<label for="codigo" class="col-sm-2 control-label">Barcode</label>
-					<div class="col-sm-9">
-					  <input type="number" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" required>
+			  	  <label for="nombre" class="col-sm-2 control-label"><!--Condicion--></label>
+				  <div class="btn-group" data-toggle="buttons">
+					  <label class="btn btn-primary active btn-esp">
+					    <input type="radio" name="options" id="option1" autocomplete="off" checked> NEW
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="radio" name="options" id="option2" autocomplete="off"> LIKE NEW
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="radio" name="options" id="option3" autocomplete="off"> GA
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="radio" name="options" id="option4" autocomplete="off"> GB
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="radio" name="options" id="option5" autocomplete="off"> GC
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="radio" name="options" id="option6" autocomplete="off"> RE
+					  </label>
 					</div>
-				  </div>
-				  
-				  <div class="form-group">
-					<label for="nombre" class="col-sm-2 control-label">Nombre</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="200" >
-					  
+
+					<label for="nombre" class="col-sm-2 control-label"><!--Missing--></label>
+				  <div class="btn-group" data-toggle="buttons">
+					  <label class="btn btn-primary active btn-esp">
+					    <input type="checkbox" name="options" id="option1" autocomplete="off" checked> Box
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="checkbox" name="options" id="option2" autocomplete="off"> Manual
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="checkbox" name="options" id="option3" autocomplete="off"> Battery
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="checkbox" name="options" id="option4" autocomplete="off"> Wallmount
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="checkbox" name="options" id="option4" autocomplete="off"> Charger
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="checkbox" name="options" id="option4" autocomplete="off"> Remote
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="checkbox" name="options" id="option4" autocomplete="off"> Ink
+					  </label>
+					  <label class="btn btn-primary btn-esp">
+					    <input type="checkbox" name="options" id="option4" autocomplete="off"> Especial
+					  </label>
 					</div>
-				  </div>
 			  	</div>
+			  	<div class="clearfix"></div>
 
-
+			<div class="row col-md-6">
 			  <div class="form-group">
-				<label for="categoria" class="col-sm-3 control-label">Categoría</label>
-				<div class="col-sm-8">
-					<select class='form-control' name='categoria' id='categoria' required>
-						<option value="">Selecciona una categoría</option>
-							<?php 
-							$query_categoria=mysqli_query($con,"select * from categorias order by nombre_categoria");
-							while($rw=mysqli_fetch_array($query_categoria))	{
-								?>
-							<option value="<?php echo $rw['id_categoria'];?>"><?php echo $rw['nombre_categoria'];?></option>			
-								<?php
-							}
-							?>
-					</select>			  
+			  	<div class="text-center">
+				  <img src="images/productos/no-foto.png" class="rounded img-thumbnail" alt="Imagen" width="200">
 				</div>
 			  </div>
+			</div>  
+
+			<div class="row col-md-6">
+			  <div class="form-group">
+				<label for="codigo" class="col-sm-2 control-label">Especial</label>
+				<div class="col-sm-9">
+				  <input type="text" class="form-control" id="barcode" name="especial" placeholder="especial" required>
+				</div>
+			  </div>
+			  <div class="form-group">
+				<label for="nombre" class="col-sm-2 control-label">Comentario</label>
+				<div class="col-sm-9">
+					<textarea class="form-control" rows="2" id="comentario" name="comentario" placeholder="Comentario"></textarea>
+				</div>
+			  </div>
+		  	</div>
+		  	<div class="clearfix"></div>
+
+		  	<div class="row col-md-3">
+			  <div class="form-group col-md-10">
+			  	<label for="nombre" class="col-sm-2 control-label">Qty</label>
+			  	<input type="number" class="form-control" id="barcode" name="especial" placeholder="Qty" required>
+			  </div>
+			</div> 
+			<div class="row col-md-3">
+			  <div class="form-group col-md-10">
+			  <label for="nombre" class="col-sm-2 control-label">Ubicacion</label>
+			  	<input type="text" class="form-control" id="barcode" name="especial" placeholder="Ubicacion" required>
+			  </div>
+			</div> 
+			<div class="row col-md-6">
+			  <div class="form-group col-md-8">
+			  <label for="nombre" class="col-sm-2 control-label">Peso</label>
+			  	<input type="number" class="form-control" id="barcode" name="especial" placeholder="Peso" required>
+			  </div>
+			  <div class="form-group col-md-4">
+			  <label for="nombre" class="col-sm-2 control-label">Formato</label>
+			   	<select class="form-control" id="peso" name="peso">
+			      <option>LB</option>
+			      <option>OZ</option>
+			  	</select>
+			  </div>
+			</div> 
 			  		
-			<div class="form-group">
-				<label for="stock" class="col-sm-3 control-label">Qty Almacen</label>
-				<div class="col-sm-8">
-				  <input type="number" min="0" class="form-control" id="stock" name="stock" placeholder="Cantidad en almacen" required  maxlength="8">
-				</div>
-			</div>
 
-			<div class="form-group">
-				<label for="stock" class="col-sm-3 control-label">Qty Tienda</label>
-				<div class="col-sm-8">
-				  <input type="number" min="0" class="form-control" id="tienda" name="tienda" placeholder="Cantidad en tienda" required  maxlength="8">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="stock" class="col-sm-3 control-label">Ubicación</label>
-				<div class="col-sm-8">
-				  <input type="text" min="0" class="form-control" id="ubicacion" name="ubicacion" placeholder="Nombre de ubicacion" required maxlength="8">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="precio" class="col-sm-3 control-label">Precio</label>
-				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="precio" name="precio" placeholder="Precio de venta del producto" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
-				</div>
-			</div>	
-
-			<div class="form-group">
-				<label for="precio" class="col-sm-3 control-label">Al por mayor</label>
-				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="xmayor" name="xmayor" placeholder="Al por mayor" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$"  maxlength="10">
-				</div>
-			</div>	
-
-			<div class="form-group">
-				<label for="precio" class="col-sm-3 control-label">MSRP</label>
-				<div class="col-sm-8">
-				  <input type="text" class="form-control" id="msrp" name="msrp" placeholder="MSRP" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$"  maxlength="10">
-				</div>
-			</div>		 
+			<div class="clearfix"></div>	 
 			 
 			
 		  </div>
