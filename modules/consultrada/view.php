@@ -32,6 +32,22 @@
 					<div class="mostrar">
             
 					</div><!-- Carga los datos ajax -->
+          <div class="modal fade" id="sumar" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                        <h4 class="modal-title">Editando producto</h4>
+                    </div>
+                    
+                    <div class="modal-body-sum">
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
 				</div>
 				</div>
 			</form>
@@ -46,5 +62,32 @@ function pulsar(e) {
   tecla = (document.all) ? e.keyCode :e.which; 
   return (tecla!=13); 
 } 
+
+
+/**************Enviar cambios de sumar******************/  
+function submitiendo() {
+  $('#enviar_sum').attr("disabled", true);
+
+ var parametros = $(this).serialize();
+   $.ajax({
+      type: "POST",
+      url: "ajax/enviar_sum.php",
+      data: parametros,
+       beforeSend: function(objeto){
+        $("#mensaje_ajax").html("Mensaje: Enviando cambios...");
+        },
+      success: function(datos){
+      $("#mensaje_ajax").html(datos);
+      $('#enviar_sum').attr("disabled", false);
+      window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();});
+        location = window.location.href;
+      }, 300);
+      }
+  });
+  event.preventDefault();
+}
+ 
 
 </script>

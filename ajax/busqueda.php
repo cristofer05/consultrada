@@ -70,14 +70,21 @@ if($action == 'ajax'){
                                     <i style='color:#fff' class='glyphicon glyphicon-eye-open'> DETALLES</i>
                                 </a>
 
-
-													<a data-toggle='modal' data-target='#EntradaExistente'  title='Dar Entrada' class='btn btn-primary btn-sm' href=''>
+													<a title='Sumar y Revivir' class='btn btn-primary btn-sm openBtn_$data[id_producto]'>
 													<i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>
                           ";
 
               echo "    </div>
                       </td>
-                    </tr>";
+                    </tr>
+                    <script>
+                      $('.openBtn_$data[id_producto]').on('click',function(){
+                          $('.modal-body-sum').load('dynamic_sum.php?id=$data[id_producto]',function(){
+                              $('#sumar').modal({show:true});
+                          });
+                      });
+                    </script>
+                    ";
               $no++;
             }
             ?>

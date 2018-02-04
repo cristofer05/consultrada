@@ -1,4 +1,3 @@
-
 <div class="modal fade" id="Entrada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
 		<div class="modal-content modal-lg">
@@ -13,8 +12,7 @@
 				  <div class="form-group">
 					<label for="codigo" class="col-sm-2 control-label">Barcode</label>
 					<div class="col-sm-9">
-					  <input type="number" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" value="<?php if (isset($barcode)) {	echo $barcode; }  ?>" required autofocus>
-					  <input type="text" class="form-control" id="barcode2" name="barcode2" placeholder="Código del producto 2" value="<?php if (isset($barcode)) {	echo $barcode; }  ?>" required autofocus>
+					  <input type="text" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" value="" required autofocus>
 					</div>
 				  </div>
 				  

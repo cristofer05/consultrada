@@ -59,13 +59,14 @@ date_default_timezone_set('America/Santo_Domingo');
           }
 
       };
-
+/*
       function ocultar() {
         var w = document.getElementById("Editar");
         w.style.display = "none";
       }
 
       window.onload = ocultar;
+*/
     </script>
 
 
@@ -318,17 +319,37 @@ var idioma_español= {
 }
     /**********PASANDO VALOR DEL CAMPO BUSQUEDA A MODAL **************/
         $('#Entrada').on('shown.bs.modal', function () {  
-            var value_q = $('#value_q').val();
-              if(value_q) {
-                //tiene contenido
+            var value_q = $('#value_q3').val();
+              if (value_q) {
+                //q3 iene contenido
               }else {
-                var value_q = $('#value_q2').val();
+                var value_q = $('#value_q').val();
+                  if(value_q) {
+                    //q2 tiene contenido
+                  }else {
+                    var value_q = $('#value_q2').val();
+                  }
               }
-            
+
             document.getElementById("barcode").value = value_q;
             $("#barcode").focus();
         });
 
+     /*   $('#EntradaExistente').on('shown.bs.modal', function () {
+   //       var valor_id = $(this).data("value");
+   //       alert(valor_id);
+
+        }); */
+
+/******************FUNCION PARA PASAR ID SUMAR Y REVIVIR*********************/
+ /*     function sumrevivir(id) {
+        var valor_id = id;
+      }      */
+/**************Enviar cambios de sumar******************/  
+
     </script>
+
+    <?php // $algo="<script> document.write(valor_id); </script>"; echo $algo;  ?>
+
   </body>
 </html>
