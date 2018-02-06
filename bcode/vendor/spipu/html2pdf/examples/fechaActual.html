@@ -1,0 +1,22 @@
+<script type="text/javascript"> 
+	var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"); 
+	var diasSemana = new Array("Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"); 
+	var f = new Date(); 
+	var hours=f.getHours();
+	var minutes=f.getMinutes();
+	var seconds=f.getSeconds();
+	var dn="AM";
+		if (hours>12){
+		dn="PM";
+		hours=hours-12;
+		}
+		if (hours==0)
+		hours=12;
+		if (minutes<=9)
+		minutes="0"+minutes;
+		if (seconds<=9)
+		seconds="0"+seconds;
+	var myclock=""+hours+":"+minutes+":"+seconds+" "+dn+"";
+
+	document.write(diasSemana[f.getDay()] + " " + f.getDate() + " De " + meses[f.getMonth()] + " Del " + f.getFullYear() + myclock); 
+</script>

@@ -107,20 +107,18 @@
               }
 
             echo "<SCRIPT>
-            document.getElementById('myInput$no').readOnly = true;
-            function myFunction$no() {
-            var copyText = document.getElementById('myInput$no');
-            copyText.select();
-            document.execCommand('Copy');
-            alert('Copied the text: ' + copyText.value);
-        }</SCRIPT>
+                  document.getElementById('myInput$no').readOnly = true;
+                  function myFunction$no() {
+                  var copyText = document.getElementById('myInput$no');
+                  copyText.select();
+                  document.execCommand('Copy');
+                }</SCRIPT>
             ";
             echo "<tr>
                       <td width='5' class='center'>$no</td>
                       <td width='100' class='center'><spam class='nufoto'>$data[nu_foto]</spam></td>
-                      <td width='150'>
+                      <td width='150' onclick='myFunction$no()'>
                       <input type='text' style='border:0px;' value='$data[barcode_final]' id='myInput$no' readOnly>
-                      <button onclick='myFunction$no()'>Copiar!</button>
 
                       <td width='110'>$data[comentario]</td>
                       <td width='20' class='center'>$data[qty_total]</td>
@@ -129,15 +127,15 @@
                       <td width='100' class='center'><input type='checkbox' data-toggle='toggle' data-on='LISTO' data-off='NO LISTO' data-onstyle='success' data-offstyle='danger' ".$estado." ></td>
                       <td class='center' width='360'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' target='_blank' class='btn btn-warning btn-sm' href='https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=$data[barcode]'>
+                          <a data-toggle='tooltip' data-placement='top' title='Buscar en Amazon ' style='margin-right:5px' target='_blank' class='btn btn-warning btn-sm' href='https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=$data[barcode]'>
                               <i style='color:#fff' class='glyphicon glyphicon-search'> Amazon</i>
                           </a>";
             ?>
-                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo $data['barcode'];?>">
+                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Buscar en eBay" class="btn btn-primary btn-sm" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo $data['barcode'];?>">
                               <i style="color:#fff" class="glyphicon glyphicon-search"> eBay</i>
                           </a>
 
-                          <a data-toggle="tooltip" data-placement="top" target='_blank' title="Eliminar" class="btn btn-danger btn-sm" href="https://www.google.com.do/search?q=<?php echo $data['barcode'];?>">
+                          <a data-toggle="tooltip" data-placement="top" target='_blank' title="Buscar en Google" class="btn btn-danger btn-sm" href="https://www.google.com.do/search?q=<?php echo $data['barcode'];?>">
                               <i style="color:#fff" class="glyphicon glyphicon-search"> Google</i>
                           </a>
             <?php

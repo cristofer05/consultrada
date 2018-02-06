@@ -66,7 +66,7 @@ if($action == 'ajax'){
                       <td class='column6'>$data[ubicacion]</td>
                       <td class='column7'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='Ver articulo' style='margin-right:5px' class='btn btn-primary btn-sm' href='main.php?module=detalles?id=$data[id_producto]'>
+                          <a data-toggle='tooltip' data-placement='top' title='Ver articulo' style='margin-right:5px' class='btn btn-primary btn-sm' href='main.php?module=detalles&id=$data[id_producto]'>
                                     <i style='color:#fff' class='glyphicon glyphicon-eye-open'> DETALLES</i>
                                 </a>
 
@@ -108,7 +108,7 @@ if($action == 'ajax'){
 			<script>
 				document.getElementById("botonEntrada").innerHTML = "<a data-toggle='modal' data-target='#Entrada'  title='Dar Entrada' class='btn btn-primary btn-sm' href='' ><i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>";
 			</script>
-      
+
 		<?php
 		}
 	}elseif (strlen($_REQUEST['q']) < 1 ) {

@@ -111,7 +111,10 @@ CREATE TABLE `logs` (
 INSERT INTO `logs` (`id_log`, `id_producto`, `id_usuario`, `fecha_log`, `registro`, `qty`,`edicion`) VALUES
 (1, 1, 1, '2018-01-25 17:09:06', 'Articulo creado', 5,'condicion'),
 (2, 2, 1, '2018-01-25 17:09:06', 'Articulo creado', 2,'cantidad'),
-(3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo');
+(3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo'),
+(4, 1, 1, '2018-02-02 17:09:06', 'Articulo creado', 0,'condicion'),
+(5, 2, 1, '2018-02-06 17:09:06', 'Articulo creado', 0,'cantidad'),
+(6, 2, 1, '2018-02-05 17:09:06', 'Articulo creado', 0,'titulo');
 
 -- --------------------------------------------------------
 --

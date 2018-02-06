@@ -1,3 +1,33 @@
+.bgubicacion {
+    color: #ff000021;
+    position: absolute;
+    /* top: -150px; */
+    /* left: 10%; */
+    right: 0px;
+    bottom: -80px;
+    z-index: -100;
+    font-size: 250px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.box.box-primary {
+    z-index: 100 !important;
+    position: relative !important;
+}
+
+.logdetalles{
+  z-index: 0 !important;
+  position: relative !important;
+}
+
+form#Ver {
+    font-size: 30px;
+}
+.form-horizontal .control-label {
+    font-size: 30px;
+}
+
 .toggle-off.btn {
     top: -5px !important;
 }
