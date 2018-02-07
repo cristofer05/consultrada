@@ -57,7 +57,6 @@ date_default_timezone_set('America/Santo_Domingo');
           } else {
               x.style.display = "none";
           }
-
       };
 /*
       function ocultar() {
@@ -318,7 +317,7 @@ var idioma_español= {
     }
 }
     /**********PASANDO VALOR DEL CAMPO BUSQUEDA A MODAL **************/
-        $('#Entrada').on('shown.bs.modal', function () {  
+        $('#Entrada').on('shown.bs.modal', function () {
             var value_q = $('#value_q3').val();
               if (value_q) {
                 //q3 iene contenido
@@ -345,7 +344,7 @@ var idioma_español= {
  /*     function sumrevivir(id) {
         var valor_id = id;
       }      */
-/**************Enviar cambios de sumar******************/  
+/**************Enviar cambios de sumar******************/
 
     </script>
 
