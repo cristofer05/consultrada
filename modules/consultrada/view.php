@@ -1,3 +1,64 @@
+  <?php
+  if (isset($_POST['mod_id']) && $_POST['mod_id'] !=NULL) {
+    if (empty($_POST['mod_qty'])) {
+        $errors[] = "El campo cantidad estaba vacio";
+    } else if (empty($_POST['mod_ubi'])) {
+       $errors[] = "El campo ubicación estaba vacio";
+    } else if (
+      !empty($_POST['mod_qty']) &&
+      !empty($_POST['mod_ubi'])
+    ){
+        $id_producto=$_POST['mod_id'];
+        $qty=intval($_POST['mod_qty']);
+        $ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["mod_ubi"],ENT_QUOTES)));
+        $referencia=strval("Editado");
+        $date_added=date("Y-m-d H:i:s");
+
+        $sql="UPDATE productos SET qty_total='".$qty."', ubicacion='".$ubicacion."' WHERE id_producto='".$id_producto."'";
+        $query_update = mysqli_query($mysqli,$sql);
+
+        if ($query_update){
+          $messages[] = "Producto ha sido actualizado satisfactoriamente.";
+          //$id_producto=get_row('productos','id_producto', 'barcode_final', $barcode_final);
+          $user_id=$_SESSION['id_user'];
+          $firstname=$_SESSION['name_user'];
+          $nota="$firstname editó este producto";
+          echo guardar_historial($id_producto,$user_id,$date_added,$nota,$referencia,$qty,$ubicacion); 
+        } else{
+          $errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
+        }
+    } else {
+      $errors []= "Error desconocido.";
+    }
+
+  if (isset($errors)){    
+  ?>
+  <div class="alert alert-danger" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Error!</strong> 
+      <?php
+        foreach ($errors as $error) {
+            echo $error;
+          }
+        ?>
+  </div>
+  <?php
+  }
+  if (isset($messages)){  
+    ?>
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>¡Bien hecho!</strong>
+        <?php
+          foreach ($messages as $message) {
+              echo $message;
+            }
+          ?>
+    </div>
+    <?php
+  }
+}
+?>
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <ol class="breadcrumb">
@@ -32,25 +93,24 @@
 					<div class="mostrar">
 
 					</div><!-- Carga los datos ajax -->
-          <div class="modal fade" id="sumar" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                        <h4 class="modal-title">Editando producto</h4>
-                    </div>
-
-                    <div class="modal-body-sum">
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
 				</div>
 				</div>
 			</form>
+      <div class="modal fade" id="sumar" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                      <h4 class="modal-title">Editando producto</h4>
+                  </div>
+
+                  <div class="modal-body-sum">
+
+                  </div>
+              </div>
+          </div>
+        </div>
       </div>
     </div>
   </section><!-- /.content -->
@@ -65,9 +125,11 @@ function pulsar(e) {
 
 
 /**************Enviar cambios de sumar******************/
-function submitiendo() {
+// function submitiendo() { 
+  /*
+$("#sumar_producto").submit(function( event ) {  
   $('#enviar_sum').attr("disabled", true);
-
+  alert("En proceso");
  var parametros = $(this).serialize();
    $.ajax({
       type: "POST",
@@ -83,11 +145,10 @@ function submitiendo() {
         $(".alert").fadeTo(500, 0).slideUp(500, function(){
         $(this).remove();});
         location = window.location.href;
-      }, 300);
+      }, 3000);
       }
   });
   event.preventDefault();
 }
-
-
+*/
 </script>

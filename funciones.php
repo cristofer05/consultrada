@@ -15,9 +15,14 @@ function get_row($table,$row, $id, $equal){
 }
 function guardar_historial($id_producto,$user_id,$fecha,$nota,$reference,$quantity,$ubicacion){
 	global $mysqli;
-	$sql="INSERT INTO historial (id_historial, id_producto, user_id, fecha, nota, referencia, cantidad, ubicacion)
+	$sql="INSERT INTO logs (id_historial, id_producto, user_id, fecha, nota, referencia, cantidad, ubicacion)
 	VALUES (NULL, '$id_producto', '$user_id', '$fecha', '$nota', '$reference', '$quantity', '$ubicacion');";
 	$query=mysqli_query($mysqli,$sql);
-}
+}/*
+function sumar_cantidad($id_producto,$qty,$ubicacion){
+	global $mysqli;
+	$sql="UPDATE productos SET qty_total='".$qty."', ubicacion='".$ubicacion."' WHERE id_producto='".$id_producto."'";
+	$query_update = mysqli_query($mysqli,$sql);
+} */
 
 ?>

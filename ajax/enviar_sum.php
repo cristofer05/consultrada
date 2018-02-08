@@ -24,7 +24,7 @@ if (empty($_POST['mod_qty'])) {
 		//$id_producto=get_row('productos','id_producto', 'barcode_final', $barcode_final);
 		$user_id=$_SESSION['id_user'];
 		$firstname=$_SESSION['name_user'];
-		$nota="$firstname editó este producto en el inventario";
+		$nota="$firstname editó este producto";
 		echo guardar_historial($id_producto,$user_id,$date_added,$nota,$referencia,$qty,$ubicacion);
 		
 	} else{

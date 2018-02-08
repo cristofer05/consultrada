@@ -79,7 +79,7 @@ if($action == 'ajax'){
                     </tr>
                     <script>
                       $('.openBtn_$data[id_producto]').on('click',function(){
-                          $('.modal-body-sum').load('dynamic_sum.php?id=$data[id_producto]',function(){
+                          $('.modal-body-sum').load('modal/suma.php?id=$data[id_producto]',function(){
                               $('#sumar').modal({show:true});
                           });
                       });
