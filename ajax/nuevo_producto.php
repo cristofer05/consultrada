@@ -1,5 +1,5 @@
 <?php
-		
+
 	/*Inicia validacion del lado del servidor*/
 	if (empty($_POST['barcode'])) {
            $errors[] = "Código vacío";
@@ -28,7 +28,7 @@
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$barcode=mysqli_real_escape_string($mysqli,(strip_tags($_POST["barcode"],ENT_QUOTES)));
 		if ($barcode == "LC") { $barcode = "Does not apply"; }
-		$nombre=mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombre"],ENT_QUOTES)));
+		//$nombre=mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombre"],ENT_QUOTES)));
 		$ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["ubicacion"],ENT_QUOTES)));
 		$especial=mysqli_real_escape_string($mysqli,(strip_tags($_POST["especial"],ENT_QUOTES)));
 		$comentario=mysqli_real_escape_string($mysqli,(strip_tags($_POST["comentario"],ENT_QUOTES)));
@@ -36,13 +36,13 @@
 		$peso=intval($_POST['peso']);
 		$formato=strval($_POST['formato']);
 		$condicion=strval($_POST['condicion']);
-		if ($condicion == "new") {	$condicion = "";}
-		$missing=strval($_POST['missing']);	
+		if ($condicion == "new") {	$bar_condicion = "";}else {	$bar_condicion = $condicion;	}
+		$missing=strval($_POST['missing']);
 		$nu_foto=strval($_POST['nu_foto']);
 		$date_added=date("Y-m-d H:i:s");
 		$img="no-foto.png";
-		
-		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, qty_total) VALUES ('$barcode', '$barcode $condicion $missing','$nombre', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $qty)";
+
+		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, qty_total) VALUES ('$barcode', '$barcode $bar_condicion $missing','$nombre', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $qty)";
 		$query_new_insert = mysqli_query($mysqli,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
@@ -51,20 +51,20 @@
 			//	$firstname=$_SESSION['name_user'];
 				$nota="Articulo creado";
 			//	echo guardar_historial($id_producto,$user_id,$date_added,$nota,$codigo,$stock,$ubicacion);
-				
+
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($mysqli);
 			}
 		} else {
 			$errors []= "Error desconocido.";
 		}
-		
+
 		if (isset($errors)){
-			
+
 			?>
 			<div class="alert alert-danger" role="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-					<strong>Error!</strong> 
+					<strong>Error!</strong>
 					<?php
 						foreach ($errors as $error) {
 								echo $error;
@@ -74,7 +74,7 @@
 			<?php
 			}
 			if (isset($messages)){
-				
+
 				?>
 				<div class="alert alert-success" role="alert">
 						<button type="button" class="close" data-dismiss="alert">&times;</button>
