@@ -15,7 +15,7 @@
 						  <input type="text" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" value="" required autofocus>
 						</div>
 					  </div>
-					  
+
 					  <div class="form-group">
 						<label for="nombre" class="col-sm-2 control-label">Nombre</label>
 						<div class="col-sm-9">
@@ -82,9 +82,10 @@
 					  <img src="images/productos/no-foto.png" class="rounded img-thumbnail" alt="Imagen" width="200">
 					</div>
 				  </div>
-				</div>  
+				</div>
 
 				<div class="row col-md-6">
+
 				  <div class="form-group">
 					<label for="especial" class="col-sm-2 control-label">Especial</label>
 					<div class="col-sm-9">
@@ -105,13 +106,13 @@
 				  	<label for="qty" class="col-sm-2 control-label">Qty</label>
 				  	<input type="number" class="form-control" id="qty" name="qty" placeholder="Qty" required>
 				  </div>
-				</div> 
+				</div>
 				<div class="row col-md-3">
 				  <div class="form-group col-md-10">
 				  <label for="ubicacion" class="col-sm-2 control-label">Ubicacion</label>
 				  	<input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicacion" required>
 				  </div>
-				</div> 
+				</div>
 				<div class="row col-md-6">
 				  <div class="form-group col-md-8">
 				  <label for="peso" class="col-sm-2 control-label">Peso</label>
@@ -124,10 +125,10 @@
 				      <option value="oz">OZ</option>
 				  	</select>
 				  </div>
-				</div> 
-				  		
-				<div class="clearfix"></div>	
-				<?php 
+				</div>
+
+				<div class="clearfix"></div>
+				<?php
 					$query_nu_foto=mysqli_query($mysqli,"SELECT nu_foto FROM productos ORDER BY id_producto DESC LIMIT 1");
 					$count = mysqli_num_rows($query_nu_foto);
 				    if ($count <> 0) {
@@ -136,7 +137,7 @@
 				    } else {
 				        $nu_foto = "0";
 				    }
-				?> 
+				?>
 				<input type="hidden" name="nu_foto" value="<?php echo $nu_foto; ?>">
 
 			  </div>

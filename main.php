@@ -58,7 +58,6 @@ include ("funciones.php");
           } else {
               x.style.display = "none";
           }
-
       };
 /*
       function ocultar() {
@@ -319,7 +318,7 @@ var idioma_español= {
     }
 }
     /**********PASANDO VALOR DEL CAMPO BUSQUEDA A MODAL **************/
-        $('#Entrada').on('shown.bs.modal', function () {  
+        $('#Entrada').on('shown.bs.modal', function () {
             var value_q = $('#value_q3').val();
               if (value_q) {
                 //q3 iene contenido
@@ -346,6 +345,7 @@ var idioma_español= {
  /*     function sumrevivir(id) {
         var valor_id = id;
       }      */
+
 /**************CREAR PRODUCTO MODAL******************/  
 $( "#guardar_producto" ).submit(function( event ) {
   $('#guardar_datos').attr("disabled", true);
@@ -366,6 +366,7 @@ $( "#guardar_producto" ).submit(function( event ) {
   });
   event.preventDefault();
 })
+
 
     </script>
 
