@@ -1,3 +1,7 @@
+.form-horizontal .form-group {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
 .bgubicacion {
     color: #ff000021;
     position: absolute;
