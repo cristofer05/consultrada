@@ -14,7 +14,7 @@ if (isset($_SESSION['logueado']) && $_SESSION['logueado'] == "si") {
     <title>Login | Administracion de Membresias</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Sistema de membresias elCapacitador">
+    <meta name="description" content="Consultrada - Sistema de manejo de inventario Lordcomputer">
     <meta name="author" content="Media experto" />
 
     <!-- favicon -->
@@ -34,7 +34,7 @@ if (isset($_SESSION['logueado']) && $_SESSION['logueado'] == "si") {
   <body class="login-page bg-login">
     <div class="login-box">
       <div style="color:#3c8dbc" class="login-logo">
-        <img style="margin-top:-12px" src="assets/img/el-capacitador-logo.png" alt="Logo" height="50"> <b>Membresias</b>
+        <img style="margin-top:-12px" src="assets/img/logo-consultrada.png" alt="Logo" height="50">
       </div><!-- /.login-logo -->
       <?php
 
