@@ -320,8 +320,8 @@ var idioma_español= {
 }
     /**********PASANDO VALOR DEL CAMPO BUSQUEDA A MODAL **************/
         $('#Entrada').on('shown.bs.modal', function () {
-          $("#especial").val('');
-          $("#comen").val('');
+          $("#special").val('');
+          $("#coment").val('');
           $("#qty").val('');
           $("#location").val('');
           $("#weight").val('');
@@ -336,7 +336,7 @@ var idioma_español= {
                   }else {
                     var value_q = $('#value_q2').val();
                   }
-              }/*
+              }
               var param = {barcode: value_q};
               $.ajax({
               data: param,
@@ -346,7 +346,7 @@ var idioma_español= {
                   document.getElementById("title").innerHTML = resultados;
                   document.getElementById("titl").value = resultados;
               }
-          });*/
+          });
               document.getElementById('barcode').innerHTML = "ENTRADA UPC: "+value_q;
               document.getElementById('bcode').value = value_q;
             // $("#barcode").focus();
