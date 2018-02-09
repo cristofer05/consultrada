@@ -49,7 +49,7 @@
 						     <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="step1">
 											<div class="row col-md-6">
-                        <h3>Condicion</h3>
+                        <h3>Condition</h3>
 												<div class="btn-group" data-toggle="buttons">
 												  <label class="btn btn-primary active btn-esp">
 												    <input type="radio" name="options" id="option1" autocomplete="off" checked> NEW
@@ -72,7 +72,7 @@
 												</div>
 												<br />
 												<br />
-													<h3>Le falta algo?</h3>
+													<h3>Missing?</h3>
 													<div class="clearfix"></div>
 												<label for="nombre" class="col-sm-2 control-label"><!--Missing--></label>
 											  <div class="btn-group" data-toggle="buttons">
@@ -104,17 +104,15 @@
 												</div>
 												<div class="row col-md-6">
 												  <div class="form-group">
-														<h3>Especial</h3>
-													<label for="codigo" class="col-sm-2 control-label"></label>
-													<div class="col-sm-9">
-													  <input type="text" class="form-control" id="espacial" name="especial" placeholder="Tiene algo en especial?">
+														<h3>Special</h3>
+													<div class="col-sm-12">
+													  <input type="text" class="form-control" id="spacial" name="special" placeholder="What is it?">
 													</div>
 												  </div>
 												  <div class="form-group">
-														<h3>Comentario</h3>
-													<label for="nombre" class="col-sm-2 control-label"></label>
-													<div class="col-sm-9">
-														<textarea class="form-control" rows="2" id="comentario" name="comentario" placeholder="Escribe un Comentario"></textarea>
+														<h3>Coment</h3>
+													<div class="col-sm-12">
+														<textarea class="form-control" rows="2" id="coment" name="coment" placeholder="Try to be clear and precise when describing the problem"></textarea>
 													</div>
 												  </div>
 											  	</div>
@@ -122,40 +120,39 @@
 										  	<div class="clearfix"></div>
 
                         <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-primary next-step">Continuar</button></li>
-														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Next</button></li>
+														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></li>
 												</ul>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="step2">
-
-											<div class="row col-md-6">
-											<div class="form-group col-md-6">
-												<label for="nombre" class="col-sm-2 control-label">Qty</label>
-												<input type="number" class="form-control" id="barcode" name="especial" placeholder="Qty" required>
+											<div class="row col-md-12">
+											<div class="form-group col-md-12">
+												<h3>Quantity</h3>
+												<input type="number" class="form-control" id="qty" name="qty" placeholder="you know how to count, right?" required>
 											</div>
 										</div>
-										<div class="row col-md-6">
-											<div class="form-group col-md-6">
-											<label for="nombre" class="col-sm-2 control-label">Ubicacion</label>
-												<input type="text" class="form-control" id="barcode" name="especial" placeholder="Ubicacion" required>
+										<div class="row col-md-12">
+											<div class="form-group col-md-12">
+											<h3>Location</h3>
+												<input type="text" class="form-control" id="location" name="location" placeholder="Let's focus on communicatin'" required>
 											</div>
 										</div>
 										<div class="clearfix"></div>
                         <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Atras</button></li>
-                            <li><button type="button" class="btn btn-primary next-step">Continuar</button></li>
-														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button></li>
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Next</button></li>
+														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></li>
 												</ul>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="step3">
 												<div class="row col-md-12">
 													<div class="form-group col-md-8">
-													<label for="nombre" class="col-sm-2 control-label">Peso</label>
-														<input type="number" class="form-control" id="barcode" name="especial" placeholder="Peso" required>
+													<h3>Weight</h3>
+														<input type="number" class="form-control" id="Weight" name="Weight" placeholder=" Please enter the Weight" required>
 													</div>
 													<div class="form-group col-md-4">
-													<label for="nombre" class="col-sm-2 control-label">Formato</label>
-														<select class="form-control" id="peso" name="peso">
+														<h3>Mass Unit</h3>
+														<select class="form-control" id="unit" name="unit" required>
 															<option>LB</option>
 															<option>OZ</option>
 														</select>
@@ -163,15 +160,19 @@
 												</div>
 												<div class="clearfix"></div>
                         <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Atras</button></li>
-                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Continuar</button></li>
-														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button></li>
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Next</button></li>
+														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></li>
 												</ul>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="complete">
-                        <h3>Completado</h3>
-                        <p> Asegurate que los datos introducidos sean correctos antes de Guardar</p>
-                    </div>
+                        <h3>Almost done!</h3>
+                        <p> Make sure the data entered is correct before saving and print. </p>
+												<ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="submit" class="btn btn-primary btn-info-full">Save and Print</button></li>
+												</ul>
+												</div>
                     <div class="clearfix"></div>
                 </div>
             </form>

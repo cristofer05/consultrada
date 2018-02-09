@@ -123,7 +123,7 @@
                       <td width='110'>$data[comentario]</td>
                       <td width='20' class='center'>$data[qty_total]</td>
                       <td width='45' class='center'>$data[ubicacion]</td>
-                      <td width='350'>$data[nombre_producto]</td>
+                      <td width='350'><a href='main.php?module=detalles&id=$data[id_producto]' target='_blank'>$data[nombre_producto]</a></td>
                       <td width='100' class='center'><input type='checkbox' data-toggle='toggle' data-on='LISTO' data-off='NO LISTO' data-onstyle='success' data-offstyle='danger' ".$estado." ></td>
                       <td class='center' width='360'>
                         <div>
