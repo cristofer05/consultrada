@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 session_start();
 date_default_timezone_set('America/Santo_Domingo');
 include ("funciones.php");
@@ -336,6 +337,15 @@ var idioma_español= {
                     var value_q = $('#value_q2').val();
                   }
               }
+              var param = {barcode: value_q};
+              $.ajax({
+              data: param,
+              url: "json.php",
+              method: "post",
+              success: function(resultados) {
+                  document.getElementById("comentario").value = resultados;
+              }
+          });
 
             document.getElementById("barcode").value = value_q;
             $("#barcode").focus();
