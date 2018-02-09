@@ -83,12 +83,12 @@
             <thead>
               <tr>
                 <th class="center">No.</th>
-                <th class="center"># Foto</th>
+                <th class="center"># PIC</th>
                 <th class="center">Bcode</th>
-                <th class="center">Comentario</th>
+                <th class="center">Coment</th>
                 <th class="center">QTY</th>
-                <th class="center">UBICACION</th>
-                <th class="center">Nombre</th>
+                <th class="center">Location</th>
+                <th class="center">Name</th>
             <!--    <th class="center">Localidad</th> -->
                 <th class="center">Realizado</th>
                 <th></th>
@@ -127,16 +127,16 @@
                       <td width='100' class='center'><input type='checkbox' data-toggle='toggle' data-on='LISTO' data-off='NO LISTO' data-onstyle='success' data-offstyle='danger' ".$estado." ></td>
                       <td class='center' width='360'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='Buscar en Amazon ' style='margin-right:5px' target='_blank' class='btn btn-warning btn-sm' href='https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=$data[barcode]'>
-                              <i style='color:#fff' class='glyphicon glyphicon-search'> Amazon</i>
+                          <a data-toggle='tooltip' data-placement='top' title='Buscar en Amazon ' style='margin-right:5px' target='_blank' class='btn btn-warning btn-lg' href='https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=$data[barcode]'>
+                              <i style='color:#fff' class='fa fa-fw fa-amazon'></i>
                           </a>";
             ?>
-                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Buscar en eBay" class="btn btn-primary btn-sm" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo $data['barcode'];?>">
-                              <i style="color:#fff" class="glyphicon glyphicon-search"> eBay</i>
+                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Buscar en eBay" class="btn btn-default btn-lg" href="https://www.ebay.com/sch/i.html?LH_BIN=1&_nkw=<?php echo $data['barcode'];?>">
+                              <img width="23.141" src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAUrSURBVGhD7ZZvbBNlHMdPYL2hxDlE2k5FzBbdJgLa3Y3pzKRtWNuNLL5A4xs1MVviK3X0zwRixYl0fzo00wTDC4IRB1PCErMMRGx7LWhguvU6CTHRNxIJuuG2dtONcOfvee55jv4TfWVSfT7JL9f7Pr+7/L73e/6UYzAYDAaDwWAwGP95ytwTG80euQ1FtX/CQOTCw+yTO8xeWUVR6hstIXLhwYz82yibNi2f3vxo+dzmWstcg3gPkXX+yojZN7HG3CFbjL6xtRyn3kLkvKgqt0SNFq9Ro0UWJcRXqCGuGOn+UMOy3miTBUUg2vgQTr4J3TFHOc4POx4hEsclbTXPpKxiLGkTlZRNVGnA/eWkVXxzur6+FOWlG1n9mmw0e+I7TF75EtVIXDF55K7sjimn+XI1wg8qYX4erioNuFeUCH8OTL0UlByRnqhL7ZGc13vPNFeSR3PYF2q5ozvq/E3LdR3GYsomvKcXbhXHUOFJa+3LcN+btAmX8JhVuIA6lG7E7I1/B6GYvPGTcN1t8sR3gbGjMLaIxz3xH7QOQRdChkolYpjEhUf4lBI2HIDwgYlO0EeoqVmp5AQuLr3APHRLLj813CM5qrk5m9hCTUBHgqqfW0JyMZMO8XYw8zU2aROG041A4QtGT6KZpOoYvWMiGJvFOd74GLdtcCkUvA/iKjKjRIs2kFQdMOWnZj6N1Eq0yEDYVUVSdLK6cQSLUNxJXKRV/FndVp33XEjaBRs1W/fK50FqBKKPpOQA3fDpeb54C5Ez0NYKV4pCCRc/QY38ElkZwF8aCoWCB0i6Dmi79W6caVqHRejCJCnyIqyHQL6AadVHjTzXeuj4jQLH6/FL8nCXO1FO86Bz/UhDnYBp1aWGDWE6zfIF5OyBYj/M15W90aZS0Kc1k65PiIw7co0W+U+itfXACd1I++gq8pq8gIHfUV6Zb/xjKC6IFjUuNMwvwv15mE4HwdAHWvCHdSNhfm9PZOv9YGIhuyvdkrMTa5JL6ZYc64mMF/pVrUhhAO1MfxdrPd/sokbQWiCvyWHVjgtmmvfGfvdw2tc+pnxxm5Gk6SiS4YF0I0iDYvv1rsB2HDy7ZSVoM5oR5zH8IAXWxgg2AlNMcVTwRM5gxibcic8ViAr3OT8tELbdAEnJAbrxKs07P1RzXC/ydPF9JCUDtPVmG3nnq61GmD4pUvhR+L1H70bMtRE/SEnZhUY6bWCa7c/etdRmy63QLYmMz1e3xzp1Ix55zuxOPE5SdUwdCQF2rRli9vs/vlyx80aRRU+TNB10KML0upxtBNETdb5Fu0JNgTZEhjNJWoW3dTNW8Vsw1wHFPw+LfCeM/Uj069C1FzO2X698Ea6LYGgAYrvJm3DDdnsEadp4fOput7weTSUo9FdSJKwPw/tKqOhZuH8B1kk/aDMw5cbgig/KdCOBU/YS6MCUZkDrBjrNyXAuc1bhKSg4ArtU5sluFRfQFj1rr2lAeWlGUms65FK49tGvTwN3yisfLGtP3ItfDqBTHQocQkbolydFT4GJd9VTXAkY/CnbCALOitepEYjPiHxzrjQ0rJi111bN24S62S2WSjS1yBAGndRlbtlu9CWeJBL6k7TMuH18HZpmq73xh7m20SIykoNyllsOXaiCc6MOL/BBbikZ4pRI8WNqiLejqUYkDFrY1EhXzFlD5MIC7Vb44ENGJNcwkQsPWBMf0W6AkVoiFxbobzoYuKYZcY4QufAIRps2wA7VhqIr1vggkRkMBoPBYDAYjP81HPcnj/EXmUZnvboAAAAASUVORK5CYII='>
                           </a>
 
-                          <a data-toggle="tooltip" data-placement="top" target='_blank' title="Buscar en Google" class="btn btn-danger btn-sm" href="https://www.google.com.do/search?q=<?php echo $data['barcode'];?>">
-                              <i style="color:#fff" class="glyphicon glyphicon-search"> Google</i>
+                          <a data-toggle="tooltip" data-placement="top" target='_blank' title="Buscar en Google" class="btn btn-danger btn-lg" href="https://www.google.com.do/search?q=<?php echo $data['barcode'];?>">
+                              <i style="color:#fff" class="fa fa-fw fa-google"></i>
                           </a>
             <?php
               echo "    </div>

@@ -24,5 +24,11 @@ function sumar_cantidad($id_producto,$qty,$ubicacion){
 	$sql="UPDATE productos SET qty_total='".$qty."', ubicacion='".$ubicacion."' WHERE id_producto='".$id_producto."'";
 	$query_update = mysqli_query($mysqli,$sql);
 } */
-
+function get_bcode($id_producto){
+	global $mysqli;
+	$query = mysqli_query($mysqli, "SELECT id_producto,ubicacion,barcode_final FROM productos WHERE id_producto = $id_producto");
+	$datas  = mysqli_fetch_assoc($query);
+	//$value=$datas['barcode_final'];
+	return $datas;
+}
 ?>

@@ -14,7 +14,10 @@
    <h1>
      <i class="fa fa-edit icon-title"></i> Detalles del Articulo
    </h1>
-    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
+    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Print" class="btn btn-primary btn-lg" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Print</a>
+    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Change Location" class="btn btn-primary btn-lg" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="fa fa-compass"></i> Change location</a>
+    <a title='Sumar y Revivir' class='btn btn-primary btn-sm openBtn_$data[id_producto]'>
+    													<i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>
 
    <ol class="breadcrumb">
      <li><a href="?module=consultrada"><i class="fa fa-home"></i> Inicio </a></li>
@@ -83,7 +86,6 @@
              <?php echo $data['ubicacion']; ?>
            </p>
          </div>
-          <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/socios/print.php?&id=<?php echo $data['barcode'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
            </div>
 
            </div>
