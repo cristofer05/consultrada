@@ -320,12 +320,12 @@ var idioma_español= {
 }
     /**********PASANDO VALOR DEL CAMPO BUSQUEDA A MODAL **************/
         $('#Entrada').on('shown.bs.modal', function () {
-          $("#espacial").val('');
-          $("#comentario").val('');
+          $("#especial").val('');
+          $("#comen").val('');
           $("#qty").val('');
-          $("#ubicacion").val('');
-          $("#peso").val('');
-          $("#formato").val('');
+          $("#location").val('');
+          $("#weight").val('');
+          $("#unit").val('');
             var value_q = $('#value_q3').val();
               if (value_q) {
                 //q3 iene contenido
@@ -336,19 +336,20 @@ var idioma_español= {
                   }else {
                     var value_q = $('#value_q2').val();
                   }
-              }
+              }/*
               var param = {barcode: value_q};
               $.ajax({
               data: param,
               url: "json.php",
               method: "post",
               success: function(resultados) {
-                  document.getElementById("comentario").value = resultados;
+                  document.getElementById("title").innerHTML = resultados;
+                  document.getElementById("titl").value = resultados;
               }
-          });
-
-            document.getElementById("barcode").value = value_q;
-            $("#barcode").focus();
+          });*/
+              document.getElementById('barcode').innerHTML = "ENTRADA UPC: "+value_q;
+              document.getElementById('bcode').value = value_q;
+            // $("#barcode").focus();
         });
 
      /*   $('#EntradaExistente').on('shown.bs.modal', function () {

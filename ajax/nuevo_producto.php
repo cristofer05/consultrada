@@ -1,9 +1,9 @@
 <?php
 
 	/*Inicia validacion del lado del servidor*/
-	if (empty($_POST['barcode'])) {
+	if (empty($_POST['bcode'])) {
            $errors[] = "Código vacío";
-        } else if (empty($_POST['nombre'])){
+        } else if (empty($_POST['titl'])){
 			$errors[] = "Campo nombre vacío";
 		} else if ($_POST['qty']==""){
 			$errors[] = "Campo cantidad vacío";

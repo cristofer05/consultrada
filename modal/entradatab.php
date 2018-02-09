@@ -5,10 +5,9 @@
         <div class="wizard">
             <div class="wizard-inner">
                 <div class="connecting-line"></div>
-								<H1 class="text-center">
-									ENTRADA UPC:
-									 <input type="text" style="border:0px;" class="form-control36" id="barcode" name="barcode" placeholder="Código del producto" value="" readonly>
-								</H1>
+								<h1 class="text-center" id="barcode"> ENTRADA UPC:	</h1>
+								<p class="text-center" id="title"></p>
+
                 <ul class="nav nav-tabs" role="tablist">
 
                     <li role="presentation" class="active">
@@ -106,7 +105,7 @@
 												  <div class="form-group">
 														<h3>Special</h3>
 													<div class="col-sm-12">
-													  <input type="text" class="form-control" id="spacial" name="special" placeholder="What is it?">
+													  <input type="text" class="form-control" id="special" name="special" placeholder="What is it?">
 													</div>
 												  </div>
 												  <div class="form-group">
@@ -148,7 +147,7 @@
 												<div class="row col-md-12">
 													<div class="form-group col-md-8">
 													<h3>Weight</h3>
-														<input type="number" class="form-control" id="Weight" name="Weight" placeholder=" Please enter the Weight" required>
+														<input type="number" class="form-control" id="weight" name="weight" placeholder=" Please enter the Weight" required>
 													</div>
 													<div class="form-group col-md-4">
 														<h3>Mass Unit</h3>
@@ -165,6 +164,8 @@
 														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></li>
 												</ul>
                     </div>
+										<input type="hidden" id="bcode" name="bcode" value="">
+										<input type="hidden" id="titl" name="titl" value="">
                     <div class="tab-pane" role="tabpanel" id="complete">
                         <h3>Almost done!</h3>
                         <p> Make sure the data entered is correct before saving and print. </p>
