@@ -16,8 +16,8 @@
    </h1>
     <a data-toggle="tooltip" data-placement="top" target="_blank" title="Print" class="btn btn-primary btn-lg" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Print</a>
     <a data-toggle="tooltip" data-placement="top" target="_blank" title="Change Location" class="btn btn-primary btn-lg" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="fa fa-compass"></i> Change location</a>
-    <a title='Sumar y Revivir' class='btn btn-primary btn-sm openBtn_$data[id_producto]'>
-    													<i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>
+    <a title='Sumar y Revivir' class='btn btn-primary btn-lg openBtn_$data[id_producto]'>
+      <i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>
 
    <ol class="breadcrumb">
      <li><a href="?module=consultrada"><i class="fa fa-home"></i> Inicio </a></li>
@@ -25,6 +25,10 @@
    </ol>
  </section>
  <!-- Main content -->
+ <?php
+ //include("modal/entrada.php");
+ //include("modal/suma.php");
+ ?>
  <section class="content">
    <div class="row">
      <div class="col-md-12">
@@ -157,6 +161,21 @@
  </section><!-- /.content -->
 
    </div>   <!-- /.row -->
+   <div class="modal fade" id="sumar" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+       <div class="modal-dialog" role="document">
+           <!-- Modal content-->
+           <div class="modal-content">
+               <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                   <h4 class="modal-title">Editando producto</h4>
+               </div>
+
+               <div class="modal-body-sum">
+
+               </div>
+           </div>
+       </div>
+     </div>
 <script type="text/javascript">
    function loading() {
        var popup = document.getElementById("myPopup");
