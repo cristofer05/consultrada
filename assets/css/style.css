@@ -820,9 +820,34 @@ tbody tr:hover {
     background: #fff;
 }
 
+h1#barcode {
+    color: #3c8dbc;
+    background-color: #033444;
+    padding: 7px;
+}
+
+.modal-dialog {
+  margin: 150px auto !important;
+}
+.product-image {
+    position: absolute;
+    top: -138px;
+
+    /* right: 50%; */
+}
+p#title {
+    float: left;
+    color: #003d51;
+    font-size: 35px;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+.product-image img {
+    width: 150px;
+}
+
     .wizard .nav-tabs {
         position: relative;
-        margin: 40px auto;
+        margin: 4px auto;
         margin-bottom: 0;
         border-bottom-color: #e0e0e0;
     }

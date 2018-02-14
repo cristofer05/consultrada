@@ -5,8 +5,19 @@
         <div class="wizard">
             <div class="wizard-inner">
                 <div class="connecting-line"></div>
-								<h1 class="text-center" id="barcode"> ENTRADA UPC:	</h1>
-								<p class="text-center" id="title"></p>
+								<h1 class="text-center" background-color="#000" id="barcode"> ENTRADA UPC:	</h1>
+
+								<div class="row product-image">
+									<div class="row col-xs-12">
+										<div class="col-xs-3">
+											<img src="images/productos/no-foto.png" alt="">
+											</div>
+										<div class="col-xs-9">
+											<p id="title"></p>
+										</div>
+
+									</div>
+								</div>
 
                 <ul class="nav nav-tabs" role="tablist">
 
