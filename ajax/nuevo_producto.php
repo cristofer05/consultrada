@@ -1,48 +1,85 @@
 <?php
-
 	/*Inicia validacion del lado del servidor*/
-	if (empty($_POST['bcode'])) {
-           $errors[] = "Código vacío";
-        } else if (empty($_POST['titl'])){
-			$errors[] = "Campo nombre vacío";
-		} else if ($_POST['qty']==""){
+		if (empty($_POST['bcode'])) {
+      $errors[] = "Código vacío";
+    } else if ($_POST['qty']==""){
 			$errors[] = "Campo cantidad vacío";
 		} else if (empty($_POST['condicion'])){
 			$errors[] = "Campo condicion vacío";
-		} else if (empty($_POST['missing'])){
-			$errors[] = "Campo missing vacío";
-		} else if (empty($_POST['ubicacion'])){
+		} else if (empty($_POST['location'])){
 			$errors[] = "Campo ubicacion vacío";
-		} else if (empty($_POST['peso'])){
+		} else if (empty($_POST['weight'])){
 			$errors[] = "Campo peso vacío";
 		} else if (
-			!empty($_POST['barcode']) &&
+			!empty($_POST['bcode']) &&
 			!empty($_POST['condicion']) &&
 			!empty($_POST['qty']) &&
 			!empty($_POST['nu_foto']) &&
-			!empty($_POST['ubicacion'])
+			!empty($_POST['location'])
 		){
+
+			if (empty($_POST['titl'])){
+				$titulo=$_POST['user']."--".$_POST['nu_foto']."--".$_POST['bcode']."--";
+			}elseif (!empty($_POST['titl'])){
+				$titulo=$_POST['titl'];
+			}
 		/* Connect To Database*/
 		require_once ("../config/database.php");//Contiene funcion que conecta a la base de datos
 		include("../funciones.php");
 		// escaping, additionally removing everything that could be (html/javascript-) code
-		$barcode=mysqli_real_escape_string($mysqli,(strip_tags($_POST["barcode"],ENT_QUOTES)));
-		if ($barcode == "LC") { $barcode = "Does not apply"; }
-		//$nombre=mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombre"],ENT_QUOTES)));
-		$ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["ubicacion"],ENT_QUOTES)));
-		$especial=mysqli_real_escape_string($mysqli,(strip_tags($_POST["especial"],ENT_QUOTES)));
-		$comentario=mysqli_real_escape_string($mysqli,(strip_tags($_POST["comentario"],ENT_QUOTES)));
-		$qty=intval($_POST['qty']);
-		$peso=intval($_POST['peso']);
-		$formato=strval($_POST['formato']);
+		$barcode=mysqli_real_escape_string($mysqli,(strip_tags($_POST["bcode"],ENT_QUOTES)));
 		$condicion=strval($_POST['condicion']);
+		$missing="";
+
+		if (!empty($_POST['missing-b'])) {
+			$missing=$missing." ".$_POST['missing-b'];
+		}
+		if (!empty($_POST['missing-m'])) {
+			$missing=$missing." ".$_POST['missing-m'];
+		}
+		if (!empty($_POST['missing-by'])) {
+			$missing=$missing." ".$_POST['missing-by'];
+		}
+		if (!empty($_POST['missing-w'])) {
+			$missing=$missing." ".$_POST['missing-w'];
+		}
+		if (!empty($_POST['missing-ch'])) {
+			$missing=$missing." ".$_POST['missing-ch'];
+		}
+		if (!empty($_POST['missing-rc'])) {
+			$missing=$missing." ".$_POST['missing-rc'];
+		}
+		if (!empty($_POST['missing-ink'])) {
+			$missing=$missing." ".$_POST['missing-ink'];
+		}
+
+		if ($condicion == "NEW") {
+			$barcode_final=$barcode;
+		} else {
+			$barcode_final=$barcode." ".$condicion;
+			if (!empty($missing)) {
+				$barcode_final=$barcode_final." ".$missing;
+			}
+		}
+		if (substr($barcode,0,2) == "LC") { $barcode = "Does not apply"; }
+
+		//$nombre=mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombre"],ENT_QUOTES)));
+		$ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["location"],ENT_QUOTES)));
+		$especial=mysqli_real_escape_string($mysqli,(strip_tags($_POST["special"],ENT_QUOTES)));
+		$comentario=mysqli_real_escape_string($mysqli,(strip_tags($_POST["coment"],ENT_QUOTES)));
+		if (empty($comentario)) {
+			$comentario="N/A";
+		}
+		$qty=intval($_POST['qty']);
+		$peso=intval($_POST['weight']);
+		$formato=strval($_POST['unit']);
 		if ($condicion == "new") {	$bar_condicion = "";}else {	$bar_condicion = $condicion;	}
-		$missing=strval($_POST['missing']);
 		$nu_foto=strval($_POST['nu_foto']);
 		$date_added=date("Y-m-d H:i:s");
+		/*********************/
 		$img="no-foto.png";
 
-		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, qty_total) VALUES ('$barcode', '$barcode $bar_condicion $missing','$nombre', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $qty)";
+		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, qty_total) VALUES ('$barcode', '$barcode_final','$titulo', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $qty)";
 		$query_new_insert = mysqli_query($mysqli,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
