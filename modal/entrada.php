@@ -12,14 +12,14 @@
 					  <div class="form-group">
 						<label for="barcode" class="col-sm-2 control-label">Barcode</label>
 						<div class="col-sm-9">
-						  <input type="text" class="form-control" id="barcode" name="barcode" placeholder="Código del producto" value="" required autofocus>
+						  <input type="text" class="form-control" id="bcode" name="bcode" placeholder="Código del producto" value="" required autofocus>
 						</div>
 					  </div>
 
 					  <div class="form-group">
 						<label for="nombre" class="col-sm-2 control-label">Nombre</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" required maxlength="200" value="E--639--13803269536 GA--">
+							<input type="text" class="form-control" id="titl" name="titl" placeholder="Nombre del producto" required maxlength="200" value="E--639--13803269536 GA--">
 						</div>
 					  </div>
 				  	</div>
@@ -27,50 +27,50 @@
 				  	  <label for="condicion" class="col-sm-2 control-label"><!--Condicion--></label>
 					  <div class="btn-group" data-toggle="buttons">
 						  <label class="btn btn-primary active btn-esp">
-						    <input type="radio" name="condicion" id="option1" value="new" autocomplete="off" checked> NEW
+						    <input type="radio" name="condicion" id="option1" value="NEW" autocomplete="off" checked> NEW
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="radio" name="condicion" id="option2" value="like" autocomplete="off"> LIKE NEW
+						    <input type="radio" name="condicion" id="option2" value="LIKE NEW" autocomplete="off"> LIKE NEW
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="radio" name="condicion" id="option3" value="ga" autocomplete="off"> GA
+						    <input type="radio" name="condicion" id="option3" value="GA" autocomplete="off"> GA
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="radio" name="condicion" id="option4" value="gb" autocomplete="off"> GB
+						    <input type="radio" name="condicion" id="option4" value="GB" autocomplete="off"> GB
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="radio" name="condicion" id="option5" value="gc" autocomplete="off"> GC
+						    <input type="radio" name="condicion" id="option5" value="GC" autocomplete="off"> GC
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="radio" name="condicion" id="option6" value="re" autocomplete="off"> RE
+						    <input type="radio" name="condicion" id="option6" value="RE" autocomplete="off"> RE
 						  </label>
 						</div>
 
 						<label for="missing" class="col-sm-2 control-label"><!--Missing--></label>
 					  <div class="btn-group" data-toggle="buttons">
 						  <label class="btn btn-primary active btn-esp">
-						    <input type="checkbox" name="missing" id="option1" value="b" autocomplete="off" checked> Box
+						    <input type="checkbox" name="missing" id="option1" value="B" autocomplete="off" checked> Box
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="checkbox" name="missing" id="option2" value="m" autocomplete="off"> Manual
+						    <input type="checkbox" name="missing" id="option2" value="M" autocomplete="off"> Manual
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="checkbox" name="missing" id="option3" value="ba" autocomplete="off"> Battery
+						    <input type="checkbox" name="missing" id="option3" value="BY" autocomplete="off"> Battery
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="checkbox" name="missing" id="option4" value="w" autocomplete="off"> Wallmount
+						    <input type="checkbox" name="missing" id="option4" value="W" autocomplete="off"> Wallmount
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="checkbox" name="missing" id="option4" value="ch" autocomplete="off"> Charger
+						    <input type="checkbox" name="missing" id="option4" value="CH" autocomplete="off"> Charger
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="checkbox" name="missing" id="option4" value="rem" autocomplete="off"> Remote
+						    <input type="checkbox" name="missing" id="option4" value="RC" autocomplete="off"> Remote
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="checkbox" name="missing" id="option4" value="ink" autocomplete="off"> Ink
+						    <input type="checkbox" name="missing" id="option4" value="INK" autocomplete="off"> Ink
 						  </label>
 						  <label class="btn btn-primary btn-esp">
-						    <input type="checkbox" name="missing" id="option4" value="esp" autocomplete="off"> Especial
+						    <input type="checkbox" name="missing" id="option4" value="ESP" autocomplete="off"> Especial
 						  </label>
 						</div>
 				  	</div>
@@ -79,7 +79,7 @@
 				<div class="row col-md-6">
 				  <div class="form-group">
 				  	<div class="text-center">
-					  <img src="images/productos/no-foto.png" class="rounded img-thumbnail" alt="Imagen" width="200">
+					  <img src="images/productos/no-foto.png" class="rounded img-thumbnail" alt="Imagen" width="200" id="img_result">
 					</div>
 				  </div>
 				</div>
@@ -89,13 +89,13 @@
 				  <div class="form-group">
 					<label for="especial" class="col-sm-2 control-label">Especial</label>
 					<div class="col-sm-9">
-					  <input type="text" class="form-control" id="especial" name="especial" placeholder="especial">
+					  <input type="text" class="form-control" id="special" name="special" placeholder="especial">
 					</div>
 				  </div>
 				  <div class="form-group">
 					<label for="comentario" class="col-sm-2 control-label">Comentario</label>
 					<div class="col-sm-9">
-						<textarea class="form-control" rows="2" id="comentario" name="comentario" placeholder="Comentario"></textarea>
+						<textarea class="form-control" rows="2" id="coment" name="coment" placeholder="Comentario"></textarea>
 					</div>
 				  </div>
 			  	</div>
@@ -110,17 +110,17 @@
 				<div class="row col-md-3">
 				  <div class="form-group col-md-10">
 				  <label for="ubicacion" class="col-sm-2 control-label">Ubicacion</label>
-				  	<input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ubicacion" required>
+				  	<input type="text" class="form-control" id="location" name="location" placeholder="Ubicacion" required>
 				  </div>
 				</div>
 				<div class="row col-md-6">
 				  <div class="form-group col-md-8">
 				  <label for="peso" class="col-sm-2 control-label">Peso</label>
-				  	<input type="number" class="form-control" id="peso" name="peso" placeholder="Peso" required>
+				  	<input type="number" class="form-control" id="weight" name="weight" placeholder="Peso" required>
 				  </div>
 				  <div class="form-group col-md-4">
 				  <label for="formato" class="col-sm-2 control-label">Formato</label>
-				   	<select class="form-control" id="formato" name="formato">
+				   	<select class="form-control" id="unit" name="unit">
 				      <option value="lb">LB</option>
 				      <option value="oz">OZ</option>
 				  	</select>

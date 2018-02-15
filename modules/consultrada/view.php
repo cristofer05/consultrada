@@ -1,64 +1,6 @@
-  <?php
-  if (isset($_POST['mod_id']) && $_POST['mod_id'] !=NULL) {
-    if (empty($_POST['mod_qty'])) {
-        $errors[] = "El campo cantidad estaba vacio";
-    } else if (empty($_POST['mod_ubi'])) {
-       $errors[] = "El campo ubicación estaba vacio";
-    } else if (
-      !empty($_POST['mod_qty']) &&
-      !empty($_POST['mod_ubi'])
-    ){
-        $id_producto=$_POST['mod_id'];
-        $qty=intval($_POST['mod_qty']);
-        $ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["mod_ubi"],ENT_QUOTES)));
-        $referencia=strval("Editado");
-        $date_added=date("Y-m-d H:i:s");
-
-        $sql="UPDATE productos SET qty_total='".$qty."', ubicacion='".$ubicacion."' WHERE id_producto='".$id_producto."'";
-        $query_update = mysqli_query($mysqli,$sql);
-
-        if ($query_update){
-          $messages[] = "Producto ha sido actualizado satisfactoriamente.";
-          //$id_producto=get_row('productos','id_producto', 'barcode_final', $barcode_final);
-          $user_id=$_SESSION['id_user'];
-          $firstname=$_SESSION['name_user'];
-          $nota="$firstname editó este producto";
-          echo guardar_historial($id_producto,$user_id,$date_added,$nota,$referencia,$qty,$ubicacion); 
-        } else{
-          $errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
-        }
-    } else {
-      $errors []= "Error desconocido.";
-    }
-
-  if (isset($errors)){    
-  ?>
-  <div class="alert alert-danger" role="alert">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <strong>Error!</strong> 
-      <?php
-        foreach ($errors as $error) {
-            echo $error;
-          }
-        ?>
-  </div>
-  <?php
-  }
-  if (isset($messages)){  
-    ?>
-    <div class="alert alert-success" role="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien hecho!</strong>
-        <?php
-          foreach ($messages as $message) {
-              echo $message;
-            }
-          ?>
-    </div>
-    <?php
-  }
-}
-?>
+<?php
+include("includes/sum_process.php");
+ ?>
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <ol class="breadcrumb">
@@ -75,6 +17,8 @@
     <div class="row">
       <div class="col-lg-12 col-xs-12">
         <img id="logo" src="assets/img/logo-consultrada.png" alt="Consultrada logo"/>
+        <?php include("includes/sum_message.php"); ?>
+        <div id="resultados_final"></div>
         <form class="form-horizontal" role="form" id="datos">
   				<div class="row">
   					<div class="col-md-5 upc">
@@ -126,9 +70,9 @@ function pulsar(e) {
 
 
 /**************Enviar cambios de sumar******************/
-// function submitiendo() { 
+// function submitiendo() {
   /*
-$("#sumar_producto").submit(function( event ) {  
+$("#sumar_producto").submit(function( event ) {
   $('#enviar_sum').attr("disabled", true);
   alert("En proceso");
  var parametros = $(this).serialize();
@@ -164,10 +108,10 @@ $('.nav-tabs > li a[title]').tooltip();
 $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
 
 var $target = $(e.target);
-
 if ($target.parent().hasClass('disabled')) {
   return false;
 }
+
 });
 
 $(".next-step").click(function (e) {

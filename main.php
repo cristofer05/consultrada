@@ -13,7 +13,7 @@ include ("funciones.php");
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Sistema de entradas y consultas de lordcomputer">
-    <meta name="author" content="MediaExperto - Khriz" />
+    <meta name="author" content="MediaExperto" />
 
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
@@ -336,20 +336,23 @@ var idioma_español= {
                   }else {
                     var value_q = $('#value_q2').val();
                   }
-              }
+              }/*
               var param = {barcode: value_q};
               $.ajax({
               data: param,
+              dataType: 'json',
               url: "json.php",
               method: "post",
               success: function(resultados) {
-                  document.getElementById("title").innerHTML = resultados;
-                  document.getElementById("titl").value = resultados;
+                  document.getElementById("title").innerHTML = resultados.titulo;
+                  document.getElementById("titl").value = resultados.titulo;
+                  document.getElementById("img_result").src = resultados.imagen;
               }
-          });
+          });*/
               document.getElementById('barcode').innerHTML = "ENTRADA UPC: "+value_q;
               document.getElementById('bcode').value = value_q;
             // $("#barcode").focus();
+           $('.wizard .nav-tabs li #primero').click();
         });
 
      /*   $('#EntradaExistente').on('shown.bs.modal', function () {
@@ -358,12 +361,13 @@ var idioma_español= {
 
         }); */
 
-/******************FUNCION PARA PASAR ID SUMAR Y REVIVIR*********************/
- /*     function sumrevivir(id) {
-        var valor_id = id;
-      }      */
+/************ESCONDER LOS MENSAJES SUCESS************************/
+setTimeout(function() {
+    $('.alert').fadeOut('slow');
+}, 4000);
 
 /**************CREAR PRODUCTO MODAL******************/
+
 $( "#guardar_producto" ).submit(function( event ) {
   $('#guardar_datos').attr("disabled", true);
 
@@ -376,13 +380,19 @@ $( "#guardar_producto" ).submit(function( event ) {
         $("#resultados_ajax_productos").html("Mensaje: Cargando...");
         },
       success: function(datos){
-      $("#resultados_ajax_productos").html(datos);
+      $("#resultados_final").html(datos);
       $('#guardar_datos').attr("disabled", false);
       load(1);
+      $('#Entrada').modal('hide');
+      /*********ocular sucess*********/
+      setTimeout(function() {
+          $('.alert').fadeOut('slow');
+      }, 4000);
+      /****************************/
       }
   });
   event.preventDefault();
-})
+});
 
 
     </script>

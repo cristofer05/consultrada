@@ -95,7 +95,7 @@
            </div>
            <div class="col-md-4">
              <div class="form-group">
-               <img src="images/productos/no-foto.png" class="rounded img-thumbnail" alt="Imagen" width="90%">
+               <img src="images/productos/<?php echo $data['imagen']; ?>" class="rounded img-thumbnail" alt="Imagen" width="90%">
              </div>
            </div>
          <div class="clearfix"></div>
@@ -123,11 +123,11 @@
                        <tbody>
                        <?php
                        $no = 1;
-                       $query = mysqli_query($mysqli, "SELECT id_log,id_producto,id_usuario,fecha_log,registro,qty,edicion FROM logs where id_producto = $dproducto ORDER BY fecha_log DESC")
+                       $query = mysqli_query($mysqli, "SELECT id_log,id_producto,id_user,fecha_log,registro,qty,edicion FROM logs where id_producto = $dproducto ORDER BY fecha_log DESC")
                                                        or die('error: '.mysqli_error($mysqli));
 
                        while ($data = mysqli_fetch_assoc($query)) {
-                         $usuario = nombre_usuario($data['id_usuario']);
+                         $usuario = nombre_usuario($data['id_user']);
                        echo "<tr>
                                  <td width='5' class='center'>$data[id_log]</td>
                                  <td width='100' class='center'>$data[fecha_log]</td>

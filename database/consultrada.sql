@@ -28,14 +28,14 @@ SET time_zone = "-04:00";
 CREATE TABLE `productos` (
   `id_producto` int(6) NOT NULL,
   `barcode` varchar(18) NOT NULL,
-  `barcode_final` varchar(18) NOT NULL,
+  `barcode_final` varchar(50) NOT NULL,
   `nombre_producto` varchar(100) NOT NULL,
   `condicion` varchar(20) NOT NULL,
-  `missing` varchar(20) NOT NULL,
+  `missing` varchar(40) NOT NULL,
   `qty` int(6) NOT NULL,
   `ubicacion` varchar(10) NOT NULL,
   `nu_foto` varchar(20) NOT NULL,
-  `comentario` varchar(200) NOT NULL,
+  `comentario` varchar(250) NOT NULL,
   `realizado` varchar(20) NOT NULL,
   `imagen` varchar(70) NOT NULL,
   `id_corte` int(6) NOT NULL,
@@ -46,10 +46,10 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `socios`
 --
 
-INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_final`, `nombre_producto`, `condicion`, `missing`, `qty`, `ubicacion`, `nu_foto`, `comentario`, `realizado`, `imagen`, `fecha_creacion`, `qty_total`) VALUES
-('1', '888182998397', '888182998397 GA B','HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, 'B05','101', 'N/A', 'NO', 'notebook.jpg', '2018-01-25 18:43:20',5),
-('2', '013803238310', '888182998397 O M','Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, 'A02','102', 'N/A', 'SI', 'playstation.jpg', '2018-01-25 18:43:20',10),
-('3', '884420736783', '888182998397','AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, 'B25','103', 'N/A', 'NO', 'iphone.jpg', '2018-01-25 18:43:20',25);
+INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_final`, `nombre_producto`, `condicion`, `missing`, `qty`, `ubicacion`, `nu_foto`, `comentario`, `realizado`, `imagen`, `id_corte`, `fecha_creacion`, `qty_total`) VALUES
+('1', '888182998397', '888182998397 GA B','HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, 'B05','101', 'N/A', 'NO', 'notebook.jpg', '0', '2018-01-25 18:43:20',5),
+('2', '013803238310', '013803238310 O M','Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, 'A02','102', 'N/A', 'SI', 'playstation.jpg', '0', '2018-01-25 18:43:20',10),
+('3', '884420736783', '884420736783','AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, 'B25','103', 'N/A', 'NO', 'iphone.jpg', '0', '2018-01-25 18:43:20',25);
 
 -- --------------------------------------------------------
 
@@ -94,9 +94,9 @@ INSERT INTO `socios` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento`,
 --
 
 CREATE TABLE `logs` (
-  `id_log` int(6) NOT NULL,
-  `id_producto` int(6) NOT NULL,
-  `id_usuario` int(6) NOT NULL,
+  `id_log` int(11) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `fecha_log` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `registro` varchar(200) NOT NULL,
   `qty` int(6) NOT NULL,
@@ -108,7 +108,7 @@ CREATE TABLE `logs` (
 -- Volcado de datos para la tabla `logs`
 --
 
-INSERT INTO `logs` (`id_log`, `id_producto`, `id_usuario`, `fecha_log`, `registro`, `qty`,`edicion`) VALUES
+INSERT INTO `logs` (`id_log`, `id_producto`, `id_user`, `fecha_log`, `registro`, `qty`,`edicion`) VALUES
 (1, 1, 1, '2018-01-25 17:09:06', 'Articulo creado', 5,'condicion'),
 (2, 2, 1, '2018-01-25 17:09:06', 'Articulo creado', 2,'cantidad'),
 (3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo'),
@@ -122,7 +122,7 @@ INSERT INTO `logs` (`id_log`, `id_producto`, `id_usuario`, `fecha_log`, `registr
 --
 
 CREATE TABLE `cortes` (
-  `id_corte` int(3) NOT NULL,
+  `id_corte` int(11) NOT NULL,
   `nombre_corte` varchar(100) NOT NULL,
   `fecha` varchar(50) NOT NULL,
   `qty_productos` int(6) NOT NULL
@@ -134,7 +134,7 @@ CREATE TABLE `cortes` (
 --
 
 CREATE TABLE `usuarios` (
-  `id_user` int(3) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `name_user` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -175,12 +175,13 @@ ALTER TABLE `socios`
   ADD KEY `updated_user` (`updated_user`);
 
 --
--- Indices de la tabla `transaccion_medicamentos`
+-- Indices de la tabla `logs`
 --
 
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id_log`),
-  ADD KEY `id_producto` (`id_producto`);
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -237,13 +238,11 @@ ALTER TABLE `socios`
   ADD CONSTRAINT `socios_ibfk_2` FOREIGN KEY (`updated_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `transaccion_medicamentos`
+-- Filtros para la tabla `logs`
 --
-/*
-ALTER TABLE `transaccion_medicamentos`
-  ADD CONSTRAINT `transaccion_medicamentos_ibfk_1` FOREIGN KEY (`codigo`) REFERENCES `socios` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaccion_medicamentos_ibfk_2` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-*/
+ALTER TABLE `logs`
+  ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `logs_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `usuarios` (`id_user`) ON UPDATE CASCADE;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
