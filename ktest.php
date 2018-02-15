@@ -1,16 +1,20 @@
 <?php
 include("mage.php");
 
+$retour = $api->get("stockStatuses/888182998397");
+$re = $api->get("products/888182998397");
+//print_r($retour);
 
+echo "-----------------------------------------------------";
 
-$retour = $api->get("products/888182998397 GA/media");
-echo gettype($retour);
-if (gettype($retour) == "object"){
-  echo "<img src='images/productos/no-foto.png";
-}else{
-  echo "<img src='http://lordcomputer.com/pub/media/catalog/product".
-   $retour[0]->file."' >";
-}
+echo $retour->qty;
+echo "-----------------------------------------------------";
+print_r($re);
+
+echo "-----------------------------------------------------";
+
+echo $re[1]->warehouse_location;
+
 
 
 ?>

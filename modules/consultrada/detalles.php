@@ -171,13 +171,9 @@
                 </div>
                 <!-- /.box -->
       </div>
-
      </div><!--/.col -->
-
    </div>   <!-- /.row -->
-
  </section><!-- /.content -->
-
    </div>   <!-- /.row -->
    <div class="modal fade" id="sumar" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
        <div class="modal-dialog" role="document">
