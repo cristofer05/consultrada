@@ -30,4 +30,14 @@ function get_bcode($id_producto){
 	$datas  = mysqli_fetch_assoc($query);
 	return $datas;
 }
+
+function get_img($sku_producto){
+	include ("mage.php");
+	//Credenciales de magento
+	$api = new maRest("lordcomputer.com");
+	$api->connect("testkelvin","pachy1986");
+	$retour = $api->get("products/$sku_producto/media");
+	return $retour;
+}
+
 ?>
