@@ -5,7 +5,7 @@
         <div class="wizard">
             <div class="wizard-inner">
                 <div class="connecting-line"></div>
-								<h1 class="text-center" background-color="#000" id="barcode"> ENTRADA UPC:	</h1>
+								<h1 class="text-center" id="barcode"> ENTRADA UPC:	</h1>
 
 								<div class="row product-image">
 									<div class="row col-xs-12">
@@ -15,10 +15,9 @@
 										<div class="col-xs-9">
 											<p id="title">Nombre del producto no disponible</p>
 										</div>
-
 									</div>
 								</div>
-
+								
                 <ul class="nav nav-tabs" role="tablist">
 
                     <li role="presentation" class="active">

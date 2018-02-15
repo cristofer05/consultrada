@@ -54,31 +54,31 @@
                </div>
              </div>
              <div class="form-group">
-               <label class="col-sm-3 control-label">NOMBRE:</label>
+               <label class="col-sm-3 control-label">NAME:</label>
                <div class="col-sm-8">
                  <?php echo $data['nombre_producto']; ?>
                </div>
              </div>
              <div class="form-group">
-               <label class="col-sm-3 control-label">UBICACION:</label>
+               <label class="col-sm-3 control-label">LOCATION:</label>
                <div class="col-sm-5">
                 <?php echo $data['ubicacion']; ?>
                </div>
              </div>
              <div class="form-group">
-               <label class="col-sm-3 control-label"># FOTO:</label>
+               <label class="col-sm-3 control-label"># PIC:</label>
                <div class="col-sm-5">
                 <?php echo $data['nu_foto']; ?>
                </div>
              </div>
              <div class="form-group">
-               <label class="col-sm-3 control-label">COMENTARIO:</label>
+               <label class="col-sm-3 control-label">COMMENT:</label>
                <div class="col-sm-5">
                  <?php echo $data['comentario']; ?>
                </div>
              </div>
              <div class="form-group">
-               <label class="col-sm-3 control-label">REALIZADO</label>
+               <label class="col-sm-3 control-label">READY</label>
                <div class="col-sm-5">
                 <?php echo $data['realizado']; ?>
                </div>
@@ -95,13 +95,31 @@
            </div>
            <div class="col-md-4">
              <div class="form-group">
-               <img src="images/productos/<?php echo $data['imagen']; ?>" class="rounded img-thumbnail" alt="Imagen" width="90%">
+               <?php
+               if ($data['realizado'] == "SI"){
+                 $sku= get_img($data['barcode_final']);
+
+                   if (gettype($sku) != "object"){
+                     echo "<img src='http://lordcomputer.com/pub/media/catalog/product".
+                   	 $sku[0]->file."'class='rounded img-thumbnail' alt='Imagen'>";
+                   }else{
+                      echo "<img src='images/productos/no-foto.png' class='rounded img-thumbnail' alt='Imagen' width='100%'>";
+                      echo "<br /><br /><div class='alert alert-danger alert-dismissible'>
+                        <button type='button' class='close data-dismiss='alert' aria-hidden='true'>×</button>
+                        <h4><i class='icon fa fa-ban'></i> Alert!</h4>
+                        <p>Revisar: Barcode no coincide en Magento</p>
+                      </div>";
+                    }
+                }else{
+                   echo "<img src='images/productos/no-foto.png' class='rounded img-thumbnail' alt='Imagen' width='100%'>";
+                 }
+                ?>
              </div>
            </div>
          <div class="clearfix"></div>
            <div class="logdetalles">
              <h1 class='text-center'>
-               <i class="fa fa-edit icon-title"></i> Log del Articulo
+               <i class="fa fa-edit icon-title"></i> PRODUCT LOG
              </h1>
              <div class="row">
                <div class="col-md-12">
@@ -113,11 +131,11 @@
                        <thead>
                          <tr>
                            <th class="center">ID</th>
-                           <th class="center">FECHA</th>
-                           <th class="center">USUARIO</th>
-                           <th class="center">REGISTRO</th>
+                           <th class="center">DATE</th>
+                           <th class="center">USER</th>
+                           <th class="center">REGISTER</th>
                            <th class="center">QTY</th>
-                           <th class="center">EDICION</th>
+                           <th class="center">EDITION</th>
                          </tr>
                        </thead>
                        <tbody>
