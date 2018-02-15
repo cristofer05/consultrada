@@ -336,7 +336,7 @@ var idioma_español= {
                   }else {
                     var value_q = $('#value_q2').val();
                   }
-              }/*
+              }
               var param = {barcode: value_q};
               $.ajax({
               data: param,
@@ -348,7 +348,7 @@ var idioma_español= {
                   document.getElementById("titl").value = resultados.titulo;
                   document.getElementById("img_result").src = resultados.imagen;
               }
-          });*/
+          });
               document.getElementById('barcode').innerHTML = "ENTRADA UPC: "+value_q;
               document.getElementById('bcode').value = value_q;
             // $("#barcode").focus();
