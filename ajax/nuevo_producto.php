@@ -20,7 +20,7 @@
 
 			if (empty($_POST['titl'])){
 				$titulo=$_POST['user']."--".$_POST['nu_foto']."--".$_POST['bcode']."--";
-			} else if (!empty($_GET['titl'])){
+			}elseif (!empty($_POST['titl'])){
 				$titulo=$_POST['titl'];
 			}
 		/* Connect To Database*/
