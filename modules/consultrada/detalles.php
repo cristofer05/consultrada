@@ -18,6 +18,12 @@
     <a data-toggle="tooltip" data-placement="top" target="_blank" title="Change Location" class="btn btn-primary btn-lg" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="fa fa-compass"></i> Change location</a>
     <a title='Sumar y Revivir' class='btn btn-primary btn-lg openBtn_$data[id_producto]'>
       <i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>
+    <?php
+      if ($data['realizado'] == "SI") {
+        echo "<a  data-toggle='tooltip' data-placement='top' title='MAGENTO' class='btn btn-primary btn-lg' href='main.php?module=vermagento&id=$data[id_producto]' ><i style='color:#fff' class='fa fa-shopping-cart'> MAGENTO</i></a>";
+      }
+     ?>
+
 
    <ol class="breadcrumb">
      <li><a href="?module=consultrada"><i class="fa fa-home"></i> Inicio </a></li>
@@ -95,25 +101,7 @@
            </div>
            <div class="col-md-4">
              <div class="form-group">
-               <?php
-               if ($data['realizado'] == "SI"){
-                 $sku= get_img($data['barcode_final']);
-
-                   if (gettype($sku) != "object"){
-                     echo "<img src='http://lordcomputer.com/pub/media/catalog/product".
-                   	 $sku[0]->file."'class='rounded img-thumbnail' alt='Imagen'>";
-                   }else{
-                      echo "<img src='images/productos/no-foto.png' class='rounded img-thumbnail' alt='Imagen' width='100%'>";
-                      echo "<br /><br /><div class='alert alert-danger alert-dismissible'>
-                        <button type='button' class='close data-dismiss='alert' aria-hidden='true'>×</button>
-                        <h4><i class='icon fa fa-ban'></i> Alert!</h4>
-                        <p>Revisar: Barcode no coincide en Magento</p>
-                      </div>";
-                    }
-                }else{
-                   echo "<img src='images/productos/no-foto.png' class='rounded img-thumbnail' alt='Imagen' width='100%'>";
-                 }
-                ?>
+               <img src='images/productos/no-foto.png' class='rounded img-thumbnail' alt='Imagen' width='100%'>
              </div>
            </div>
          <div class="clearfix"></div>

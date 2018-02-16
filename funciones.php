@@ -31,13 +31,28 @@ function get_bcode($id_producto){
 	return $datas;
 }
 
-function get_img($sku_producto){
+function get_magento($sku_producto){
+	global $api;
 	include ("mage.php");
-	//Credenciales de magento
-	$api = new maRest("lordcomputer.com");
-	$api->connect("testkelvin","pachy1986");
-	$retour = $api->get("products/$sku_producto/media");
+	$retour = $api->get("products/$sku_producto");
 	return $retour;
+}
+
+function get_magento_qty($sku_producto){
+	global $api;
+	$retour = $api->get("stockItems/$sku_producto");
+	return $retour;
+}
+// Funcion Cambiar ubicacion en Magento
+function put_magento_location($sku_producto,$sku_location){
+	global $api;
+	$datos = array(
+	  "product" => array(
+	      'custom_attributes'  => array(
+	        'warehouse_location' => $sku_location
+	      ),
+	  ));
+	return $retour = $api->put("products/$sku_producto",$datos);
 }
 
 ?>

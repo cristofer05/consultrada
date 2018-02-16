@@ -17,7 +17,7 @@
 										</div>
 									</div>
 								</div>
-								
+
                 <ul class="nav nav-tabs" role="tablist">
 
                     <li role="presentation" class="active">
@@ -128,8 +128,8 @@
 										  	<div class="clearfix"></div>
 
                         <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-primary next-step">Next</button></li>
-														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></li>
+                            <li><button type="button" class="btn btn-primary next-step btn-lg">Next</button></li>
+														<li><button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Close</button></li>
 												</ul>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="step2">
@@ -147,9 +147,9 @@
 										</div>
 										<div class="clearfix"></div>
                         <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-primary next-step">Next</button></li>
-														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></li>
+                            <li><button type="button" class="btn btn-default prev-step btn-lg">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary next-step btn-lg">Next</button></li>
+														<li><button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Close</button></li>
 												</ul>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="step3">
@@ -168,9 +168,9 @@
 												</div>
 												<div class="clearfix"></div>
                         <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Next</button></li>
-														<li><button type="button" class="btn btn-danger" data-dismiss="modal">Close</button></li>
+                            <li><button type="button" class="btn btn-default prev-step btn-lg">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step btn-lg">Next</button></li>
+														<li><button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Close</button></li>
 												</ul>
                     </div>
 										<?php
@@ -194,8 +194,8 @@
                         <h3>Almost done!</h3>
                         <p> Make sure the data entered is correct before saving and print. </p>
 												<ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
-                            <li><button type="submit" class="btn btn-primary btn-info-full" id="guardar_datos">Save and Print</button></li>
+                            <li><button type="button" class="btn btn-default prev-step btn-lg">Previous</button></li>
+                            <li><button type="submit" class="btn btn-primary btn-info-full btn-lg" id="guardar_datos">Save and Print</button></li>
 												</ul>
 										</div>
                     <div class="clearfix"></div>

@@ -64,5 +64,8 @@ else {
 	elseif ($_GET['module'] == 'detalles') {
 		include "modules/consultrada/detalles.php";
 	}
+	elseif ($_GET['module'] == 'vermagento') {
+		include "modules/consultrada/vermagento.php";
+	}
 }
 ?>
