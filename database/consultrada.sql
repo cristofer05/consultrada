@@ -100,7 +100,8 @@ CREATE TABLE `logs` (
   `fecha_log` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `registro` varchar(200) NOT NULL,
   `qty` int(6) NOT NULL,
-  `edicion` varchar(50) NOT NULL
+  `edicion` varchar(50) NOT NULL,
+  `ubicacion` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -108,13 +109,13 @@ CREATE TABLE `logs` (
 -- Volcado de datos para la tabla `logs`
 --
 
-INSERT INTO `logs` (`id_log`, `id_producto`, `id_user`, `fecha_log`, `registro`, `qty`,`edicion`) VALUES
-(1, 1, 1, '2018-01-25 17:09:06', 'Articulo creado', 5,'condicion'),
-(2, 2, 1, '2018-01-25 17:09:06', 'Articulo creado', 2,'cantidad'),
-(3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo'),
-(4, 1, 1, '2018-02-02 17:09:06', 'Articulo creado', 0,'condicion'),
-(5, 2, 1, '2018-02-06 17:09:06', 'Articulo creado', 0,'cantidad'),
-(6, 2, 1, '2018-02-05 17:09:06', 'Articulo creado', 0,'titulo');
+INSERT INTO `logs` (`id_log`, `id_producto`, `id_user`, `fecha_log`, `registro`, `qty`,`edicion`,`ubicacion`) VALUES
+(1, 1, 1, '2018-01-25 17:09:06', 'Articulo creado', 5,'condicion','A15'),
+(2, 2, 1, '2018-01-25 17:09:06', 'Articulo creado', 2,'cantidad','A18'),
+(3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo','A25'),
+(4, 1, 1, '2018-02-02 17:09:06', 'Articulo creado', 0,'condicion','A30'),
+(5, 2, 1, '2018-02-06 17:09:06', 'Articulo creado', 0,'cantidad','A35'),
+(6, 2, 1, '2018-02-05 17:09:06', 'Articulo creado', 0,'titulo','A40');
 
 -- --------------------------------------------------------
 --

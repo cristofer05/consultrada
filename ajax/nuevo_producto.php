@@ -1,4 +1,7 @@
 <?php
+require_once "../config/database.php";
+session_start();
+//include ("../funciones.php");
 	/*Inicia validacion del lado del servidor*/
 		if (empty($_POST['bcode'])) {
       $errors[] = "Código vacío";
@@ -93,10 +96,11 @@
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
 				$id_producto=get_row('productos','id_producto', 'barcode', $barcode);
-			//	$user_id=$_SESSION['id_user'];
-			//	$firstname=$_SESSION['name_user'];
+				$user_id=$_SESSION['id_user'];
+				$firstname=$_SESSION['name_user'];
 				$nota="Articulo creado";
-			//	echo guardar_historial($id_producto,$user_id,$date_added,$nota,$codigo,$stock,$ubicacion);
+				$edicion="creado";
+				echo guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion);
 
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($mysqli);

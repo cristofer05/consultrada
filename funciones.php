@@ -13,11 +13,13 @@ function get_row($table,$row, $id, $equal){
 	$value=$rw[$row];
 	return $value;
 }
-function guardar_historial($id_producto,$user_id,$fecha,$nota,$reference,$quantity,$ubicacion){
+function guardar_historial($id_producto,$user_id,$fecha,$registro,$quantity,$edicion,$ubicacion){
 	global $mysqli;
-	$sql="INSERT INTO logs (id_historial, id_producto, user_id, fecha, nota, referencia, cantidad, ubicacion)
-	VALUES (NULL, '$id_producto', '$user_id', '$fecha', '$nota', '$reference', '$quantity', '$ubicacion');";
+	$sql="INSERT INTO logs (id_historial, id_producto, id_user, fecha_log, registro, qty, edicion, ubicacion)
+	VALUES (NULL, $id_producto, $user_id, '$fecha', '$registro', $quantity, '$edicion', '$ubicacion');";
 	$query=mysqli_query($mysqli,$sql);
+	return $query;
+
 }/*
 function sumar_cantidad($id_producto,$qty,$ubicacion){
 	global $mysqli;
