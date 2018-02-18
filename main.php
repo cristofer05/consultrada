@@ -326,6 +326,10 @@ var idioma_español= {
           $("#location").val('');
           $("#weight").val('');
           $("#unit").val('');
+          function(){
+        /*  $(".check").attr('checked',true);
+          $("#check").addClass('active'); */
+          }
             var value_q = $('#value_q3').val();
               if (value_q) {
                 //q3 iene contenido

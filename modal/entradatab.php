@@ -59,8 +59,8 @@
 											<div class="row col-md-6">
                         <h3>Condition</h3>
 												<div class="btn-group" data-toggle="buttons">
-												  <label class="btn btn-primary active btn-esp">
-												    <input type="radio" name="condicion" value="NEW" id="option1" autocomplete="off" checked> NEW
+												  <label class="btn btn-primary active btn-esp" id="check">
+												    <input type="radio" name="condicion" value="NEW" id="option1" class="check" autocomplete="off" checked> NEW
 												  </label>
 												  <label class="btn btn-primary btn-esp">
 												    <input type="radio" name="condicion" value="O" id="option2" autocomplete="off"> LIKE NEW
