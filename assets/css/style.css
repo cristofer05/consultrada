@@ -798,6 +798,9 @@ tbody tr:hover {
 }
 
 /*********MODAL ENTRADA*************/
+.ent_left{
+    left:-115px;
+}
 
 .btn-group-vertical>.btn, .btn-group>.btn {
   font-size: 20px !important;
@@ -985,5 +988,15 @@ span.round-tab:hover {
         content: " ";
         position: absolute;
         left: 35%;
+    }
+}
+
+/*******ESTILO EXTRA PARA MODAL SUMA*********/
+@media (min-width: 992px) {
+    .lbl_sum{
+        margin-right: 35px !important;
+    }
+    .inp_sum{
+        width: 186px !important;
     }
 }

@@ -101,7 +101,7 @@
            </div>
            <div class="col-md-4">
              <div class="form-group">
-               <img src='images/productos/no-foto.png' class='rounded img-thumbnail' alt='Imagen' width='100%'>
+               <img src='images/productos/<?php echo $data['imagen']; ?>' class='rounded img-thumbnail' alt='Imagen' width='100%'>
              </div>
            </div>
          <div class="clearfix"></div>

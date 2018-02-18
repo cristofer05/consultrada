@@ -347,6 +347,7 @@ var idioma_español= {
                   document.getElementById("title").innerHTML = resultados.titulo;
                   document.getElementById("titl").value = resultados.titulo;
                   document.getElementById("img_result").src = resultados.imagen;
+                  document.getElementById("img_res").value= resultados.imagen;
               }
           });
               document.getElementById('barcode').innerHTML = "ENTRADA UPC: "+value_q;
