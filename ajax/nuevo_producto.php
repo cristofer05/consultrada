@@ -100,7 +100,7 @@ session_start();
 				$firstname=$_SESSION['name_user'];
 				$nota="Articulo creado";
 				$edicion="creado";
-				echo guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion);
+				guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion);
 
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($mysqli);

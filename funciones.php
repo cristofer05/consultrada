@@ -15,8 +15,8 @@ function get_row($table,$row, $id, $equal){
 }
 function guardar_historial($id_producto,$user_id,$fecha,$registro,$quantity,$edicion,$ubicacion){
 	global $mysqli;
-	$sql="INSERT INTO logs (id_historial, id_producto, id_user, fecha_log, registro, qty, edicion, ubicacion)
-	VALUES (NULL, $id_producto, $user_id, '$fecha', '$registro', $quantity, '$edicion', '$ubicacion');";
+	$sql="INSERT INTO logs (id_producto, id_user, fecha_log, registro, qty, edicion, ubicacion)
+	VALUES ($id_producto, $user_id, '$fecha', '$registro', $quantity, '$edicion', '$ubicacion')";
 	$query=mysqli_query($mysqli,$sql);
 	return $query;
 
