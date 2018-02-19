@@ -183,7 +183,6 @@
 										} else {
 											$nu_foto = "1";
 										}
-
 										?>
 										<input type="hidden" id="bcode" name="bcode" value="">
 										<input type="hidden" id="titl" name="titl" value="">

@@ -7,6 +7,18 @@
      $sku = $data['barcode_final'];
      $mage = get_magento($sku);
      $mage_qty = get_magento_qty($sku);
+
+        if (property_exists($mage,"message")) {
+          Echo " <section class='content'>
+            <div class='row'>
+              <div class='col-md-12'>
+          <div class='callout callout-warning'>
+                <h4>Product not match!</h4>
+
+                <p>Check in magento, there must be a problem with the Barcode : <b>$sku</b></p>
+              </div></div></div></section>";
+        }else{
+
 //Asignar valores a los atributos
      for ($i=0; $i < count($mage->custom_attributes) ; $i++) {
        switch ($mage->custom_attributes[$i]->attribute_code) {
@@ -34,7 +46,7 @@
            break;
        }
      }
-   }
+
 
    //Observaciones
    $observations = "";
@@ -239,3 +251,6 @@
    </div>   <!-- /.row -->
        </div>
      </div>
+<?php
+}}
+ ?>

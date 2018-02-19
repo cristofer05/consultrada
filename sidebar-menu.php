@@ -259,7 +259,6 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
         <th class="center">No.</th>
         <th class="center">Bcode</th>
         <th class="center">UBI</th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -270,112 +269,14 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
 
     while ($data = mysqli_fetch_assoc($query)) {
       $bcode = get_bcode($data['id_producto']);
-
-    echo "
-
-    <tr>
-              <td width='5' class='center'>$no</td>
-              <td width='250'><a color='#FFF' target='_blank' href='main.php?module=detalles&id=$data[id_producto]' >$bcode[barcode_final]</a></td>
-              <td width='80'>$bcode[ubicacion]</td>
-            </tr></a>";
+    echo "<tr>
+            <td width='5' class='center'>$no</td>
+            <td width='250'><a color='#FFF' target='_blank' href='main.php?module=detalles&id=$data[id_producto]' >$bcode[barcode_final]</a></td>
+            <td width='80'>$bcode[ubicacion]</td>
+          </tr>";
       $no++;
     }
     ?>
-    <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
-            <tr>
-              <td width="5" class="center">6</td>
-              <td width="250"><a color="#FFF" target="_blank" href="main.php?module=detalles&amp;id=3">888182998397</a></td>
-              <td width="80">B25</td>
-            </tr>
     </tbody>
   </table>
 </div>

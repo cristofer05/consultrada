@@ -1,17 +1,21 @@
 <?php
 include("mage.php");
 
-//$retour = $api->get("stockStatuses/888182998397");
-//$re = $api->get("stockItems/888182998397");
+$retour = $api->get("stockStatuses/888182998397");
+$re = $api->get("stockItems/888182998397 ");
 //print_r($retour);
 
 echo "-----------------------------------------------------";
 
 //echo $retour->qty;
 echo "-----------------------------------------------------";
-//print_r($re);
+print_r($re);
 
 echo "-----------------------------------------------------<pre>";
+if (property_exists($re,"message")) {
+  echo "ERROR PROPDUCTO NO ENCONTRADO";
+}else{echo "SI EXISTE";}
+//echo $re->message;
 //Galeria de fotos
 //echo $re->media_gallery_entries[0]->file;
 //echo $re->media_gallery_entries[1]->file;
@@ -26,7 +30,7 @@ $datos = array(
         'warehouse_location' => 'A32'
       ),
   ));
-$retour = $api->put("products/793795526212 O",$datos);
+// $retour = $api->put("products/793795526212 O",$datos);
 
 ?>
 
