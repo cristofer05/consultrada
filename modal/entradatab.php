@@ -1,6 +1,6 @@
 <div class="modal fade" id="Entrada" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	  <div class="modal-dialog" role="document">
-		<div class="modal-content modal-lg">
+		<div class="modal-content modal-lg ent_left">
 		<section>
         <div class="wizard">
             <div class="wizard-inner">
@@ -59,8 +59,8 @@
 											<div class="row col-md-6">
                         <h3>Condition</h3>
 												<div class="btn-group" data-toggle="buttons">
-												  <label class="btn btn-primary active btn-esp">
-												    <input type="radio" name="condicion" value="NEW" id="option1" autocomplete="off" checked> NEW
+												  <label class="btn btn-primary active btn-esp" id="check">
+												    <input type="radio" name="condicion" value="NEW" id="option1" class="check" autocomplete="off" checked> NEW
 												  </label>
 												  <label class="btn btn-primary btn-esp">
 												    <input type="radio" name="condicion" value="O" id="option2" autocomplete="off"> LIKE NEW
@@ -187,6 +187,7 @@
 										?>
 										<input type="hidden" id="bcode" name="bcode" value="">
 										<input type="hidden" id="titl" name="titl" value="">
+										<input type="hidden" id="img_res" name="img_res" value="">
 										<input type="hidden" id="user" name="user" value="<?php echo substr($_SESSION['name_user'],0,1); ?>">
 										<input type="hidden" id="nu_foto" name="nu_foto" value="<?php echo $nu_foto; ?>">
                     <div class="tab-pane" role="tabpanel" id="complete">

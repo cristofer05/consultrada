@@ -326,6 +326,10 @@ var idioma_español= {
           $("#location").val('');
           $("#weight").val('');
           $("#unit").val('');
+          function(){
+        /*  $(".check").attr('checked',true);
+          $("#check").addClass('active'); */
+          }
             var value_q = $('#value_q3').val();
               if (value_q) {
                 //q3 iene contenido
@@ -347,6 +351,7 @@ var idioma_español= {
                   document.getElementById("title").innerHTML = resultados.titulo;
                   document.getElementById("titl").value = resultados.titulo;
                   document.getElementById("img_result").src = resultados.imagen;
+                  document.getElementById("img_res").value= resultados.imagen;
               }
           });
               document.getElementById('barcode').innerHTML = "ENTRADA UPC: "+value_q;

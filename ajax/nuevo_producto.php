@@ -1,4 +1,7 @@
 <?php
+require_once "../config/database.php";
+session_start();
+//include ("../funciones.php");
 	/*Inicia validacion del lado del servidor*/
 		if (empty($_POST['bcode'])) {
       $errors[] = "Código vacío";
@@ -23,6 +26,15 @@
 			}elseif (!empty($_POST['titl'])){
 				$titulo=$_POST['titl'];
 			}
+
+			if (!empty($_POST['img_res'])) {
+				$imagen=file_get_contents($_POST['img_res']);
+				$img_name='img_'.time().'.jpg';
+				file_put_contents('../images/productos/'.$img_name, $imagen);
+				$img=$img_name;
+			}else {
+				$img="no-foto.png";
+			}
 		/* Connect To Database*/
 		require_once ("../config/database.php");//Contiene funcion que conecta a la base de datos
 		include("../funciones.php");
@@ -32,25 +44,25 @@
 		$missing="";
 
 		if (!empty($_POST['missing-b'])) {
-			$missing=$missing." ".$_POST['missing-b'];
+			$missing=$missing.$_POST['missing-b']." ";
 		}
 		if (!empty($_POST['missing-m'])) {
-			$missing=$missing." ".$_POST['missing-m'];
+			$missing=$missing.$_POST['missing-m']." ";
 		}
 		if (!empty($_POST['missing-by'])) {
-			$missing=$missing." ".$_POST['missing-by'];
+			$missing=$missing.$_POST['missing-by']." ";
 		}
 		if (!empty($_POST['missing-w'])) {
-			$missing=$missing." ".$_POST['missing-w'];
+			$missing=$missing.$_POST['missing-w']." ";
 		}
 		if (!empty($_POST['missing-ch'])) {
-			$missing=$missing." ".$_POST['missing-ch'];
+			$missing=$missing.$_POST['missing-ch']." ";
 		}
 		if (!empty($_POST['missing-rc'])) {
-			$missing=$missing." ".$_POST['missing-rc'];
+			$missing=$missing.$_POST['missing-rc']." ";
 		}
 		if (!empty($_POST['missing-ink'])) {
-			$missing=$missing." ".$_POST['missing-ink'];
+			$missing=$missing.$_POST['missing-ink']." ";
 		}
 
 		if ($condicion == "NEW") {
@@ -59,6 +71,7 @@
 			$barcode_final=$barcode." ".$condicion;
 			if (!empty($missing)) {
 				$barcode_final=$barcode_final." ".$missing;
+				$barcode_final=substr($barcode_final, 0, -1);
 			}
 		}
 		if (substr($barcode,0,2) == "LC") { $barcode = "Does not apply"; }
@@ -77,17 +90,17 @@
 		$nu_foto=strval($_POST['nu_foto']);
 		$date_added=date("Y-m-d H:i:s");
 		/*********************/
-		$img="no-foto.png";
 
 		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, qty_total) VALUES ('$barcode', '$barcode_final','$titulo', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $qty)";
 		$query_new_insert = mysqli_query($mysqli,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
 				$id_producto=get_row('productos','id_producto', 'barcode', $barcode);
-			//	$user_id=$_SESSION['id_user'];
-			//	$firstname=$_SESSION['name_user'];
+				$user_id=$_SESSION['id_user'];
+				$firstname=$_SESSION['name_user'];
 				$nota="Articulo creado";
-			//	echo guardar_historial($id_producto,$user_id,$date_added,$nota,$codigo,$stock,$ubicacion);
+				$edicion="creado";
+				guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion);
 
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($mysqli);

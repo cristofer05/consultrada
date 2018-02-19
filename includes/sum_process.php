@@ -14,7 +14,21 @@ if (isset($_POST['mod_id']) && $_POST['mod_id'] !=NULL) {
       $referencia=strval("Editado");
       $date_added=date("Y-m-d H:i:s");
 
-      $sql="UPDATE productos SET qty_total='".$qty."', ubicacion='".$ubicacion."' WHERE id_producto='".$id_producto."'";
+      $query_verificar=mysqli_query($mysqli,"select ubicacion, qty_total from productos where id_producto=".$id_producto);
+    	$datas_v = mysqli_fetch_assoc($query_verificar);
+      $qty_v=$datas_v['qty_total'];
+      $ubi_v=$datas_v['ubicacion'];
+
+      if ($qty!=$qty_v) {
+        $edicion="cantidad";
+        if ($ubicacion!=$ubi_v) {
+          $edicion="cantidad y ubicacion";
+        }
+      }elseif ($ubicacion!=$ubi_v) {
+        $edicion="ubicacion";
+      }
+
+      $sql="UPDATE productos SET qty_total=".$qty.", ubicacion='".$ubicacion."' WHERE id_producto=".$id_producto;
       $query_update = mysqli_query($mysqli,$sql);
 
       if ($query_update){
@@ -22,8 +36,8 @@ if (isset($_POST['mod_id']) && $_POST['mod_id'] !=NULL) {
         //$id_producto=get_row('productos','id_producto', 'barcode_final', $barcode_final);
         $user_id=$_SESSION['id_user'];
         $firstname=$_SESSION['name_user'];
-        $nota="$firstname editó este producto";
-        echo guardar_historial($id_producto,$user_id,$date_added,$nota,$referencia,$qty,$ubicacion);
+        $nota="Articulo editado";
+        guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion);
       } else{
         $errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
       }
