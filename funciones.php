@@ -30,14 +30,14 @@ function get_bcode($id_producto){
 	$datas  = mysqli_fetch_assoc($query);
 	return $datas;
 }
-
+// Funcion optener datos de Magento
 function get_magento($sku_producto){
 	global $api;
 	include ("mage.php");
 	$retour = $api->get("products/$sku_producto");
 	return $retour;
 }
-
+// Funcion optener ubicacion Magento
 function get_magento_qty($sku_producto){
 	global $api;
 	$retour = $api->get("stockItems/$sku_producto");
