@@ -326,10 +326,10 @@ var idioma_español= {
           $("#location").val('');
           $("#weight").val('');
           $("#unit").val('');
-          function(){
+        /*   function(){
         /*  $(".check").attr('checked',true);
-          $("#check").addClass('active'); */
-          }
+          $("#check").addClass('active');
+          } */
             var value_q = $('#value_q3').val();
               if (value_q) {
                 //q3 iene contenido
@@ -398,8 +398,6 @@ $( "#guardar_producto" ).submit(function( event ) {
   });
   event.preventDefault();
 });
-
-
     </script>
 
   </body>

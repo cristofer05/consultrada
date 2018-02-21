@@ -30,10 +30,13 @@ session_start();
 			if (!empty($_POST['img_res'])) {
 				$imagen=file_get_contents($_POST['img_res']);
 				$img_name='img_'.time().'.jpg';
-				file_put_contents('../images/productos/'.$img_name, $imagen);
-				$img=$img_name;
+				if (!is_dir('../images/productos/'.$_POST['bcode'])) {
+		    	mkdir('../images/productos/'.$_POST['bcode'], 0777, true);
+					}
+				file_put_contents('../images/productos/'.$_POST['bcode'].'/'.$img_name, $imagen);
+				$img=$_POST['bcode'].'/'.$img_name;
 			}else {
-				$img="no-foto.png";
+				$img='no-foto.png';
 			}
 		/* Connect To Database*/
 		require_once ("../config/database.php");//Contiene funcion que conecta a la base de datos

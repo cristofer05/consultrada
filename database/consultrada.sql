@@ -154,7 +154,8 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_user`, `username`, `name_user`, `password`, `email`, `telefono`, `foto`, `permisos_acceso`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Lord Computer Admin', '21232f297a57a5a743894a0e4a801fc3', 'info@lordcomputer.com', '827-123-4564', 'foto.jpg', 'Super Admin', 'activo', '2017-01-26 08:15:15', '2017-01-26 08:15:15'),
-(2, 'demo', 'Demostracion', '21232f297a57a5a743894a0e4a801fc3', 'demo@demo.com', '809-000-9999', '1469574176_users-7.png', 'Almacen', 'activo', '2017-01-26 22:34:03', '2017-01-26 22:34:03');
+(2, 'kelvin', 'Kelvin Reyes', '21232f297a57a5a743894a0e4a801fc3', 'ingkelvinreyes@gmail.com', '829-713-8928', 'foto.jpg', 'Super Admin', 'activo', '2017-01-26 08:15:15', '2017-01-26 08:15:15'),
+(3, 'demo', 'Demostracion', '21232f297a57a5a743894a0e4a801fc3', 'demo@demo.com', '809-000-9999', '1469574176_users-7.png', 'Almacen', 'activo', '2017-01-26 22:34:03', '2017-01-26 22:34:03');
 
 --                              --
 -- Índices para tablas volcadas --

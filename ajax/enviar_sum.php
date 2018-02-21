@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "../config/database.php";
 include ("../funciones.php");
 
@@ -19,27 +19,27 @@ if (empty($_POST['mod_qty'])) {
 	$sql="UPDATE productos SET qty_total='".$qty."', ubicacion='".$ubicacion."' WHERE id_producto='".$id_producto."'";
 	$query_update = mysqli_query($mysqli,$sql);
 
-	if ($query_update){
+	if ($query_update = mysqli_query($mysqli,$sql) ){
 		$messages[] = "Producto ha sido actualizado satisfactoriamente.";
 		//$id_producto=get_row('productos','id_producto', 'barcode_final', $barcode_final);
 		$user_id=$_SESSION['id_user'];
 		$firstname=$_SESSION['name_user'];
 		$nota="$firstname editó este producto";
-		echo guardar_historial($id_producto,$user_id,$date_added,$nota,$referencia,$qty,$ubicacion);
-		
+		guardar_historial($id_producto,$user_id,$date_added,$nota,$referencia,$qty,$ubicacion);
+
 	} else{
 		$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 	}
-	
+
 } else {
 			$errors []= "Error desconocido.";
 }
 
-if (isset($errors)){		
+if (isset($errors)){
 ?>
 <div class="alert alert-danger" role="alert">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
-		<strong>Error!</strong> 
+		<strong>Error!</strong>
 		<?php
 			foreach ($errors as $error) {
 					echo $error;
@@ -48,7 +48,7 @@ if (isset($errors)){
 </div>
 <?php
 }
-if (isset($messages)){	
+if (isset($messages)){
 	?>
 	<div class="alert alert-success" role="alert">
 			<button type="button" class="close" data-dismiss="alert">&times;</button>
