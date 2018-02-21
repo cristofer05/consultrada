@@ -59,7 +59,7 @@ function put_magento_location($sku_producto,$sku_location){
 
 function get_total_log($user,$edition){
 	global $mysqli;
-	$query = mysqli_query($mysqli, "SELECT count(*) FROM logs WHERE edicion=$edition");
+	$query = mysqli_query($mysqli, "SELECT count(*) as numero FROM logs WHERE id_user='$user' AND edicion='$edition'");
 	$datas  = mysqli_fetch_assoc($query);
 	return $datas;
 }

@@ -40,6 +40,8 @@ include ("funciones.php");
     <!-- Toggle-->
     <link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="assets/js/bootstrap-toggle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+
 
     <!-- Actividar o desactivar edicion -->
     <script language="javascript">

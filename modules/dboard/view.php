@@ -128,5 +128,223 @@
         </div>
        </div>
       </div><!-- ./col -->
+
     </div><!-- /.row -->
+    <div class="row">
+      <div class="col-lg-6 col-xs-12">
+        <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">CREO MAS HOY</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <canvas id="creomashoy" style="height: 403px; width: 807px;" width="807" height="403"></canvas>
+                </div>
+                <!-- /.box-body -->
+              </div>
+
+      </div>
+      <div class="col-lg-6 col-xs-12">
+        <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">CREO MAS MES</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <canvas id="creomasmes" style="height: 403px; width: 807px;" width="807" height="403"></canvas>
+                </div>
+                <!-- /.box-body -->
+              </div>
+
+      </div>
+      <div class="col-lg-6 col-xs-12">
+        <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">SUMO MAS</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <canvas id="sumomasmes" style="height: 403px; width: 807px;" width="807" height="403"></canvas>
+                </div>
+                <!-- /.box-body -->
+              </div>
+
+      </div>
+      <div class="col-lg-6 col-xs-12">
+
+        <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">MONTRO de Año</h3>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                  </div>
+                </div>
+                <div class="box-body">
+                  <canvas id="loganual" style="height: 403px; width: 807px;" width="807" height="403"></canvas>
+                </div>
+                <!-- /.box-body -->
+              </div>
+      </div>
+    </div>
   </section><!-- /.content -->
+
+<?php
+function get_storers(){
+  global $mysqli;
+	$query = mysqli_query($mysqli, "SELECT * FROM `usuarios` WHERE status='activo' AND permisos_acceso='Super Admin'");
+	$datas  = mysqli_fetch_array($query);
+	return $datas;
+}
+$storers = get_storers();
+$colors = ['#FE2E2E','#C8FE2E','#2E9AFE','#FE9A2E','#AC58FA','#2EFEC8','#80FF00','#F4FA58','#0040FF'];
+
+
+
+
+ ?>
+  <script>
+var ctx = document.getElementById("creomashoy").getContext('2d');
+var pieChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Gary", "Piri", "Mario", "Fidel", "Jose"],
+        datasets: [{
+            label: '# of Entries',
+            data: [12, 19, 3, 5, 2],
+            backgroundColor: [
+                'pink',
+                'blue',
+                'red',
+                'purple',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+var ct2 = document.getElementById("loganual").getContext('2d');
+var pieChart2 = new Chart(ct2, {
+    type: 'horizontalBar',
+    data: {
+        labels: ["Gary", "Piri", "Mario", "Fidel", "Jose"],
+        datasets: [{
+            label: '# of Entries',
+            data: [12, 19, 3, 5, 2],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    }
+});
+
+var ct3 = document.getElementById("creomasmes").getContext('2d');
+var pieChart3 = new Chart(ct3, {
+    type: 'doughnut',
+    data: {
+        labels: ["Gary", "Piri", "Mario", "Fidel", "Jose"],
+        datasets: [{
+            label: '# of Entries',
+            data: [12, 19, 3, 5, 2],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    }
+});
+
+var ct4 = document.getElementById("sumomasmes").getContext('2d');
+var pieChart4 = new Chart(ct4, {
+    type: 'pie',
+    data: {
+        labels: ["Gary", "Piri", "Mario", "Fidel", "Jose"],
+        datasets: [{
+            label: '# of Entries',
+            data: [12, 19, 3, 5, 2],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    }
+});
+
+
+
+
+
+
+</script>
+<?php
+    $resulta2= get_total_log(1,'cantidad');
+    echo $resulta2['numero']
+?>
