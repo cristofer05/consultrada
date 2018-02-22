@@ -134,7 +134,7 @@
       <div class="col-lg-6 col-xs-12">
         <div class="box box-danger">
                 <div class="box-header with-border">
-                  <h3 class="box-title">CREO MAS HOY</h3>
+                  <h3 class="box-title">TODAY ENTRIES</h3>
 
                   <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -152,7 +152,7 @@
       <div class="col-lg-6 col-xs-12">
         <div class="box box-danger">
                 <div class="box-header with-border">
-                  <h3 class="box-title">CREO MAS MES</h3>
+                  <h3 class="box-title">LAST 30 DAYS </h3>
 
                   <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -189,7 +189,7 @@
 
         <div class="box box-danger">
                 <div class="box-header with-border">
-                  <h3 class="box-title">MONTRO de Año</h3>
+                  <h3 class="box-title">THIS YEAR</h3>
 
                   <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -205,45 +205,75 @@
       </div>
     </div>
   </section><!-- /.content -->
-
+<script type="text/javascript">
+  var users =[];
+  var colors =[];
+  var datahoy =[];
+  var datames =[];
+  var dataanual =[];
+</script>
 <?php
-function get_storers(){
-  global $mysqli;
-	$query = mysqli_query($mysqli, "SELECT * FROM `usuarios` WHERE status='activo' AND permisos_acceso='Super Admin'");
-	$datas  = mysqli_fetch_array($query);
-	return $datas;
-}
-$storers = get_storers();
+$fecha = DATE("Y-m-d");
+$query = mysqli_query($mysqli, "SELECT * FROM usuarios WHERE status='activo' AND permisos_acceso='Super Admin'");
 $colors = ['#FE2E2E','#C8FE2E','#2E9AFE','#FE9A2E','#AC58FA','#2EFEC8','#80FF00','#F4FA58','#0040FF'];
 
 
+ ?>
+
+
+
+
+
+ <p id="demo"></p>
+ <script type="text/javascript">
+<?php
+
+$i=0;
+//Asignando Usuarios y Colores
+while ($storers = mysqli_fetch_assoc($query)) {
+  echo "users.push('".$storers['name_user']."');";
+  $datos2 = get_total_log_hoy($storers['id_user']);
+  $datos3 = get_total_log_mes($storers['id_user'],$fecha);
+
+
+  echo "datahoy.push('".$datos2['numero']."');";
+    echo "datames.push('".$datos3['numero']."');";
+  echo "colors.push('".$colors[$i]."');";
+  $i++;
+}
+
+
+
+?>
+
+
+
+
+ document.getElementById("demo").innerHTML = datames;
+ </script>
+
+
+<?php
 
 
  ?>
-  <script>
+
+
+
+
+
+
+
+<script>
 var ctx = document.getElementById("creomashoy").getContext('2d');
 var pieChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Gary", "Piri", "Mario", "Fidel", "Jose"],
+        labels: users,
         datasets: [{
             label: '# of Entries',
-            data: [12, 19, 3, 5, 2],
-            backgroundColor: [
-                'pink',
-                'blue',
-                'red',
-                'purple',
-                'rgba(153, 102, 255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)'
-            ],
-            borderWidth: 1
+            data: datahoy,
+            backgroundColor: colors
         }]
     },
     options: {
@@ -261,25 +291,11 @@ var ct2 = document.getElementById("loganual").getContext('2d');
 var pieChart2 = new Chart(ct2, {
     type: 'horizontalBar',
     data: {
-        labels: ["Gary", "Piri", "Mario", "Fidel", "Jose"],
+        labels: users,
         datasets: [{
             label: '# of Entries',
             data: [12, 19, 3, 5, 2],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)'
-            ],
-            borderWidth: 1
+            backgroundColor: colors
         }]
     }
 });
@@ -288,25 +304,11 @@ var ct3 = document.getElementById("creomasmes").getContext('2d');
 var pieChart3 = new Chart(ct3, {
     type: 'doughnut',
     data: {
-        labels: ["Gary", "Piri", "Mario", "Fidel", "Jose"],
+        labels:users,
         datasets: [{
             label: '# of Entries',
-            data: [12, 19, 3, 5, 2],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)'
-            ],
-            borderWidth: 1
+            data: datames,
+            backgroundColor: colors
         }]
     }
 });
@@ -315,25 +317,11 @@ var ct4 = document.getElementById("sumomasmes").getContext('2d');
 var pieChart4 = new Chart(ct4, {
     type: 'pie',
     data: {
-        labels: ["Gary", "Piri", "Mario", "Fidel", "Jose"],
+        labels:users,
         datasets: [{
             label: '# of Entries',
             data: [12, 19, 3, 5, 2],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)'
-            ],
-            borderWidth: 1
+            backgroundColor: colors
         }]
     }
 });
@@ -344,7 +332,7 @@ var pieChart4 = new Chart(ct4, {
 
 
 </script>
-<?php
+<!-- <?php
     $resulta2= get_total_log(1,'cantidad');
     echo $resulta2['numero']
-?>
+?> -->
