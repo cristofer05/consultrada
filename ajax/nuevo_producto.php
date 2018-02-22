@@ -1,7 +1,5 @@
 <?php
-require_once "../config/database.php";
 session_start();
-//include ("../funciones.php");
 	/*Inicia validacion del lado del servidor*/
 		if (empty($_POST['bcode'])) {
       $errors[] = "Código vacío";
@@ -79,7 +77,6 @@ session_start();
 		}
 		if (substr($barcode,0,2) == "LC") { $barcode = "Does not apply"; }
 
-		//$nombre=mysqli_real_escape_string($mysqli,(strip_tags($_POST["nombre"],ENT_QUOTES)));
 		$ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["location"],ENT_QUOTES)));
 		$especial=mysqli_real_escape_string($mysqli,(strip_tags($_POST["special"],ENT_QUOTES)));
 		$comentario=mysqli_real_escape_string($mysqli,(strip_tags($_POST["coment"],ENT_QUOTES)));
@@ -89,7 +86,6 @@ session_start();
 		$qty=intval($_POST['qty']);
 		$peso=intval($_POST['weight']);
 		$formato=strval($_POST['unit']);
-		if ($condicion == "new") {	$bar_condicion = "";}else {	$bar_condicion = $condicion;	}
 		$nu_foto=strval($_POST['nu_foto']);
 		$date_added=date("Y-m-d H:i:s");
 		/*********************/
@@ -98,12 +94,13 @@ session_start();
 		$query_new_insert = mysqli_query($mysqli,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
-				$id_producto=get_row('productos','id_producto', 'barcode', $barcode);
+				$id_producto=get_row('productos','id_producto', 'barcode_final', $barcode_final);
+				$qty_total=get_qty_total('productos','qty_total', 'barcode_final', $barcode_final);
 				$user_id=$_SESSION['id_user'];
 				$firstname=$_SESSION['name_user'];
 				$nota="Articulo creado";
 				$edicion="creado";
-				guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion);
+				guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion,$qty_total);
 
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($mysqli);

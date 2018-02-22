@@ -47,7 +47,7 @@ include("includes/sum_process.php");
               <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                      <h4 class="modal-title">Editando producto</h4>
+                      <h3 class="modal-title">Adding more quantity</h3>
                   </div>
 
                   <div class="modal-body-sum">

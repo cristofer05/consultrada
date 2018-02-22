@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 session_start();
 date_default_timezone_set('America/Santo_Domingo');
-include ("funciones.php");
+include("funciones.php");
 ?>
 
 <!DOCTYPE html>

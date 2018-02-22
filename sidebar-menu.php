@@ -264,7 +264,7 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
     <tbody>
     <?php
     $no = 1;
-    $query = mysqli_query($mysqli, "SELECT id_log,id_producto,id_user,fecha_log,registro,qty,edicion FROM logs where id_user = $_SESSION[id_user] ORDER BY fecha_log DESC")
+    $query = mysqli_query($mysqli, "SELECT id_log,id_producto,id_user,fecha_log,registro,edicion FROM logs where id_user = $_SESSION[id_user] ORDER BY fecha_log DESC")
                                     or die('error: '.mysqli_error($mysqli));
 
     while ($data = mysqli_fetch_assoc($query)) {

@@ -6,26 +6,48 @@ function nombre_usuario($user_id){
 	$value=$datas['name_user'];
 	return $value;
 }
-function get_row($table,$row, $id, $equal){
+function get_row($table,$row, $campo, $equal){
 	global $mysqli;
-	$query=mysqli_query($mysqli,"select $row from $table where $id='$equal'");
+	$query=mysqli_query($mysqli,"select $row from $table where $campo='$equal'");
 	$rw=mysqli_fetch_array($query);
 	$value=$rw[$row];
 	return $value;
 }
-function guardar_historial($id_producto,$user_id,$fecha,$registro,$quantity,$edicion,$ubicacion){
+function get_qty_total($table,$row, $campo, $equal){
 	global $mysqli;
-	$sql="INSERT INTO logs (id_producto, id_user, fecha_log, registro, qty, edicion, ubicacion)
-	VALUES ($id_producto, $user_id, '$fecha', '$registro', $quantity, '$edicion', '$ubicacion')";
+	$query=mysqli_query($mysqli,"select $row from $table where $campo='$equal'");
+	$rw=mysqli_fetch_array($query);
+	$value=$rw[$row];
+	return $value;
+}
+function guardar_historial($id_producto,$user_id,$fecha,$registro,$quantity,$edicion,$ubicacion,$qty_total){
+	global $mysqli;
+	$sql="INSERT INTO logs (id_producto, id_user, fecha_log, registro, qty, edicion, ubicacion, qty_total)
+	VALUES ($id_producto, $user_id, '$fecha', '$registro', $quantity, '$edicion', '$ubicacion', $qty_total)";
 	$query=mysqli_query($mysqli,$sql);
 	return $query;
 
-}/*
-function sumar_cantidad($id_producto,$qty,$ubicacion){
+}
+
+function edicion($id_producto,$qty,$ubicacion){
 	global $mysqli;
-	$sql="UPDATE productos SET qty_total='".$qty."', ubicacion='".$ubicacion."' WHERE id_producto='".$id_producto."'";
-	$query_update = mysqli_query($mysqli,$sql);
-} */
+	$query=mysqli_query($mysqli,"select ubicacion from productos where id_producto=$id_producto");
+	$datas  = mysqli_fetch_assoc($query);
+	$ubi_original=$datas['ubicacion'];
+		if ($qty > 0) {
+			$value=$qty." (+)";
+			if ($ubi_original != $ubicacion) {
+				$value=$value." / Movido a (".$ubicacion.")";
+			}
+		}elseif ($ubi_original != $ubicacion) {
+			$value="Movido a (".$ubicacion.")";
+		}else {
+			$value="OTRO";
+		}
+
+	return $value;
+}
+
 function get_bcode($id_producto){
 	global $mysqli;
 	$query = mysqli_query($mysqli, "SELECT id_producto,ubicacion,barcode_final FROM productos WHERE id_producto = $id_producto");

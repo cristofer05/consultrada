@@ -3,7 +3,6 @@ require_once "../config/database.php";
 
 if(!empty($_GET['id'])){
 
-
     if ($mysqli ->connect_error) {
         die("No se pudo conectar a la base de datos: " . $db->connect_error);
     }
@@ -32,7 +31,7 @@ if(!empty($_GET['id'])){
 			<div class="row col-md-6">
 			  <div class="form-group">
 				  <label for="nombre" class="col-sm-2 control-label lbl_sum">Qty</label>
-			  	<input type="number" class="form-control col-sm-8 inp_sum" id="barcode" name="mod_qty" placeholder="Qty" value="<?php echo $cmsData['qty_total']; ?>" required>
+			  	<input type="number" class="form-control col-sm-8 inp_sum" id="barcode" name="mod_qty" placeholder="qty to add" value="0" required>
 			  </div>
 			  <div class="form-group">
 				  <label for="nombre" class="col-sm-2 control-label lbl_sum">Ubi</label>

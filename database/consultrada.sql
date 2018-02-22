@@ -101,7 +101,8 @@ CREATE TABLE `logs` (
   `registro` varchar(200) NOT NULL,
   `qty` int(6) NOT NULL,
   `edicion` varchar(50) NOT NULL,
-  `ubicacion` varchar(20) NOT NULL
+  `ubicacion` varchar(20) NOT NULL,
+  `qty_total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -109,13 +110,13 @@ CREATE TABLE `logs` (
 -- Volcado de datos para la tabla `logs`
 --
 
-INSERT INTO `logs` (`id_log`, `id_producto`, `id_user`, `fecha_log`, `registro`, `qty`,`edicion`,`ubicacion`) VALUES
-(1, 1, 1, '2018-01-25 17:09:06', 'Articulo creado', 5,'condicion','A15'),
-(2, 2, 1, '2018-01-25 17:09:06', 'Articulo creado', 2,'cantidad','A18'),
-(3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo','A25'),
-(4, 1, 1, '2018-02-02 17:09:06', 'Articulo creado', 0,'condicion','A30'),
-(5, 2, 1, '2018-02-06 17:09:06', 'Articulo creado', 0,'cantidad','A35'),
-(6, 2, 1, '2018-02-05 17:09:06', 'Articulo creado', 0,'titulo','A40');
+INSERT INTO `logs` (`id_log`, `id_producto`, `id_user`, `fecha_log`, `registro`, `qty`,`edicion`,`ubicacion`,`qty_total`) VALUES
+(1, 1, 1, '2018-01-25 17:09:06', 'Articulo creado', 5,'condicion','A15',11),
+(2, 2, 1, '2018-01-25 17:09:06', 'Articulo creado', 2,'cantidad','A18',10),
+(3, 3, 1, '2018-01-25 17:09:06', 'Articulo creado', 1,'titulo','A25',8),
+(4, 1, 1, '2018-02-02 17:09:06', 'Articulo creado', 0,'condicion','A30',1),
+(5, 2, 1, '2018-02-06 17:09:06', 'Articulo creado', 0,'cantidad','A35',2),
+(6, 2, 1, '2018-02-05 17:09:06', 'Articulo creado', 0,'titulo','A40',3);
 
 -- --------------------------------------------------------
 --
@@ -153,7 +154,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_user`, `username`, `name_user`, `password`, `email`, `telefono`, `foto`, `permisos_acceso`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'Lord Computer Admin', '21232f297a57a5a743894a0e4a801fc3', 'info@lordcomputer.com', '827-123-4564', 'foto.jpg', 'Super Admin', 'activo', '2017-01-26 08:15:15', '2017-01-26 08:15:15'),
+(1, 'cristobal', 'Cristobal Bello', '21232f297a57a5a743894a0e4a801fc3', 'lccristobalbello@gmail.com', '809-709-1500', 'foto.jpg', 'Super Admin', 'activo', '2017-01-26 08:15:15', '2017-01-26 08:15:15'),
 (2, 'kelvin', 'Kelvin Reyes', '21232f297a57a5a743894a0e4a801fc3', 'ingkelvinreyes@gmail.com', '829-713-8928', 'foto.jpg', 'Super Admin', 'activo', '2017-01-26 08:15:15', '2017-01-26 08:15:15'),
 (3, 'demo', 'Demostracion', '21232f297a57a5a743894a0e4a801fc3', 'demo@demo.com', '809-000-9999', '1469574176_users-7.png', 'Almacen', 'activo', '2017-01-26 22:34:03', '2017-01-26 22:34:03');
 

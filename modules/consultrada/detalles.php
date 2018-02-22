@@ -118,34 +118,30 @@
 
                        <thead>
                          <tr>
-                           <th class="center">ID</th>
+                           <th class="center">No.</th>
                            <th class="center">DATE</th>
                            <th class="center">USER</th>
                            <th class="center">REGISTER</th>
-                           <th class="center">QTY</th>
                            <th class="center">EDITION</th>
+                           <th class="center">STATUS</th>
                          </tr>
                        </thead>
                        <tbody>
                        <?php
                        $no = 1;
-                       $query = mysqli_query($mysqli, "SELECT id_log,id_producto,id_user,fecha_log,registro,qty,edicion FROM logs where id_producto = $dproducto ORDER BY fecha_log DESC")
+                       $query = mysqli_query($mysqli, "SELECT id_producto,id_user,fecha_log,registro,qty,edicion,ubicacion,qty_total FROM logs where id_producto = $dproducto ORDER BY fecha_log DESC")
                                                        or die('error: '.mysqli_error($mysqli));
 
                        while ($data = mysqli_fetch_assoc($query)) {
                          $usuario = nombre_usuario($data['id_user']);
                        echo "<tr>
-                                 <td width='5' class='center'>$data[id_log]</td>
+                                 <td width='5' class='center'>$no</td>
                                  <td width='100' class='center'>$data[fecha_log]</td>
                                  <td width='110'>$usuario</td>
                                  <td width='110'>$data[registro]</td>
-                                 <td width='20' class='center'>$data[qty]</td>
-                                 <td width='45' class='center'>$data[edicion]</td>";
-                       ?>
-                       <?php
-                         echo "    </div>
-                                 </td>
-                               </tr>";
+                                 <td width='45' class='center'>$data[edicion]</td>
+                                 <td width='20' class='center'>$data[qty_total]-$data[ubicacion]</td>
+                            </tr>";
                          $no++;
                        }
                        ?>
