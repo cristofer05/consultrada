@@ -65,6 +65,9 @@ session_start();
 		if (!empty($_POST['missing-ink'])) {
 			$missing=$missing.$_POST['missing-ink']." ";
 		}
+		if (!empty($_POST['otro'])) {
+			$missing=$missing.$_POST['otro']." ";
+		}
 
 		if ($condicion == "NEW") {
 			$barcode_final=$barcode;

@@ -368,6 +368,18 @@ var idioma_español= {
 
         }); */
 
+/*************** Missing Otro Mostrar *******************/
+function mostrarOcultar() {
+  document.getElementsByClassName("missingOther").checked = true;
+    if (document.getElementsByClassName('missingOther').checked) {
+        document.getElementById('otroInput').style.display = 'block';
+    }
+    else document.getElementById('otroInput').style.display = 'none';
+
+}
+/********************************************************/
+
+
 /************ESCONDER LOS MENSAJES SUCESS************************/
 setTimeout(function() {
     $('.alert').fadeOut('slow');

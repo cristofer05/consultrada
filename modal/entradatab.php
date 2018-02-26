@@ -105,16 +105,16 @@
 												  <label class="btn btn-primary btn-esp">
 												    <input type="checkbox" name="missing-ink" value="INK" id="option4" autocomplete="off"> Ink
 												  </label>
-												  <label class="btn btn-primary btn-esp">
-												    <input type="checkbox" name="missing-esp" value="ESP" id="option4" autocomplete="off" > Especial
+												  <label class="btn btn-primary btn-esp" onclick="mostrarOcultar();">
+												    <input type="checkbox" class="missingOther" name="missing-otro" value="OTRO" id="option4" autocomplete="off"> Other
 												  </label>
 												</div>
 												</div>
 												<div class="row col-md-6">
-												  <div class="form-group">
+												  <div class="form-group" id="otroInput" style="display:none">
 														<h3>Missing (special)</h3>
 													<div class="col-sm-12">
-													  <input type="text" class="form-control" id="special" name="special" placeholder="What is it?">
+													  <input type="text" class="form-control" name="otro" placeholder="What is it?">
 													</div>
 												  </div>
 												  <div class="form-group">
