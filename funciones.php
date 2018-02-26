@@ -81,7 +81,22 @@ function put_magento_location($sku_producto,$sku_location){
 
 function get_total_log($user,$edition){
 	global $mysqli;
-	$query = mysqli_query($mysqli, "SELECT count(*) FROM logs WHERE edicion=$edition");
+	$query = mysqli_query($mysqli, "SELECT count(*) as numero FROM logs WHERE id_user='$user' AND edicion='$edition' AND DATE(fecha_log) = DATE(CURRENT_DATE()- INTERVAL 30 DAYS) ");
+	$datas  = mysqli_fetch_assoc($query);
+	return $datas;
+}
+
+function get_total_log_hoy($user){
+	global $mysqli;
+	$query = mysqli_query($mysqli, "SELECT count(*) as numero FROM logs WHERE id_user='$user' AND DATE(fecha_log) = DATE(NOW()) ");
+	$datas  = mysqli_fetch_assoc($query);
+	return $datas;
+}
+
+function get_total_log_mes($user,$fecha){
+	global $mysqli;
+	$fecha2 = date("Y-m-d",strtotime('-30 day'));
+	$query = mysqli_query($mysqli, "SELECT count(*) as numero FROM logs WHERE id_user='$user' AND DATE(fecha_log) BETWEEN DATE('$fecha2') AND DATE('$fecha')");
 	$datas  = mysqli_fetch_assoc($query);
 	return $datas;
 }
