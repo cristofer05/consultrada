@@ -44,6 +44,7 @@ include("funciones.php");
 
 
     <!-- Actividar o desactivar edicion -->
+    <!--
     <script language="javascript">
 
       function HaEdicion() {
@@ -71,7 +72,7 @@ include("funciones.php");
       window.onload = ocultar;
 */
     </script>
-
+-->
 
     <script language="javascript">
       function getkey(e)
@@ -328,10 +329,23 @@ var idioma_español= {
           $("#location").val('');
           $("#weight").val('');
           $("#unit").val('');
-        /*   function(){
-        /*  $(".check").attr('checked',true);
-          $("#check").addClass('active');
-          } */
+          $('#check').addClass('active');
+          $('#deschequear1').removeClass('active');
+          $('#deschequear2').removeClass('active');
+          $('#deschequear3').removeClass('active');
+          $('#deschequear4').removeClass('active');
+          $('#deschequear5').removeClass('active');
+          $('#deschequear6').removeClass('active');
+          $('#deschequear7').removeClass('active');
+          $('#deschequear8').removeClass('active');
+          $('#deschequear9').removeClass('active');
+          $('#deschequear10').removeClass('active');
+          $('#deschequear11').removeClass('active');
+          $('#deschequear12').removeClass('active');
+          $('#buttonMissing').removeClass('active');
+          $('#guardar_producto').trigger("reset");
+
+
             var value_q = $('#value_q3').val();
               if (value_q) {
                 //q3 iene contenido
@@ -369,14 +383,11 @@ var idioma_español= {
         }); */
 
 /*************** Missing Otro Mostrar *******************/
-function mostrarOcultar() {
-  document.getElementsByClassName("missingOther").checked = true;
-    if (document.getElementsByClassName('missingOther').checked) {
-        document.getElementById('otroInput').style.display = 'block';
-    }
-    else document.getElementById('otroInput').style.display = 'none';
+$('#buttonMissing').on('click', function(e){
 
-}
+    $("#otroInput").toggle();
+    $(this).toggleClass('class1')
+});
 /********************************************************/
 
 

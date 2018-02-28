@@ -19,14 +19,14 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 	<?php
   if ($_GET["module"]=="consultrada") { ?>
     <li class="active">
-      <a href="?module=consultrada"><i class="fa fa-home"></i> INICIO </a>
+      <a href="?module=consultrada"><i class="fa fa-home"></i> CONSULTRADA </a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=consultrada"><i class="fa fa-home"></i> INICIO </a>
+      <a href="?module=consultrada"><i class="fa fa-home"></i> CONSULTRADA </a>
       </li>
   <?php
   }

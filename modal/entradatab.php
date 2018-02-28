@@ -62,19 +62,19 @@
 												  <label class="btn btn-primary active btn-esp" id="check">
 												    <input type="radio" name="condicion" value="NEW" id="option1" class="check" autocomplete="off" checked> NEW
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear1">
 												    <input type="radio" name="condicion" value="O" id="option2" autocomplete="off"> LIKE NEW
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear2">
 												    <input type="radio" name="condicion" value="GA" id="option3" autocomplete="off"> GA
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear3">
 												    <input type="radio" name="condicion" value="GB" id="option4" autocomplete="off"> GB
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear4">
 												    <input type="radio" name="condicion" value="GC" id="option5" autocomplete="off"> GC
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear5">
 												    <input type="radio" name="condicion" value="RE" id="option6" autocomplete="off"> RE
 												  </label>
 												</div>
@@ -84,38 +84,38 @@
 													<div class="clearfix"></div>
 												<label for="nombre" class="col-sm-2 control-label"><!--Missing--></label>
 											  <div class="btn-group" data-toggle="buttons">
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear6">
 												    <input type="checkbox" name="missing-b" value="B" id="option1" autocomplete="off"> Box
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear7">
 												    <input type="checkbox" name="missing-m" value="M" id="option2" autocomplete="off"> Manual
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear8">
 												    <input type="checkbox" name="missing-by" value="BY" id="option3" autocomplete="off"> Battery
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear9">
 												    <input type="checkbox" name="missing-w" value="W" id="option4" autocomplete="off"> Wallmount
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear10">
 												    <input type="checkbox" name="missing-ch" value="CH" id="option4" autocomplete="off"> Charger
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear11">
 												    <input type="checkbox" name="missing-rc" value="RC" id="option4" autocomplete="off"> Remote
 												  </label>
-												  <label class="btn btn-primary btn-esp">
+												  <label class="btn btn-primary btn-esp" id="deschequear12">
 												    <input type="checkbox" name="missing-ink" value="INK" id="option4" autocomplete="off"> Ink
 												  </label>
-												  <label class="btn btn-primary btn-esp" onclick="mostrarOcultar();">
-												    <input type="checkbox" class="missingOther" name="missing-otro" value="OTRO" id="option4" autocomplete="off"> Other
+												  <label class="btn btn-primary btn-esp" id="buttonMissing">
+												    <input type="checkbox" class="missingOther" name="missing-otro" id="option4" autocomplete="off"> Other
 												  </label>
 												</div>
 												</div>
 												<div class="row col-md-6">
 												  <div class="form-group" id="otroInput" style="display:none">
 														<h3>Missing (special)</h3>
-													<div class="col-sm-12">
-													  <input type="text" class="form-control" name="otro" placeholder="What is it?">
-													</div>
+														<div class="col-sm-12">
+														  <input type="text" class="form-control" name="otro" placeholder="What is it?">
+														</div>
 												  </div>
 												  <div class="form-group">
 														<h3>Coment</h3>
@@ -161,6 +161,7 @@
 													<div class="form-group col-md-4">
 														<h3>Mass Unit</h3>
 														<select class="form-control" id="unit" name="unit" required>
+															<option></option>
 															<option>LB</option>
 															<option>OZ</option>
 														</select>

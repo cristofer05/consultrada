@@ -42,6 +42,7 @@ session_start();
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$barcode=mysqli_real_escape_string($mysqli,(strip_tags($_POST["bcode"],ENT_QUOTES)));
 		$condicion=strval($_POST['condicion']);
+		$especial=mysqli_real_escape_string($mysqli,(strip_tags($_POST["otro"],ENT_QUOTES)));
 		$missing="";
 
 		if (!empty($_POST['missing-b'])) {
@@ -65,8 +66,8 @@ session_start();
 		if (!empty($_POST['missing-ink'])) {
 			$missing=$missing.$_POST['missing-ink']." ";
 		}
-		if (!empty($_POST['otro'])) {
-			$missing=$missing.$_POST['otro']." ";
+		if (!empty($especial)) {
+			$missing=$missing.$especial." ";
 		}
 
 		if ($condicion == "NEW") {
@@ -81,7 +82,6 @@ session_start();
 		if (substr($barcode,0,2) == "LC") { $barcode = "Does not apply"; }
 
 		$ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["location"],ENT_QUOTES)));
-		$especial=mysqli_real_escape_string($mysqli,(strip_tags($_POST["special"],ENT_QUOTES)));
 		$comentario=mysqli_real_escape_string($mysqli,(strip_tags($_POST["coment"],ENT_QUOTES)));
 		if (empty($comentario)) {
 			$comentario="N/A";
