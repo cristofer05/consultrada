@@ -15,21 +15,21 @@ if($action == 'ajax'){
                                             or die('error: '.mysqli_error($mysqli));
 
 
-//		include 'pagination.php'; //include pagination file
+		include 'pagination.php'; //include pagination file
 		//pagination variables
-//		$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
-//		$per_page = 18; //how much records you want to show
-//		$adjacents  = 4; //gap between pages after number of adjacents
-//		$offset = ($page - 1) * $per_page;
+		$page = (isset($_REQUEST['page']) && !empty($_REQUEST['page']))?$_REQUEST['page']:1;
+		$per_page = 10; //how much records you want to show
+		$adjacents  = 4; //gap between pages after number of adjacents
+		$offset = ($page - 1) * $per_page;
 		//Count the total number of row in your table*/
 		$count_query   = mysqli_query($mysqli, "SELECT count(*) AS numrows FROM productos WHERE barcode_final LIKE '%".$q."%'");
 		$row= mysqli_fetch_array($count_query);
 		$numrows = $row['numrows'];
-/*		$total_pages = ceil($numrows/$per_page);
-		$reload = './productos.php'; */
+		$total_pages = ceil($numrows/$per_page);
+		$reload = './productos.php';
 		//main query to fetch the data
-//		$sql="SELECT * FROM  $sTable $sWhere LIMIT $offset,$per_page";
-//		$query = mysqli_query($con, $sql);
+		$sql="SELECT * FROM productos WHERE barcode_final LIKE '%".$q."%' LIMIT $offset,$per_page";
+		$query = mysqli_query($mysqli, $sql);
 		//loop through fetched data
 		if ($numrows>0){
 			?>
@@ -97,7 +97,7 @@ if($action == 'ajax'){
 				<div class="clearfix"></div>
 				<div class='row text-center'>
 					<div ><?php
-				//	 echo paginate($reload, $page, $total_pages, $adjacents);
+					 echo paginate($reload, $page, $total_pages, $adjacents);
 					?></div>
 				</div>
 
@@ -124,7 +124,7 @@ if($action == 'ajax'){
         $barcode = "0";
     }
     $buat_id   = str_pad($barcode, 10, "0", STR_PAD_LEFT);
-    $barcode = "LC$buat_id"; 
+    $barcode = "LC$buat_id";
     ?>
     <input type='hidden' id='value_q3' value='<?php echo $barcode; ?>'>
     <?php
