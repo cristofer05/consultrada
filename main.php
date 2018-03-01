@@ -376,17 +376,12 @@ var idioma_español= {
            $('.wizard .nav-tabs li #primero').click();
         });
 
-     /*   $('#EntradaExistente').on('shown.bs.modal', function () {
-   //       var valor_id = $(this).data("value");
-   //       alert(valor_id);
 
-        }); */
 
 /*************** Missing Otro Mostrar *******************/
 $('#buttonMissing').on('click', function(e){
 
     $(".otroInput").toggle(500);
-  //  $(".otroInput").toggleClass('verInput otroInput')
 });
 /********************************************************/
 
