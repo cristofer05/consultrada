@@ -385,8 +385,8 @@ var idioma_español= {
 /*************** Missing Otro Mostrar *******************/
 $('#buttonMissing').on('click', function(e){
 
-    $("#otroInput").toggle();
-    $(this).toggleClass('class1')
+    $(".otroInput").toggle(500);
+  //  $(".otroInput").toggleClass('verInput otroInput')
 });
 /********************************************************/
 

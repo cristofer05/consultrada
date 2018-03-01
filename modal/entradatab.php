@@ -111,7 +111,7 @@
 												</div>
 												</div>
 												<div class="row col-md-6">
-												  <div class="form-group" id="otroInput" style="display:none">
+												  <div class="form-group otroInput">
 														<h3>Missing (special)</h3>
 														<div class="col-sm-12">
 														  <input type="text" class="form-control" name="otro" placeholder="What is it?">
