@@ -118,7 +118,7 @@
 														</div>
 												  </div>
 												  <div class="form-group">
-														<h3>Coment</h3>
+														<h3>Coments</h3>
 													<div class="col-sm-12">
 														<textarea class="form-control" rows="2" id="coment" name="coment" placeholder="Try to be clear and precise when describing the problem"></textarea>
 													</div>
