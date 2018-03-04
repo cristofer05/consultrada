@@ -43,37 +43,6 @@ include("funciones.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
 
-    <!-- Actividar o desactivar edicion -->
-    <!--
-    <script language="javascript">
-
-      function HaEdicion() {
-
-        var x = document.getElementById("Ver");
-          if (x.style.display === "none") {
-              x.style.display = "block";
-          } else {
-              x.style.display = "none";
-          }
-
-        var x = document.getElementById("Editar");
-          if (x.style.display === "none") {
-              x.style.display = "block";
-          } else {
-              x.style.display = "none";
-          }
-      };
-/*
-      function ocultar() {
-        var w = document.getElementById("Editar");
-        w.style.display = "none";
-      }
-
-      window.onload = ocultar;
-*/
-    </script>
--->
-
     <script language="javascript">
       function getkey(e)
       {
