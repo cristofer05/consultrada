@@ -387,6 +387,22 @@ $( "#guardar_producto" ).submit(function( event ) {
   });
   event.preventDefault();
 });
+
+/*******************************************************/
+function chgRealizado(id_producto, realizado) {
+//  alert("Funciona "+id_producto+" - "+realizado);
+      $.ajax({
+           method: "POST",
+           url: 'ajax/chgRealizado.php',
+           data:{action:'cambiar', id:id_producto, realizado:realizado},
+           success:function(html) {
+        //     alert(html);
+              location.reload();
+           }
+
+      });
+ }
+
     </script>
 
   </body>

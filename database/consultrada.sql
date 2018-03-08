@@ -128,15 +128,16 @@ CREATE TABLE `cortes` (
   `id_corte` int(11) NOT NULL,
   `nombre_corte` varchar(100) NOT NULL,
   `fecha` varchar(50) NOT NULL,
-  `num_productos` int(6) NOT NULL
+  `num_productos` int(6) NOT NULL,
+  `estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `cortes`
 --
 
-INSERT INTO `cortes` (`id_corte`, `nombre_corte`, `fecha`, `num_productos`) VALUES
-(1, 'Corte #0001', '2018-01-25 17:09:06', 52);
+INSERT INTO `cortes` (`id_corte`, `nombre_corte`, `fecha`, `num_productos`, `estado`) VALUES
+(1, 'Corte #0001', '2018-01-25 17:09:06', 52, 'actual');
 
 -- --------------------------------------------------------
 DROP TABLE IF EXISTS usuarios;
@@ -256,12 +257,6 @@ ALTER TABLE `socios`
 ALTER TABLE `logs`
   ADD CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`) ON UPDATE CASCADE,
   ADD CONSTRAINT `logs_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `usuarios` (`id_user`) ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `logs`
---
-ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_corte`) REFERENCES `cortes` (`id_corte`) ON UPDATE CASCADE;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
