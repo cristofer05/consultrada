@@ -97,7 +97,7 @@
             <tbody>
             <?php
             $no = 1;
-            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos ORDER BY realizado ASC, nu_foto DESC")
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos ORDER BY realizado ASC, nu_foto DESC ")
                                             or die('error: '.mysqli_error($mysqli));
 
             while ($data = mysqli_fetch_assoc($query)) {
@@ -116,7 +116,6 @@
               }
 
             echo "<SCRIPT>
-                  document.getElementById('myInput$no').readOnly = true;
                   function myFunction$no() {
                   var copyText = document.getElementById('myInput$no');
                   copyText.select();
