@@ -93,12 +93,27 @@ function get_total_log_hoy($user){
 	return $datas;
 }
 
-function get_total_log_mes($user,$fecha){
+function get_total_log_mes($user,$fecha,$fecha2){
 	global $mysqli;
-	$fecha2 = date("Y-m-d",strtotime('-30 day'));
+	$fecha2 = date("Y-m-d",strtotime($fecha2));
 	$query = mysqli_query($mysqli, "SELECT count(*) as numero FROM logs WHERE id_user='$user' AND DATE(fecha_log) BETWEEN DATE('$fecha2') AND DATE('$fecha')");
 	$datas  = mysqli_fetch_assoc($query);
 	return $datas;
 }
 
+function get_total_log_365($user,$fecha,$fecha2){
+	global $mysqli;
+	$fecha2 = date("Y-m-d",strtotime('-364 day'));
+	$query = mysqli_query($mysqli, "SELECT count(*) as numero FROM logs WHERE id_user='$user' AND DATE(fecha_log) BETWEEN DATE('$fecha2') AND DATE('$fecha')");
+	$datas  = mysqli_fetch_assoc($query);
+	return $datas;
+}
+
+function get_total_log_days($user,$fecha,$fecha2){
+	global $mysqli;
+	$fecha2 = date("Y-m-d",strtotime($fecha2));
+	$query = mysqli_query($mysqli, "SELECT count(*) as numero FROM logs WHERE id_user='$user' AND DATE(fecha_log) BETWEEN DATE('$fecha2') AND DATE('$fecha')");
+	$datas  = mysqli_fetch_assoc($query);
+	return $datas;
+}
 ?>

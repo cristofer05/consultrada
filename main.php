@@ -40,8 +40,8 @@ include("funciones.php");
     <!-- Toggle-->
     <link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="assets/js/bootstrap-toggle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
 
     <script language="javascript">
       function getkey(e)
