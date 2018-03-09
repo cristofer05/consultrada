@@ -387,6 +387,20 @@ $( "#guardar_producto" ).submit(function( event ) {
   });
   event.preventDefault();
 });
+
+/******************CAMBIAR ESTADO ENTRADA CORTE*************************/
+function chgRealizado(id_producto, realizado) {
+      $.ajax({
+           method: "POST",
+           url: 'ajax/chgRealizado.php',
+           data:{action:'cambiar', id:id_producto, realizado:realizado},
+           success:function(html) {
+              location.reload()
+           }
+
+      });
+ }
+
     </script>
 
   </body>

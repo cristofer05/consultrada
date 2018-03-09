@@ -91,9 +91,14 @@ session_start();
 		$formato=strval($_POST['unit']);
 		$nu_foto=strval($_POST['nu_foto']);
 		$date_added=date("Y-m-d H:i:s");
+		
+		$sql="SELECT id_corte from cortes ORDER BY id_corte DESC LIMIT 1";
+		$query_corte = mysqli_query($mysqli,$sql);
+		$datas = mysqli_fetch_assoc($query_corte);
+		$corte=$datas['id_corte'];
 		/*********************/
 
-		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, qty_total) VALUES ('$barcode', '$barcode_final','$titulo', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $qty)";
+		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, id_corte, qty_total) VALUES ('$barcode', '$barcode_final','$titulo', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $corte, $qty)";
 		$query_new_insert = mysqli_query($mysqli,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
