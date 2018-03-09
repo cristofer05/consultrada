@@ -395,8 +395,7 @@ function chgRealizado(id_producto, realizado) {
            url: 'ajax/chgRealizado.php',
            data:{action:'cambiar', id:id_producto, realizado:realizado},
            success:function(html) {
-        //     alert(html);
-              location.reload();
+              location.reload()
            }
 
       });
