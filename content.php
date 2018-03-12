@@ -26,12 +26,12 @@ else {
 	}
 
 
-	elseif ($_GET['module'] == 'lista_socios') {
-		include "modules/lista_socios/view.php";
+	elseif ($_GET['module'] == 'crear_corte') {
+		include "modules/crear_corte/view.php";
 	}
 
-	elseif ($_GET['module'] == 'filtro_socios') {
-		include "modules/filtro_socios/view.php";
+	elseif ($_GET['module'] == 'ver_cortes') {
+		include "modules/ver_cortes/view.php";
 	}
 
 	elseif ($_GET['module'] == 'user') {

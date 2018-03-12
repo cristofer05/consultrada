@@ -400,7 +400,12 @@ function chgRealizado(id_producto, realizado) {
 
       });
  }
-
+/*********************Recargar*************************/
+function recargar(){
+//  alert("Funciona");
+var oTable = $("dataTables1").dataTable();
+oTable.fnDraw();
+}
     </script>
 
   </body>

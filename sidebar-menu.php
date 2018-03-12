@@ -45,27 +45,27 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
   <?php
   }
 
-	if ($_GET["module"]=="lista_socios") { ?>
+	if ($_GET["module"]=="crear_corte") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">
-            	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
+            	<i class="fa fa-file-text"></i> <span>CORTES</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li class="active"><a href="?module=lista_socios"><i class="fa fa-circle-o"></i> Lista de Socios </a></li>
-        		<li><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtrar Socios</a></li>
+        		<li class="active"><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Crear corte </a></li>
+        		<li><a href="?module=ver_cortes"><i class="fa fa-circle-o"></i> Ver cortes </a></li>
       		</ul>
     	</li>
     <?php
 	}
 
-	elseif ($_GET["module"]=="filtro_socios") { ?>
+	elseif ($_GET["module"]=="ver_cortes") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">
-            	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
+            	<i class="fa fa-file-text"></i> <span>CORTES</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=lista_socios"><i class="fa fa-circle-o"></i> Lista de Socios</a></li>
-        		<li class="active"><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtrar Socios </a></li>
+        		<li><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Crear corte </a></li>
+        		<li class="active"><a href="?module=ver_cortes"><i class="fa fa-circle-o"></i> Ver cortes </a></li>
       		</ul>
     	</li>
     <?php
@@ -74,11 +74,11 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 	else { ?>
 		<li class="treeview">
           	<a href="javascript:void(0);">
-            	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
+            	<i class="fa fa-file-text"></i> <span>CORTES</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=lista_socios"><i class="fa fa-circle-o"></i> Lista de Socios </a></li>
-        		<li><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtrar socios </a></li>
+        		<li><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Crear corte </a></li>
+        		<li><a href="?module=ver_cortes"><i class="fa fa-circle-o"></i> Ver cortes </a></li>
       		</ul>
     	</li>
     <?php

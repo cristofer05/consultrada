@@ -77,6 +77,7 @@
 
       <div class="box box-primary">
         <div class="box-body">
+          <button type="button" onclick="recargar()">PROBAR</button>
 
           <table id="dataTables1" class="table table-bordered table-striped table-hover">
 
@@ -97,8 +98,19 @@
             <tbody>
             <?php
             $no = 1;
-            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos ORDER BY realizado ASC, nu_foto DESC ")
+            $query = mysqli_query($mysqli, "SELECT id_corte,estado FROM cortes ORDER BY id_corte DESC LIMIT 1")
                                             or die('error: '.mysqli_error($mysqli));
+             $data = mysqli_fetch_assoc($query);
+             if ($data["estado"]=="actual") {
+               $id_corte=$data["id_corte"];
+             }else {
+               $id_corte=0;
+             }
+
+
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos WHERE id_corte=$id_corte ORDER BY realizado ASC, nu_foto DESC ")
+                                            or die('error: '.mysqli_error($mysqli));
+
 
             while ($data = mysqli_fetch_assoc($query)) {
               $estado="";
