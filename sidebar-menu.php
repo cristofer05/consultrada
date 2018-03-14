@@ -31,16 +31,16 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
   <?php
   }
 
-  if ($_GET["module"]=="entrada_corte") { ?>
+  if ($_GET["module"]=="publicar") { ?>
     <li class="active">
-      <a href="?module=entrada_corte"><i class="fa fa-folder"></i> Entrada Corte</a>
+      <a href="?module=entrada_corte"><i class="fa fa-folder"></i> PUBLICAR </a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=entrada_corte"><i class="fa fa-folder"></i> Entrada corte </a>
+      <a href="?module=publicar"><i class="fa fa-folder"></i> PUBLICAR </a>
       </li>
   <?php
   }

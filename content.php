@@ -54,8 +54,8 @@ else {
 		include "modules/password/view.php";
 	}
 
-	elseif ($_GET['module'] == 'entrada_corte') {
-		include "modules/entrada_corte/view.php";
+	elseif ($_GET['module'] == 'publicar') {
+		include "modules/publicar/view.php";
 	}
 
 	elseif ($_GET['module'] == 'consultrada') {

@@ -1,10 +1,10 @@
 <section class="content-header">
   <h1>
     <i class="fa fa-folder-o icon-title"></i> Entrada Corte
-<!--
-    <a class="btn btn-primary btn-social pull-right" href="?module=form_socios&form=add" title="agregar" data-toggle="tooltip">
-      <i class="fa fa-plus"></i> Agregar
-    </a> -->
+
+    <a class="btn btn-danger btn-social pull-right" href="?module=form_socios&form=add" title="Corte listo" data-toggle="tooltip">
+      <i class="fa fa-angellist"></i> CORTE LISTO
+    </a>
   </h1>
 
 </section>
@@ -77,7 +77,6 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <button type="button" onclick="recargar()">PROBAR</button>
 
           <table id="dataTables1" class="table table-bordered table-striped table-hover">
 
