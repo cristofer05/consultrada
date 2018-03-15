@@ -389,7 +389,23 @@ $( "#guardar_producto" ).submit(function( event ) {
 });
 
 /******************CAMBIAR ESTADO ENTRADA CORTE*************************/
-function chgRealizado(id_producto, realizado, seccion) {
+function chgRealizado(id_producto, realizado, seccion, eCorte) {
+  if (eCorte==0) {
+    var r=confirm("El corte aun no esta listo, ¿Seguro que quieres enviar el cambio?");
+      if (r==true){
+          $.ajax({
+               method: "POST",
+               url: 'ajax/chgRealizado.php',
+               data:{action:'cambiar', id:id_producto, realizado:realizado, seccion:seccion},
+               success:function(html) {
+                  location.reload()
+               }
+
+          });
+      }if (r==false){
+        location.reload()
+      }
+    }if (eCorte==1) {
       $.ajax({
            method: "POST",
            url: 'ajax/chgRealizado.php',
@@ -399,7 +415,8 @@ function chgRealizado(id_producto, realizado, seccion) {
            }
 
       });
- }
+    }
+}
 /*********************Recargar*************************/
 function recargar(){
 //  alert("Funciona");

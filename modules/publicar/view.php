@@ -101,8 +101,13 @@
             $query = mysqli_query($mysqli, "SELECT id_corte,estado FROM cortes ORDER BY id_corte DESC LIMIT 1")
                                             or die('error: '.mysqli_error($mysqli));
              $data = mysqli_fetch_assoc($query);
-             if ($data["estado"]=="actual") {
+             if ($data["estado"]!="finalizado") {
                $id_corte=$data["id_corte"];
+               if ($data["estado"]=="actual") {
+                 $eCorte=0;
+               }else {
+                 $eCorte=1;
+               }
              }else {
                $id_corte=0;
              }
@@ -144,7 +149,7 @@
                       <td width='20' class='center'>$data[qty_total]</td>
                       <td width='45' class='center'>$data[ubicacion]</td>
                       <td width='350'><a class='$aRealizado' href='main.php?module=detalles&id=$data[id_producto]' target='_blank'>$data[nombre_producto]</a></td>
-                      <td width='100' class='center' onclick='chgRealizado($data[id_producto], $ready, $seccion)'><input type='checkbox' data-toggle='toggle' data-on='LISTO' data-off='NO LISTO' data-onstyle='success' data-offstyle='danger' ".$estado." ></td>
+                      <td width='100' class='center' onclick='chgRealizado($data[id_producto], $ready, $seccion, $eCorte)'><input type='checkbox' data-toggle='toggle' data-on='LISTO' data-off='NO LISTO' data-onstyle='success' data-offstyle='danger' ".$estado." ></td>
                       <td class='center' width='360'>
                         <div>
                           <a data-toggle='tooltip' data-placement='top' title='Buscar en Amazon ' style='margin-right:5px' target='_blank' class='btn btn-warning btn-lg $aRealizado' href='https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=$data[barcode]'>
