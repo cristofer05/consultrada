@@ -154,7 +154,7 @@ CREATE TABLE `cortes` (
 --
 
 INSERT INTO `cortes` (`id_corte`, `nombre_corte`, `fecha`, `num_productos`, `estado`) VALUES
-(1, 'Corte #0001', '2018-01-25 17:09:06', 52, 'actual');
+(1, 'Corte #0001', '2018-01-25 17:09:06', 0, 'actual');
 
 -- --------------------------------------------------------
 DROP TABLE IF EXISTS usuarios;
