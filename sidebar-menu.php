@@ -33,7 +33,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 
   if ($_GET["module"]=="publicar") { ?>
     <li class="active">
-      <a href="?module=entrada_corte"><i class="fa fa-folder"></i> PUBLICAR </a>
+      <a href="?module=publicar"><i class="fa fa-folder"></i> PUBLICAR </a>
       </li>
   <?php
   }

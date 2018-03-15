@@ -129,7 +129,7 @@
                        <tbody>
                        <?php
                        $no = 1;
-                       $query = mysqli_query($mysqli, "SELECT id_producto,id_user,fecha_log,registro,qty,edicion,ubicacion,qty_total FROM logs where id_producto = $dproducto ORDER BY fecha_log DESC")
+                       $query = mysqli_query($mysqli, "SELECT id_producto,id_user,fecha_log,registro,qty,edicion,ubicacion,qty_total FROM logs where id_producto = $dproducto ORDER BY id_log DESC")
                                                        or die('error: '.mysqli_error($mysqli));
 
                        while ($data = mysqli_fetch_assoc($query)) {
