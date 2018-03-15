@@ -58,6 +58,10 @@ else {
 		include "modules/publicar/view.php";
 	}
 
+	elseif ($_GET['module'] == 'sumar') {
+		include "modules/sumar/view.php";
+	}
+
 	elseif ($_GET['module'] == 'consultrada') {
 		include "modules/consultrada/view.php";
 	}

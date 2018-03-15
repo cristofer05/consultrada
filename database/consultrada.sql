@@ -41,14 +41,14 @@ CREATE TABLE `productos` (
   `id_corte` int(11) NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `qty_total` int(8) NOT NULL,
-  `accion` varchar(20) NOT NULL
+  `seccion` varchar(20) NOT NULL
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Volcado de datos para la tabla `socios`
 --
 
-INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_final`, `nombre_producto`, `condicion`, `missing`, `qty`, `ubicacion`, `nu_foto`, `comentario`, `realizado`, `imagen`, `id_corte`, `fecha_creacion`, `qty_total`, `accion`) VALUES
+INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_final`, `nombre_producto`, `condicion`, `missing`, `qty`, `ubicacion`, `nu_foto`, `comentario`, `realizado`, `imagen`, `id_corte`, `fecha_creacion`, `qty_total`, `seccion`) VALUES
 (1, '888182998397', '888182998397 GA B','HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, 'B05','101', 'N/A', 'NO', 'notebook.jpg', 1, '2018-01-25 18:43:20', 5, 'publicar'),
 (2, '013803238310', '013803238310 O M','Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, 'A02','102', 'N/A', 'SI', 'playstation.jpg', 1, '2018-01-25 18:43:20', 10,'publicar'),
 (3, '884420736783', '884420736783','AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, 'B25','103', 'N/A', 'NO', 'iphone.jpg', 1, '2018-01-25 18:43:20', 25,'sumar'),

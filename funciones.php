@@ -13,13 +13,7 @@ function get_row($table,$row, $campo, $equal){
 	$value=$rw[$row];
 	return $value;
 }
-function get_qty_total($table,$row, $campo, $equal){
-	global $mysqli;
-	$query=mysqli_query($mysqli,"select $row from $table where $campo='$equal'");
-	$rw=mysqli_fetch_array($query);
-	$value=$rw[$row];
-	return $value;
-}
+/*******************CREACION DE LOG***************************/
 function guardar_historial($id_producto,$user_id,$fecha,$registro,$quantity,$edicion,$ubicacion,$qty_total){
 	global $mysqli;
 	$sql="INSERT INTO logs (id_producto, id_user, fecha_log, registro, qty, edicion, ubicacion, qty_total)
@@ -28,8 +22,8 @@ function guardar_historial($id_producto,$user_id,$fecha,$registro,$quantity,$edi
 	return $query;
 
 }
-
-function edicion($id_producto,$qty,$ubicacion){
+/*******************EDICION PARA LOG***************************/
+function edicion($id_producto,$qty,$ubicacion,$realizado){
 	global $mysqli;
 	$query=mysqli_query($mysqli,"select ubicacion from productos where id_producto=$id_producto");
 	$datas  = mysqli_fetch_assoc($query);
@@ -41,10 +35,30 @@ function edicion($id_producto,$qty,$ubicacion){
 			}
 		}elseif ($ubi_original != $ubicacion) {
 			$value="Movido a (".$ubicacion.")";
+		}elseif ($realizado==1) {
+			$value="Despublicado";
+		}elseif ($realizado==0) {
+			$value="Publicado";
 		}else {
 			$value="OTRO";
 		}
 
+	return $value;
+}
+/*******************ACCION AL SUMAR***************************/
+function seccion($id_producto){
+	global $mysqli;
+	$query=mysqli_query($mysqli,"select realizado,seccion from productos where id_producto=$id_producto");
+	$datas = mysqli_fetch_assoc($query);
+	$realizado=$datas['realizado'];
+	$seccion=$datas['seccion'];
+	if ($seccion=="none") {
+		$value="Ssumar";
+	}elseif ($realizado=="NO") {
+		$value="Osumar";
+	}else {
+		$value="Ssumar";
+	}
 	return $value;
 }
 

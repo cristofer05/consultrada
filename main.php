@@ -389,11 +389,11 @@ $( "#guardar_producto" ).submit(function( event ) {
 });
 
 /******************CAMBIAR ESTADO ENTRADA CORTE*************************/
-function chgRealizado(id_producto, realizado) {
+function chgRealizado(id_producto, realizado, seccion) {
       $.ajax({
            method: "POST",
            url: 'ajax/chgRealizado.php',
-           data:{action:'cambiar', id:id_producto, realizado:realizado},
+           data:{action:'cambiar', id:id_producto, realizado:realizado, seccion:seccion},
            success:function(html) {
               location.reload()
            }

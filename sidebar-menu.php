@@ -45,6 +45,20 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
   <?php
   }
 
+  if ($_GET["module"]=="sumar") { ?>
+    <li class="active">
+      <a href="?module=sumar"><i class="fa fa-plus"></i> SUMAR </a>
+      </li>
+  <?php
+  }
+
+  else { ?>
+    <li>
+      <a href="?module=sumar"><i class="fa fa-plus"></i> SUMAR </a>
+      </li>
+  <?php
+  }
+
 	if ($_GET["module"]=="crear_corte") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">

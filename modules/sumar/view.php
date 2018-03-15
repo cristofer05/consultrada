@@ -1,10 +1,10 @@
 <section class="content-header">
   <h1>
-    <i class="fa fa-folder-o icon-title"></i> Entrada Corte
-
+    <i class="fa fa-folder-o icon-title"></i> Sumar Corte
+<!--
     <a class="btn btn-danger btn-social pull-right" href="?module=form_socios&form=add" title="Corte listo" data-toggle="tooltip">
       <i class="fa fa-angellist"></i> CORTE LISTO
-    </a>
+    </a> -->
   </h1>
 
 </section>
@@ -97,7 +97,7 @@
             <tbody>
             <?php
             $no = 1;
-            $seccion=1;
+            $seccion=2;
             $query = mysqli_query($mysqli, "SELECT id_corte,estado FROM cortes ORDER BY id_corte DESC LIMIT 1")
                                             or die('error: '.mysqli_error($mysqli));
              $data = mysqli_fetch_assoc($query);
@@ -108,7 +108,7 @@
              }
 
 
-            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos WHERE id_corte=$id_corte AND seccion='publicar' ORDER BY realizado ASC, nu_foto DESC ")
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos WHERE id_corte=$id_corte AND seccion='sumar' ORDER BY realizado ASC, nu_foto DESC ")
                                             or die('error: '.mysqli_error($mysqli));
 
 
