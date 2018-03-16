@@ -23,35 +23,42 @@
         </div>
         <!-- PRIMER TAB -->
         <div id="fecha" class="tabcontent" style="display: block;">
-        <form role="form" class="form-horizontal" method="GET" action="modules/filtro_socios/print_fecha.php" target="_blank">
+        <form role="form" class="form-horizontal" method="GET" action="includes/corte.php">
           <div class="box-body">
             <h3>A continuacion ingrese las fechas por las que desea filtar a los socios a mostar en este reporte</h3>
             <hr>
             <div class="form-group">
               <label class="col-sm-1">Desde</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="tgl_awal" autocomplete="off" required>
+                <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="tgl_awal" autocomplete="off">
               </div>
 
               <label class="col-sm-1">Hasta</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="tgl_akhir" autocomplete="off" required>
+                <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="tgl_akhir" autocomplete="off">
               </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2 control-label">Formato de exportacion</label>
                 <div class="col-sm-6">
                   <input type="radio" name="print" value="pdf" checked> PDF <br>
-                  <input type="radio" name="print" value="csv"> CSV 
-              </div>            
+                  <input type="radio" name="print" value="csv"> CSV
+              </div>
             </div>
           </div>
-          
+
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
                 <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 150px;">
-                  <i class="fa fa-print"></i> Imprimir 
+                  <i class="fa fa-print"></i> Imprimir
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-11">
+                <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 300px; height:50px">
+                  <i class="fa fa-print"></i> CREAR CORTE
                 </button>
               </div>
             </div>
@@ -79,16 +86,16 @@
               <label class="col-sm-2 control-label">Formato de exportacion</label>
                 <div class="col-sm-6">
                   <input type="radio" name="print" value="pdf" checked> PDF <br>
-                  <input type="radio" name="print" value="csv"> CSV 
-              </div>            
+                  <input type="radio" name="print" value="csv"> CSV
+              </div>
             </div>
           </div>
-          
+
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
                 <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 150px;">
-                  <i class="fa fa-print"></i> Imprimir 
+                  <i class="fa fa-print"></i> Imprimir
                 </button>
               </div>
             </div>
@@ -116,11 +123,11 @@
               <label class="col-sm-2 control-label">Formato de exportacion</label>
                 <div class="col-sm-6">
                   <input type="radio" name="print" value="pdf" checked> PDF <br>
-                  <input type="radio" name="print" value="csv"> CSV 
-                </div>            
+                  <input type="radio" name="print" value="csv"> CSV
+                </div>
               </div>
           </div>
-          
+
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
