@@ -245,6 +245,9 @@
   var datadays_3 = [];
   var datadays_4 = [];
   var datadays_5 = [];
+  var labels_f = [];
+  var data_f = [20,35,66,98,50];
+
 </script>
 <?php
 $fecha = DATE("Y-m-d");
@@ -277,6 +280,7 @@ while ($storers = mysqli_fetch_assoc($query)) {
     //Grafico creo mas Año
     $datos5 = get_total_log_days($storers['id_user'],$fecha,'-365 day');
 
+    //$datos6 = get_total_log_everydays($fecha);
 
     echo "datadays_1.push('".$datos1['numero']."');";
     echo "datadays_2.push('".$datos2['numero']."');";
@@ -287,16 +291,22 @@ while ($storers = mysqli_fetch_assoc($query)) {
     echo "colors.push('".$colors[$i]."');";
   $i++;
 }
-
+$a = 0;
+    while ($a <= 30) {
+        $res='-'.$a.' day';
+       $datosf = get_total_log_everydays($fecha,$res);
+        echo "labels_f.push('".date('Y-m-d',strtotime($res))."');";
+      echo "data_f.push('".$datosf['numero']."');";
+        $a++;
+    }
 
 ?>
-var dateFormat = 'MMMM DD YYYY';
 		var dt = new Date();;
 		var labels = [dt];
-    var a = 0;
-		while (a < 10) {
-				labels.push(td.setDate(dt.getDate() - a));
-        a++;
+    var Za = 0;
+		while (Za < 10) {
+				labels.push(td.setDate(dt.getDate() - 1));
+        Za = Za + 1;
 		}
 
  document.getElementById("demo").innerHTML = datames;
@@ -306,7 +316,7 @@ var dateFormat = 'MMMM DD YYYY';
 <?php
 
 
- ?>
+?>
 
 
 <script>
@@ -387,10 +397,10 @@ var pieChart2 = new Chart(ct5, {
 new Chart(document.getElementById("line-chart"), {
   type: 'line',
   data: {
-    labels: labels,
+    labels: labels_f,
     datasets: [{
-        data: [300,114,106,106,2500,111,133,221,783,2478],
-        label: "Africa",
+        data: data_f,
+        label: "Work flow",
         borderColor: "#3e95cd",
         fill: false
       }
