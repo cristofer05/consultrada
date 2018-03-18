@@ -134,6 +134,7 @@ function get_total_log_days($user,$fecha,$fecha2){
 function get_total_log_everydays($fecha,$res){
 	global $mysqli;
 		$fecha2 = date("Y-m-d",strtotime($res));
+	//	echo "<script> alert('".$fecha2."'); </script>";
 		$query = mysqli_query($mysqli, "SELECT count(*) as numero FROM logs WHERE DATE(fecha_log) = DATE('$fecha2')");
 		$datas  = mysqli_fetch_assoc($query);
 	return $datas;

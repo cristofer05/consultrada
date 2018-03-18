@@ -24,6 +24,7 @@ if (!empty($_POST['action'])) {
       $ubicacion=get_row('productos','ubicacion', 'id_producto', $id_producto);
       $user_id=$_SESSION['id_user'];
       $firstname=$_SESSION['name_user'];
+      date_default_timezone_set('America/Santo_Domingo');
   		$date_added=date("Y-m-d H:i:s");
       $edicion=edicion($id_producto,$qty,$ubicacion,$realizado);
       if ($seccion==2 && $edicion=="Publicado") {

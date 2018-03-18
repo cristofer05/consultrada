@@ -90,6 +90,7 @@ session_start();
 		$peso=intval($_POST['weight']);
 		$formato=strval($_POST['unit']);
 		$nu_foto=strval($_POST['nu_foto']);
+		date_default_timezone_set('America/Santo_Domingo');
 		$date_added=date("Y-m-d H:i:s");
 
 		$sql="SELECT id_corte from cortes ORDER BY id_corte DESC LIMIT 1";

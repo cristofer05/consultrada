@@ -104,9 +104,19 @@ include("funciones.php");
       }
 
         function updateTime(){
-          var hora = new Date();
-          $('#time').html(hora.toUTCString());
+          // function to calculate local time in a different city
+          // create Date object for current location
+          d = new Date();
+
+          // convert to msec, add local time zone offset and get UTC time in msec
+          utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+          // create new Date object for different city using supplied offset
+          nd = new Date(utc + (3600000*-8));
+
+          $('#time').html(nd.toUTCString());
         }
+
         $(function(){
           setInterval(updateTime, 1000);
         });

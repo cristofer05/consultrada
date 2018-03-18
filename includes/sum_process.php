@@ -11,6 +11,7 @@ if (isset($_POST['mod_id']) && $_POST['mod_id'] !=NULL) {
       $id_producto=$_POST['mod_id'];
       $qty=intval($_POST['mod_qty']);
       $ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["mod_ubi"],ENT_QUOTES)));
+      date_default_timezone_set('America/Santo_Domingo');
       $date_added=date("Y-m-d H:i:s");
       $realizado="none";
       $edicion=edicion($id_producto,$qty,$ubicacion,$realizado);

@@ -99,17 +99,14 @@
             $no = 1;
             $seccion=2;
             $eCorte=1;
-            $query = mysqli_query($mysqli, "SELECT id_corte,estado FROM cortes ORDER BY id_corte DESC LIMIT 1")
+            /*
+            $query = mysqli_query($mysqli, "SELECT id_producto,fecha_log,registro FROM logs ORDER BY id_log DESC")
                                             or die('error: '.mysqli_error($mysqli));
              $data = mysqli_fetch_assoc($query);
-             if ($data["estado"]!="terminado") {
-               $id_corte=$data["id_corte"];
-             }else {
-               $id_corte=0;
-             }
+             */
 
-
-            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos WHERE id_corte=$id_corte AND seccion='sumar' ORDER BY realizado ASC, nu_foto DESC ")
+             /* (realizado='NO' AND seccion='sumar') */
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos WHERE seccion='sumar' ORDER BY realizado ASC, nu_foto DESC ")
                                             or die('error: '.mysqli_error($mysqli));
 
 
@@ -126,6 +123,14 @@
                 $claseInput="class='codeInput'";
                 $aRealizado="realizadito";
                 $ready=1;
+
+                  $prodId=$data['id_producto'];
+                  $query2 = mysqli_query($mysqli, "SELECT fecha_log,registro FROM logs WHERE id_producto=$prodId ORDER BY id_log DESC") or die('error: '.mysqli_error($mysqli));
+                  $data2 = mysqli_fetch_assoc($query2);
+                   if ($data2['fecha_log']=="SI") {
+
+                   }
+
               }
 
             echo "<SCRIPT>
