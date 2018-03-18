@@ -59,6 +59,20 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
   <?php
   }
 
+  if ($_GET["module"]=="pendientes") { ?>
+    <li class="active">
+      <a href="?module=pendientes"><i class="fa fa-unlink"></i> PENDIENTES </a>
+      </li>
+  <?php
+  }
+
+  else { ?>
+    <li>
+      <a href="?module=pendientes"><i class="fa fa-unlink"></i> PENDIENTES </a>
+      </li>
+  <?php
+  }
+
 	if ($_GET["module"]=="crear_corte") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">

@@ -62,6 +62,10 @@ else {
 		include "modules/sumar/view.php";
 	}
 
+	elseif ($_GET['module'] == 'pendientes') {
+		include "modules/pendientes/view.php";
+	}
+
 	elseif ($_GET['module'] == 'consultrada') {
 		include "modules/consultrada/view.php";
 	}
