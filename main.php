@@ -428,6 +428,27 @@ function chgRealizado(id_producto, realizado, seccion, eCorte) {
     }
 }
 /*********************Recargar*************************/
+
+/******************MARCAR COMO PENDIENTE ARTICULO*************************/
+function chgPendiente(id_producto, seccion) {
+
+  var r=confirm("El corte aun no esta listo, ¿Seguro que quieres enviar el cambio?");
+    if (r==true){
+        $.ajax({
+             method: "POST",
+             url: 'ajax/chgPendiente.php',
+             data:{action:'cambiar', id:id_producto, seccion:seccion},
+             success:function(html) {
+                location.reload()
+             }
+
+        });
+    }if (r==false){
+      location.reload()
+    }
+}
+/*********************Recargar*************************/
+
 function recargar(){
 //  alert("Funciona");
 var oTable = $("dataTables1").dataTable();

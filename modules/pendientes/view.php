@@ -129,7 +129,7 @@
                 $ready=1;
 
                   $prodId=$data['id_producto'];
-                  $query2 = mysqli_query($mysqli, "SELECT fecha_log FROM logs WHERE id_producto=$prodId AND edicion='sumado' ORDER BY id_log DESC LIMIT 1") or die('error: '.mysqli_error($mysqli));
+                  $query2 = mysqli_query($mysqli, "SELECT fecha_log FROM logs WHERE id_producto=$prodId AND edicion='Publicado' ORDER BY id_log DESC LIMIT 1") or die('error: '.mysqli_error($mysqli));
                   $data2 = mysqli_fetch_assoc($query2);
                   // Calculando fecha para mostrar realizados
                   date_default_timezone_set('America/Santo_Domingo');
