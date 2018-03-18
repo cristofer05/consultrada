@@ -432,7 +432,7 @@ function chgRealizado(id_producto, realizado, seccion, eCorte) {
 /******************MARCAR COMO PENDIENTE ARTICULO*************************/
 function chgPendiente(id_producto, seccion) {
 
-  var r=confirm("El corte aun no esta listo, ¿Seguro que quieres enviar el cambio?");
+  var r=confirm("¿Seguro que quieres enviar este cambio?");
     if (r==true){
         $.ajax({
              method: "POST",

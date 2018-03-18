@@ -111,6 +111,13 @@ session_start();
 				$edicion="creado";
 				guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion,$qty_total);
 
+				//Abrir ventana con etiqueta a Imprimir
+				$barcode_final=str_replace(" ", "%20", $barcode_final);
+				$inicial=$_POST['user'];
+				echo "<script>
+				window.open('https://lordcomputer.com/bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=".$barcode_final."&ent=".$inicial."&coment=".$comentario."&location=".$ubicacion."&pic=".$nu_foto."&qty=".$qty."', '_blank', 'width=800,height=800');
+				</script>";
+
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($mysqli);
 			}

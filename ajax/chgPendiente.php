@@ -6,7 +6,7 @@ include("../funciones.php");
 if (!empty($_POST['action'])) {
     $id_producto=$_POST['id'];
     $seccion=$_POST['seccion'];
-    if ($realizado == "pendiente") {
+    if ($seccion == "pendiente") {
       $newRealizado="publicar";
       $nota="Marcado como 'publicar'";
       $edicion="publicar";

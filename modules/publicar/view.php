@@ -113,7 +113,7 @@
              }
 
 
-            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte,seccion FROM productos WHERE id_corte=$id_corte AND seccion!='sumar' ORDER BY realizado ASC, nu_foto DESC ")
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte,seccion FROM productos WHERE id_corte=$id_corte AND seccion!='sumar' ORDER BY realizado ASC, seccion DESC, nu_foto DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
 
@@ -169,7 +169,7 @@
                           <a data-toggle="tooltip" data-placement="top" target='_blank' title="Buscar en Google" class="btn btn-danger btn-lg <?php echo $aRealizado ?>" href="https://www.google.com.do/search?q=<?php echo $data['barcode'];?>">
                               <i style="color:#fff" class="fa fa-fw fa-google"></i>
                           </a>
-                          <a href="#" onclick="chgPendiente(<?php echo $data["id_producto"]; ?>, '<?php echo $data["seccion"]; ?>')" style="font-size:15px"> Pendiente</a>
+                          <a data-toggle="tooltip" class="btn btn-default" href="#" title="Pendiente" onclick="chgPendiente(<?php echo $data["id_producto"]; ?>, '<?php echo $data["seccion"]; ?>')" > <i class="fa fa-sticky-note-o" aria-hidden="true"></i></a>
             <?php
               echo "    </div>
                       </td>
