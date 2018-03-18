@@ -71,7 +71,7 @@ if($action == 'ajax'){
                                 </a>
 
 													<a title='Sumar y Revivir' class='btn btn-primary btn-sm openBtn_$data[id_producto]'>
-													<i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>
+													<i style='color:#fff' class='glyphicon glyphicon-edit'> AGREGAR</i></a>
                           ";
 
               echo "    </div>
