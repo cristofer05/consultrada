@@ -125,10 +125,15 @@
                 $ready=1;
 
                   $prodId=$data['id_producto'];
-                  $query2 = mysqli_query($mysqli, "SELECT fecha_log,registro FROM logs WHERE id_producto=$prodId ORDER BY id_log DESC") or die('error: '.mysqli_error($mysqli));
+                  $query2 = mysqli_query($mysqli, "SELECT fecha_log FROM logs WHERE id_producto=$prodId AND edicion='sumado' ORDER BY id_log DESC LIMIT 1") or die('error: '.mysqli_error($mysqli));
                   $data2 = mysqli_fetch_assoc($query2);
-                   if ($data2['fecha_log']=="SI") {
-
+                  // Calculando fecha para mostrar realizados
+                  date_default_timezone_set('America/Santo_Domingo');
+                  $fecha = date("Y-m-d H:i:s");
+                  $fechaComparar = strtotime('-24 hour', strtotime($fecha));
+                  $fechalog=strtotime($data2['fecha_log']);
+                   if ($fechalog < $fechaComparar) {
+                     $claseRealizado="<tr style='display:none;'>";
                    }
 
               }
