@@ -1,0 +1,3 @@
+<script>
+    popUp.close();
+</script>
