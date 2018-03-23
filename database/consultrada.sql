@@ -146,6 +146,7 @@ CREATE TABLE `cortes` (
   `nombre_corte` varchar(100) NOT NULL,
   `fecha` varchar(50) NOT NULL,
   `num_productos` int(6) NOT NULL,
+  `fotos_link` varchar(150) NOT NULL,
   `estado` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -153,8 +154,8 @@ CREATE TABLE `cortes` (
 -- Volcado de datos para la tabla `cortes`
 --
 
-INSERT INTO `cortes` (`id_corte`, `nombre_corte`, `fecha`, `num_productos`, `estado`) VALUES
-(1, 'Corte #0001', '2018-01-25 17:09:06', 0, 'actual');
+INSERT INTO `cortes` (`id_corte`, `nombre_corte`, `fecha`, `num_productos`, `fotos_link`, `estado`) VALUES
+(1, 'Corte #0001', '2018-01-25 17:09:06', 0, '#', 'actual');
 
 -- --------------------------------------------------------
 DROP TABLE IF EXISTS usuarios;

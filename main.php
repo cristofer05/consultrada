@@ -84,6 +84,7 @@ include("funciones.php");
         return false;
       }
       // FUNCION PARA PESTAS DE FILTRO
+      /*
       tablinks = document.getElementsByClassName("tablinks");
       for (i = 0; i < tablinks.length; i++) {
               tablinks[i].className = tablinks[i].className.replace(" active", "");
@@ -102,7 +103,7 @@ include("funciones.php");
           document.getElementById(tabName).style.display = "block";
           evt.currentTarget.className += " active";
       }
-
+      */
         function updateTime(){
           // function to calculate local time in a different city
           // create Date object for current location
@@ -455,16 +456,6 @@ var oTable = $("dataTables1").dataTable();
 oTable.fnDraw();
 }
 
-/******************CHEQUEAR SI ESTA ACTIVADO POPUP*********************/
-var windowName = 'userConsole';
-var popUp = window.open('popup.php', windowName, 'width=50, height=50, left=24, top=24, scrollbars, resizable');
-if (popUp == null || typeof(popUp)=='undefined') {
-    alert('Por favor deshabilita el bloqueador de ventanas emergentes y vuelve a recargar la pagina.');
-}
-else {
-  //  popUp.focus();
-    popUp.close();
-}
     </script>
 
   </body>

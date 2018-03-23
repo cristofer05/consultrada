@@ -414,6 +414,17 @@ new Chart(document.getElementById("line-chart"), {
   }
 });
 
+/******************CHEQUEAR SI ESTA ACTIVADO POPUP*********************/
+var windowName = 'userConsole';
+var popUp = window.open('popup.php', windowName, 'width=50, height=50, left=24, top=24, scrollbars, resizable');
+if (popUp == null || typeof(popUp)=='undefined') {
+    alert('Por favor deshabilita el bloqueador de ventanas emergentes y vuelve a recargar la pagina.');
+}
+else {
+  //  popUp.focus();
+    popUp.close();
+}
+
 </script>
 
 <?php

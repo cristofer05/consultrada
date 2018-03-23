@@ -79,7 +79,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
             	<i class="fa fa-file-text"></i> <span>CORTES</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li class="active"><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Crear corte </a></li>
+        		<li class="active"><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Preparar corte </a></li>
         		<li><a href="?module=ver_cortes"><i class="fa fa-circle-o"></i> Ver cortes </a></li>
       		</ul>
     	</li>
@@ -92,7 +92,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
             	<i class="fa fa-file-text"></i> <span>CORTES</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Crear corte </a></li>
+        		<li><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Preparar corte </a></li>
         		<li class="active"><a href="?module=ver_cortes"><i class="fa fa-circle-o"></i> Ver cortes </a></li>
       		</ul>
     	</li>
@@ -105,7 +105,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
             	<i class="fa fa-file-text"></i> <span>CORTES</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Crear corte </a></li>
+        		<li><a href="?module=crear_corte"><i class="fa fa-circle-o"></i> Preparar corte </a></li>
         		<li><a href="?module=ver_cortes"><i class="fa fa-circle-o"></i> Ver cortes </a></li>
       		</ul>
     	</li>
