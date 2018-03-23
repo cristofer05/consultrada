@@ -5,10 +5,18 @@
 </div>
 -->
 <?php
-$sql="SELECT nombre_corte from cortes ORDER BY id_corte DESC LIMIT 1";
-$query_corte = mysqli_query($mysqli,$sql);
-$datas = mysqli_fetch_assoc($query_corte);
-$nCorte=$datas['nombre_corte'];
+//NOMBRE E ID DE ULTIMO CORTE
+  $sql="SELECT id_corte, nombre_corte from cortes ORDER BY id_corte DESC LIMIT 1";
+  $query_corte = mysqli_query($mysqli,$sql);
+  $datas = mysqli_fetch_assoc($query_corte);
+  $nCorte=$datas['nombre_corte'];
+  $idCorte=$datas['id_corte'];
+//NOMBRE E ID DE ULTIMO CORTE
+  $sql="SELECT COUNT(*) as total FROM productos WHERE id_corte=".$idCorte."";
+  $result = mysqli_query($mysqli,$sql);
+  $rows = mysqli_fetch_assoc($result);
+  $numProductos=$rows['total'];
+//  $numProductos=$result;
 ?>
 
 <section class="content-header">
@@ -37,7 +45,7 @@ $nCorte=$datas['nombre_corte'];
       -->
         <!-- PRIMER TAB -->
         <div id="fecha" class="tabcontent" style="display: block;">
-        <form role="form" class="form-horizontal" method="GET" action="includes/corte.php">
+        <form role="form" class="form-horizontal" method="POST" action="modules/crear_corte/corte.php">
           <div class="box-body">
             <h3>A continuacion ingrese los datos relaciones al corte que esta preparando </h3>
             <hr>
@@ -53,6 +61,8 @@ $nCorte=$datas['nombre_corte'];
               </div>
             </div>
           </div>
+          <input type="hidden" name="id_corte" value="<?php echo $idCorte; ?>">
+          <input type="hidden" name="num_productos" value="<?php echo $numProductos; ?>">
 
           <div class="box-footer">
             <div class="form-group">

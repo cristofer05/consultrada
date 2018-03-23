@@ -18,9 +18,9 @@ if (isset($_POST['mod_id']) && $_POST['mod_id'] !=NULL) {
       $seccion=seccion($id_producto);
 
       if ($seccion=="Ssumar") {
-        $sql="UPDATE productos SET qty_total=$qty, ubicacion='".$ubicacion."', seccion='sumar', realizado='NO' WHERE id_producto='".$id_producto."'";
+        $sql="UPDATE productos SET qty_total=$qty, ubicacion='".$ubicacion."', seccion='sumar', realizado='NO' WHERE id_producto=".$id_producto."";
       }else {
-        $sql="UPDATE productos SET qty_total=qty_total+".$qty.", ubicacion='".$ubicacion."' WHERE id_producto='".$id_producto."'";
+        $sql="UPDATE productos SET qty_total=qty_total+".$qty.", ubicacion='".$ubicacion."' WHERE id_producto=".$id_producto."";
       }
 
       $query_update = mysqli_query($mysqli,$sql);
