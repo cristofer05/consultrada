@@ -3,9 +3,13 @@
     <i class="fa fa-folder-o icon-title"></i> Sumar Corte
 <!--
     <a class="btn btn-danger btn-social pull-right" href="?module=form_socios&form=add" title="Corte listo" data-toggle="tooltip">
-      <i class="fa fa-angellist"></i> CORTE LISTO
-    </a> -->
-  </h1>
+      <i class="fa fa-angellist"></i> LIMPIAR TABLA
+    </a>
+  -->
+    </h1>
+    <input class="btn btn-danger btn-social pull-right" title="Limpiar tabla" data-toggle="tooltip" type="submit" value="LIMPIAR TABLA">
+
+
 
 </section>
 <section class="content">
@@ -77,7 +81,6 @@
 
       <div class="box box-primary">
         <div class="box-body">
-
           <table id="dataTables1" class="table table-bordered table-striped table-hover">
 
             <thead class="cabecera">
@@ -109,7 +112,6 @@
             $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos WHERE seccion='sumar' ORDER BY realizado ASC, nu_foto DESC ")
                                             or die('error: '.mysqli_error($mysqli));
 
-
             while ($data = mysqli_fetch_assoc($query)) {
               $estado="";
               $claseRealizado="<tr>";
@@ -123,7 +125,7 @@
                 $claseInput="class='codeInput'";
                 $aRealizado="realizadito";
                 $ready=1;
-
+/*
                   $prodId=$data['id_producto'];
                   $query2 = mysqli_query($mysqli, "SELECT fecha_log FROM logs WHERE id_producto=$prodId AND edicion='sumado' ORDER BY id_log DESC LIMIT 1") or die('error: '.mysqli_error($mysqli));
                   $data2 = mysqli_fetch_assoc($query2);
@@ -135,7 +137,7 @@
                    if ($fechalog < $fechaComparar) {
                      $claseRealizado="<tr style='display:none;'>";
                    }
-
+*/
               }
 
             echo "<SCRIPT>
@@ -175,9 +177,11 @@
                     </tr>";
               $no++;
             }
+
             ?>
             </tbody>
           </table>
+          </form>
         </div><!-- /.box-body -->
       </div><!-- /.box -->
     </div><!--/.col -->

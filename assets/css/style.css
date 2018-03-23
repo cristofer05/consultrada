@@ -663,7 +663,7 @@ tr:hover td input[type="text"]{
 
 /**************FILAS REALIZADAS*******************/
 tbody tr.realizado, .codeInput, .realizadito{
-  background-color: #313c42 !important;
+  background-color: #636667 !important;
 }
 
 /************************************************/
@@ -671,7 +671,7 @@ tbody tr.realizado, .codeInput, .realizadito{
 /**************FILAS PENDIENTES*******************/
 tbody tr.pendiente, .codeInputPen, .pendientito{
 /*  border: 5px solid red !important; */
-  background: #794848 !important;
+  background: #efd4d4 !important;
 }
 
 /************************************************/

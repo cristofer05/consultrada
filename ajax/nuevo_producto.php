@@ -112,6 +112,7 @@ session_start();
 				guardar_historial($id_producto,$user_id,$date_added,$nota,$qty,$edicion,$ubicacion,$qty_total);
 
 				//Abrir ventana con etiqueta a Imprimir
+				//Se debe activar permitir popup en google chrome
 				$barcode_final=str_replace(" ", "%20", $barcode_final);
 				$inicial=$_POST['user'];
 				echo "<script>

@@ -1,6 +1,6 @@
 <section class="content-header">
   <h1>
-    <i class="fa fa-folder-o icon-title"></i> Sumar Corte
+    <i class="fa fa-folder-o icon-title"></i> Pendientes
 <!--
     <a class="btn btn-danger btn-social pull-right" href="?module=form_socios&form=add" title="Corte listo" data-toggle="tooltip">
       <i class="fa fa-angellist"></i> CORTE LISTO
