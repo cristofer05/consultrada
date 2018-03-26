@@ -13,8 +13,10 @@ if (isset($_POST['id_corte'])) {
   $estado="preparado";
   $date_updated=date("Y-m-d H:i:s");
 
-  $sql="UPDATE cortes SET fecha='".$date_updated.", num_productos=".$num_productos.", fotos_link='".$linkCorte."', estado='".$estado."' WHERE id_corte='".$idCorte."'";
+  $sql="UPDATE cortes SET fecha='$date_updated', num_productos=$num_productos, fotos_link='$linkCorte', estado='$estado' WHERE id_corte=$idCorte";
   $query_update = mysqli_query($mysqli,$sql);
+
+  echo mysqli_error($mysqli);
 
     if ($query_update){
       $messages[] = "Corte preparado satisfactoriamente.";
@@ -31,8 +33,21 @@ if (isset($_POST['id_corte'])) {
       $nCorte="Corte #$nCorte";
       $sql="INSERT INTO cortes (nombre_corte, fecha, num_productos, fotos_link, estado) VALUES ('$nCorte', '-', 0, '#', 'actual')";
       $query_new_insert = mysqli_query($mysqli,$sql);
+
+  }else{
+    $errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
   }
 
+}else {
+  $errors []= "Error desconocido.";
+}
+
+if (isset($errors)){
+  ?>  <script> window.location.replace("../../main.php?module=consultrada&errors=<?php echo $errors [0]; ?>"); </script> <?php
+//  header ("Location: main.php?module=consultrada?errors=".$errors);
+} else if (isset($messages)) {
+?>  <script> window.location.replace("../../main.php?module=consultrada&messages=<?php echo $messages[0]; ?>"); </script> <?php
+//  header ("Location: main.php?module=consultrada?messages=1");
 }
 
 ?>

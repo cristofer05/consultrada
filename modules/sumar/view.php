@@ -7,7 +7,7 @@
     </a>
   -->
     </h1>
-    <input class="btn btn-danger btn-social pull-right" title="Limpiar tabla" data-toggle="tooltip" type="submit" value="LIMPIAR TABLA">
+    <input class="btn btn-danger btn-social pull-right" title="Limpiar tabla" data-toggle="tooltip" type="submit" value="LIMPIAR VISTA">
 
 
 

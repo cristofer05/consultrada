@@ -29,8 +29,9 @@
               <tr>
                 <th class="center">ID</th>
                 <th class="center">Corte</th>
-                <th class="center">Fecha</th>
-                <th class="center">Qty Productos</th>
+                <th class="center">Date</th>
+                <th class="center">Items Qty</th>
+                <th class="center">Link</th>
                 <th class="center">Estado</th>
               </tr>
             </thead>
@@ -50,6 +51,7 @@
                       <td width='150' class='center'>$data[nombre_corte]</td>
                       <td width='200'>$data[fecha]</td>
                       <td width='180'>$data[num_productos]</td>
+                      <td width='180'><a href='$data[fotos_link]' target='_BLANK'>$data[fotos_link]</a></td>
                       <td width='20'>$data[estado]</td>
                     </tr>";
               $no++;
