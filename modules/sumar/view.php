@@ -7,7 +7,7 @@
     </a>
   -->
     </h1>
-    <input class="btn btn-danger btn-social pull-right" title="Limpiar tabla" data-toggle="tooltip" type="submit" value="LIMPIAR VISTA">
+    <a href="./includes/cleanSumar.php?limpiar=si"><input class="btn btn-danger btn-social pull-right" title="Limpiar tabla" data-toggle="tooltip" type="button" value="LIMPIAR VISTA"></a>
 
 
 
@@ -77,6 +77,7 @@
             Nuevos datos del miembro han sido  almacenados correctamente pero NO se pudo enviar el correo
             </div>";
     }
+    include("includes/sum_message.php");
     ?>
 
       <div class="box box-primary">
@@ -102,13 +103,9 @@
             $no = 1;
             $seccion=2;
             $eCorte=1;
-            /*
-            $query = mysqli_query($mysqli, "SELECT id_producto,fecha_log,registro FROM logs ORDER BY id_log DESC")
-                                            or die('error: '.mysqli_error($mysqli));
-             $data = mysqli_fetch_assoc($query);
-             */
 
-             /* (realizado='NO' AND seccion='sumar') */
+
+             /* (seccion='sumar') */
             $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte FROM productos WHERE seccion='sumar' ORDER BY realizado ASC, nu_foto DESC ")
                                             or die('error: '.mysqli_error($mysqli));
 
