@@ -73,7 +73,84 @@
             Nuevos datos del miembro han sido  almacenados correctamente pero NO se pudo enviar el correo
             </div>";
     }
+
+    $query = mysqli_query($mysqli, "SELECT id_corte,estado,nombre_corte FROM cortes ORDER BY id_corte DESC LIMIT 10")
+                                    or die('error: '.mysqli_error($mysqli));
+
+    $query2 = mysqli_query($mysqli, "SELECT id_corte,estado,nombre_corte FROM cortes ORDER BY id_corte DESC LIMIT 1")
+                                    or die('error: '.mysqli_error($mysqli));
+//     $data = mysqli_fetch_assoc($query);
+
     ?>
+    Mostrando productos correspondientes al:
+    <div class="btn-group">
+      <button type="button" class="btn btn-secunday btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php
+
+        //para seleccion de corte a mostrar
+        if (isset($_GET['id_corte'])) {
+          $id_corte=$_GET['id_corte'];
+          $nombre_corte=$_GET['nombre_corte'];
+          $estado=$_GET['estado'];
+
+          echo $nombre_corte." ";
+
+          switch ($estado) {
+            case 'actual':
+              echo "- PENDIENTE";
+              $eCorte=0;
+              break;
+            case 'preparado':
+              echo "- PREPARADO";
+              $eCorte=1;
+              break;
+            case 'terminado':
+              echo "- TERMINADO";
+              break;
+          }
+        }else {
+          $row = mysqli_fetch_assoc($query2);
+            if ($row["estado"]=="actual") {
+               echo $row['nombre_corte']." - PENDIENTE";
+               $id_corte=$row['id_corte'];
+               $eCorte=0;
+            }
+      }
+
+        ?>
+      </button>
+      <div class="dropdown-menu">
+        <?php
+        while ($data = mysqli_fetch_assoc($query)) {
+          if ($data["estado"]=="actual") {
+             ?>
+             <a class="dropdown-item" href="main.php?module=publicar&id_corte=<?php echo $data['id_corte']; ?>&nombre_corte=<?php echo urlencode($data['nombre_corte']); ?>&estado=<?php echo $data['estado']; ?>"><?php echo $data['nombre_corte']; ?> - PENDIENTE</a><br>
+             <?php
+          }elseif ($data["estado"]=="preparado") {
+            ?>
+            <a class="dropdown-item" href="main.php?module=publicar&id_corte=<?php echo $data['id_corte']; ?>&nombre_corte=<?php echo urlencode($data['nombre_corte']); ?>&estado=<?php echo $data['estado']; ?>"><?php echo $data['nombre_corte']; ?> - PREPARADO</a><br>
+            <?php
+            $eCorte=1;
+          }else {
+            ?>
+            <a class="dropdown-item" href="main.php?module=publicar&id_corte=<?php echo $data['id_corte']; ?>&nombre_corte=<?php echo urlencode($data['nombre_corte']); ?>&estado=<?php echo $data['estado']; ?>"><?php echo $data['nombre_corte']; ?> - TERMINADO</a><br>
+            <?php
+          }
+
+        }
+
+     ?> </div> <?php
+   ?> </div> <?php
+
+     //para mostrar alerta sobre que el corte no esta listo
+       if ($data["estado"]=="actual") {
+         $eCorte=0;
+       }else {
+         $eCorte=1;
+       }
+
+    ?>
+
 
       <div class="box box-primary">
         <div class="box-body">
@@ -98,22 +175,8 @@
             <?php
             $no = 1;
             $seccion=1;
-            $query = mysqli_query($mysqli, "SELECT id_corte,estado FROM cortes ORDER BY id_corte DESC LIMIT 1")
-                                            or die('error: '.mysqli_error($mysqli));
-             $data = mysqli_fetch_assoc($query);
-             if ($data["estado"]!="finalizado") {
-               $id_corte=$data["id_corte"];
-               if ($data["estado"]=="actual") {
-                 $eCorte=0;
-               }else {
-                 $eCorte=1;
-               }
-             }else {
-               $id_corte=0;
-             }
 
-
-            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte,seccion FROM productos WHERE id_corte=$id_corte AND seccion!='sumar' ORDER BY realizado ASC, seccion DESC, nu_foto DESC")
+            $query = mysqli_query($mysqli, "SELECT id_producto,nu_foto,qty_total,barcode,ubicacion,barcode_final,comentario,imagen,nombre_producto,realizado,id_corte,seccion FROM productos WHERE (id_corte=$id_corte AND seccion='publicar') OR (id_corte=$id_corte AND seccion='pendiente') ORDER BY realizado ASC, seccion DESC, nu_foto DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
 
@@ -169,7 +232,15 @@
                           <a data-toggle="tooltip" data-placement="top" target='_blank' title="Buscar en Google" class="btn btn-danger btn-lg <?php echo $aRealizado ?>" href="https://www.google.com.do/search?q=<?php echo $data['barcode'];?>">
                               <i style="color:#fff" class="fa fa-fw fa-google"></i>
                           </a>
-                          <a data-toggle="tooltip" class="btn btn-default" href="#" title="Pendiente" onclick="chgPendiente(<?php echo $data["id_producto"]; ?>, '<?php echo $data["seccion"]; ?>')" > <i class="fa fa-sticky-note-o" aria-hidden="true"></i></a>
+                          <!-- Boton de pendiente -->
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-secunday btn-sm dropdown-toggle dropdown-pendiente" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              &darr;
+                            </button>
+                            <div class="dropdown-menu option-pendiente">
+                              <a class="dropdown-item" href="#" onclick="chgPendiente(<?php echo $data["id_producto"]; ?>, '<?php echo $data["seccion"]; ?>')">Pendiente</a>
+                            </div>
+                          </div>
             <?php
               echo "    </div>
                       </td>

@@ -1042,3 +1042,15 @@ span.round-tab:hover {
 .otroInput{
   display: none;
 }
+
+/********** dropdown PENDIENTE ******************/
+.dropdown-pendiente {
+    height: 31px;
+    padding: 0px 1px 6px 0px;
+    margin-top: -7px;
+}
+
+.option-pendiente {
+    text-align: center !important;
+    min-width: 90px !important;
+}
