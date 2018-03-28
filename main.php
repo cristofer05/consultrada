@@ -375,6 +375,7 @@ setTimeout(function() {
 
 $( "#guardar_producto" ).submit(function( event ) {
   $('#guardar_datos').attr("disabled", true);
+  $('#guardar_datos_print').attr("disabled", true);
 
  var parametros = $(this).serialize();
    $.ajax({
@@ -455,6 +456,17 @@ function recargar(){
 var oTable = $("dataTables1").dataTable();
 oTable.fnDraw();
 }
+
+/*****************CANTIDADES A IMPRIMIR*********************/
+function qtyFunction() {
+	    var qty = prompt("Cantidad De Etiquetas A Imprimir:", "1");
+	    if (qty == null || qty == "") {
+	    } else {
+	        cant = "&qty=" + qty;
+	        var a = document.getElementById('imprimir');
+	    	a.href+=cant;
+	    }
+	}
 
     </script>
 

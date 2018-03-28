@@ -14,7 +14,7 @@
    <h1>
      <i class="fa fa-edit icon-title"></i> Detalles del Articulo
    </h1>
-    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Print" class="btn btn-primary btn-lg" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Print</a>
+    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Print" id="imprimir" class="btn btn-primary btn-lg" onclick="qtyFunction()" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Print</a>
     <a data-toggle="tooltip" data-placement="top" target="_blank" title="Change Location" class="btn btn-primary btn-lg" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="fa fa-compass"></i> Change location</a>
     <a title='Sumar y Revivir' class='btn btn-primary btn-lg openBtn_$data[id_producto]'>
       <i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>

@@ -115,9 +115,15 @@ session_start();
 				//Se debe activar permitir popup en google chrome
 				$barcode_final=str_replace(" ", "%20", $barcode_final);
 				$inicial=$_POST['user'];
-				echo "<script>
-				window.open('https://lordcomputer.com/bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=".$barcode_final."&ent=".$inicial."&coment=".$comentario."&location=".$ubicacion."&pic=".$nu_foto."&qty=".$qty."', '_blank', 'width=800,height=800');
-				</script>";
+
+				echo "
+				<script>
+				var r=confirm('¿Quieres imprimir las etiquetas?');
+		      if (r==true){
+						window.open('https://lordcomputer.com/bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=".$barcode_final."&ent=".$inicial."&coment=".$comentario."&location=".$ubicacion."&pic=".$nu_foto."&qty=".$qty."', '_blank', 'width=800,height=800');
+					}
+				</script>
+				";
 
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($mysqli);

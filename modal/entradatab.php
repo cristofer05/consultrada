@@ -196,7 +196,7 @@
                         <p> Make sure the data entered is correct before saving and print. </p>
 												<ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step btn-lg">Previous</button></li>
-                            <li><button type="submit" class="btn btn-primary btn-info-full btn-lg" id="guardar_datos">Save and Print</button></li>
+                            <li><button type="submit" name="savePrint" value="si" class="btn btn-primary btn-info-full btn-lg" id="guardar_datos">Save and Print</button></li>
 												</ul>
 										</div>
                     <div class="clearfix"></div>
