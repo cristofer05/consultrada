@@ -97,15 +97,15 @@ session_start();
 		$query_corte = mysqli_query($mysqli,$sql);
 		$datas = mysqli_fetch_assoc($query_corte);
 		$corte=$datas['id_corte'];
+		$user_id=$_SESSION['id_user'];
 		/*********************/
 
-		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, id_corte, qty_total, seccion) VALUES ('$barcode', '$barcode_final','$titulo', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $corte, $qty, 'publicar')";
+		$sql="INSERT INTO productos (barcode, barcode_final, nombre_producto, condicion, missing, qty, ubicacion, nu_foto, comentario, realizado, imagen, id_corte, id_user, qty_total, seccion) VALUES ('$barcode', '$barcode_final','$titulo', '$condicion', '$missing', $qty, '$ubicacion','$nu_foto', '$comentario', 'NO', '$img', $corte, $user_id, $qty, 'publicar')";
 		$query_new_insert = mysqli_query($mysqli,$sql);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
 				$id_producto=get_row('productos','id_producto', 'barcode_final', $barcode_final);
 				$qty_total=get_row('productos','qty_total', 'barcode_final', $barcode_final);
-				$user_id=$_SESSION['id_user'];
 				$firstname=$_SESSION['name_user'];
 				$nota="Articulo creado";
 				$edicion="creado";

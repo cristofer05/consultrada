@@ -33,6 +33,7 @@
                 <th class="center">Items Qty</th>
                 <th class="center">Link</th>
                 <th class="center">Estado</th>
+                <th class="center">Accion</th>
               </tr>
             </thead>
 
@@ -53,6 +54,11 @@
                       <td width='180'>$data[num_productos]</td>
                       <td width='180'><a href='$data[fotos_link]' target='_BLANK'>$data[fotos_link]</a></td>
                       <td width='20'>$data[estado]</td>
+                      <td width='20'>
+                        <a class='btn btn-success btn-social pull-right' href='modules/ver_cortes/csv.php?print_csv=si&id_corte=$data[id_corte]'>
+                          <i class='fa fa-file-text-o'></i> Importacion CSV
+                        </a>
+                      </td>
                     </tr>";
               $no++;
             }

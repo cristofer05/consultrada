@@ -39,6 +39,7 @@ CREATE TABLE `productos` (
   `realizado` varchar(20) NOT NULL,
   `imagen` varchar(70) NOT NULL,
   `id_corte` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `qty_total` int(8) NOT NULL,
   `seccion` varchar(20) NOT NULL
@@ -48,17 +49,17 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `socios`
 --
 
-INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_final`, `nombre_producto`, `condicion`, `missing`, `qty`, `ubicacion`, `nu_foto`, `comentario`, `realizado`, `imagen`, `id_corte`, `fecha_creacion`, `qty_total`, `seccion`) VALUES
-(1, '888182998397', '888182998397 GA B','HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, 'B05','101', 'N/A', 'NO', 'notebook.jpg', 1, '2018-01-25 18:43:20', 5, 'publicar'),
-(2, '013803238310', '013803238310 O M','Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, 'A02','102', 'N/A', 'SI', 'playstation.jpg', 1, '2018-01-25 18:43:20', 10,'publicar'),
-(3, '884420736783', '884420736783','AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, 'B25','103', 'N/A', 'NO', 'iphone.jpg', 1, '2018-01-25 18:43:20', 25,'sumar'),
-(4, '848467051391', '848467051391', 'Ifrogz Earpollution Plugz Wireless Bluetooth Earphones Blue By Zagg', 'NEW', '', 1, 'A10', '104', 'N/A', 'NO', '848467051391/img_1520541689.jpg', 1, '2018-03-08 20:41:29', 2,'sumar'),
-(5, 'Does not apply', 'LC0000000000', 'C--105--LC0000000000--', 'NEW', '', 2, 'A10', '105', 'N/A', 'NO', 'no-foto.png', 1, '2018-03-08 23:07:48', 2, 'publicar'),
-(6, '810864021024', '810864021024', 'Wireless Portable Charger with 3000mAh Battery, Black', 'NEW', '', 2, 'B10', '106', 'N/A', 'NO', '810864021024/img_1520622346.jpg', 1, '2018-03-09 19:05:46', 2,'publicar'),
-(7, '27242878037', '27242878037 GA M', 'Sony Bluetooth Audio System Mex-n4100bt Made For Ipod Iphone Android Phone Aux,', 'GA', 'M ', 2, 'B01', '107', 'Para danny', 'NO', '27242878037/img_1520622476.jpg', 1, '2018-03-09 19:07:56', 2, 'publicar'),
-(8, '660543402213', '660543402213 GC B CH', 'iPhone 7 Plus Case - Otterbox Steamboat Defender - Black', 'GC', 'B CH ', 2, 'A10', '107', 'N/A', 'NO', '660543402213/img_1520622508.jpg', 1, '2018-03-09 19:08:28', 2, 'publicar'),
-(9, 'Does not apply', 'LC0000000001 GA M', 'C--108--LC0000000001--', 'GA', 'M ', 2, 'A10', '108', 'N/A', 'NO', 'no-foto.png', 1, '2018-03-09 19:08:49', 2, 'publicar'),
-(10, '889842161175', '889842161175 O BY', 'Xbox One Wireless Controller, Green And Organge', 'O', 'BY ', 5, 'A55', '108', 'N/A', 'NO', '889842161175/img_1520622562.jpg', 1, '2018-03-09 19:09:22', 5, 'none');
+INSERT INTO `productos` (`id_producto`, `barcode`, `barcode_final`, `nombre_producto`, `condicion`, `missing`, `qty`, `ubicacion`, `nu_foto`, `comentario`, `realizado`, `imagen`, `id_corte`, `id_user`, `fecha_creacion`, `qty_total`, `seccion`) VALUES
+(1, '888182998397', '888182998397 GA B','HP 920XL Magenta High Yield Original Ink Cartridge (CD973AN)', 'GA', 'B', 5, 'B05','101', 'N/A', 'NO', 'notebook.jpg', 1, 1, '2018-01-25 18:43:20', 5, 'publicar'),
+(2, '013803238310', '013803238310 O M','Black & Decker Lithium Hand Vacuum Lightweight Portable (Red)', 'O', 'M', 2, 'A02','102', 'N/A', 'SI', 'playstation.jpg', 1, 1, '2018-01-25 18:43:20', 10,'publicar'),
+(3, '884420736783', '884420736783','AT&T Prepaid - Bring Your Own Phone or Tablet SIM Card (AT&T)', 'NEW', '-', 1, 'B25','103', 'N/A', 'NO', 'iphone.jpg', 1, 1, '2018-01-25 18:43:20', 25,'sumar'),
+(4, '848467051391', '848467051391', 'Ifrogz Earpollution Plugz Wireless Bluetooth Earphones Blue By Zagg', 'NEW', '', 1, 'A10', '104', 'N/A', 'NO', '848467051391/img_1520541689.jpg', 1, 1, '2018-03-08 20:41:29', 2,'sumar'),
+(5, 'Does not apply', 'LC0000000000', 'C--105--LC0000000000--', 'NEW', '', 2, 'A10', '105', 'N/A', 'NO', 'no-foto.png', 1, 1, '2018-03-08 23:07:48', 2, 'publicar'),
+(6, '810864021024', '810864021024', 'Wireless Portable Charger with 3000mAh Battery, Black', 'NEW', '', 2, 'B10', '106', 'N/A', 'NO', '810864021024/img_1520622346.jpg', 1, 1, '2018-03-09 19:05:46', 2,'publicar'),
+(7, '27242878037', '27242878037 GA M', 'Sony Bluetooth Audio System Mex-n4100bt Made For Ipod Iphone Android Phone Aux,', 'GA', 'M ', 2, 'B01', '107', 'Para danny', 'NO', '27242878037/img_1520622476.jpg', 1, 2, '2018-03-09 19:07:56', 2, 'publicar'),
+(8, '660543402213', '660543402213 GC B CH', 'iPhone 7 Plus Case - Otterbox Steamboat Defender - Black', 'GC', 'B CH ', 2, 'A10', '107', 'N/A', 'NO', '660543402213/img_1520622508.jpg', 1, 2, '2018-03-09 19:08:28', 2, 'publicar'),
+(9, 'Does not apply', 'LC0000000001 GA M', 'C--108--LC0000000001--', 'GA', 'M ', 2, 'A10', '108', 'N/A', 'NO', 'no-foto.png', 1, 2, '2018-03-09 19:08:49', 2, 'publicar'),
+(10, '889842161175', '889842161175 O BY', 'Xbox One Wireless Controller, Green And Organge', 'O', 'BY ', 5, 'A55', '108', 'N/A', 'NO', '889842161175/img_1520622562.jpg', 1, 2, '2018-03-09 19:09:22', 5, 'none');
 -- --------------------------------------------------------
 DROP TABLE IF EXISTS socios;
 --
@@ -196,7 +197,8 @@ INSERT INTO `usuarios` (`id_user`, `username`, `name_user`, `password`, `email`,
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`id_producto`),
   ADD UNIQUE KEY `barcode_final` (`barcode_final`),
-  ADD KEY `id_corte` (`id_corte`);
+  ADD KEY `id_corte` (`id_corte`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indices de la tabla `socios`
@@ -280,7 +282,8 @@ ALTER TABLE `logs`
 -- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_corte`) REFERENCES `cortes` (`id_corte`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_corte`) REFERENCES `cortes` (`id_corte`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `usuarios` (`id_user`) ON UPDATE CASCADE;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
