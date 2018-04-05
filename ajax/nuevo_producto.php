@@ -15,12 +15,25 @@ session_start();
 			!empty($_POST['bcode']) &&
 			!empty($_POST['condicion']) &&
 			!empty($_POST['qty']) &&
-			!empty($_POST['nu_foto']) &&
 			!empty($_POST['location'])
 		){
+			/* Connect To Database*/
+			require_once ("../config/database.php");//Contiene funcion que conecta a la base de datos
+			include("../funciones.php");
+
+			$query = mysqli_query($mysqli, "SELECT nu_foto FROM productos ORDER BY id_producto DESC LIMIT 1")
+																			or die('error: '.mysqli_error($mysqli));
+			$count = mysqli_num_rows($query);
+			if ($count <> 0) {
+				$data  = mysqli_fetch_assoc($query);
+				$nu_foto = $data['nu_foto']+1;
+			} else {
+				$nu_foto = "1";
+			}
+
 
 			if (empty($_POST['titl'])){
-				$titulo=$_POST['user']."--".$_POST['nu_foto']."--".$_POST['bcode']."--";
+				$titulo=$_POST['user']."--".$nu_foto."--".$_POST['bcode']."--";
 			}elseif (!empty($_POST['titl'])){
 				$titulo=$_POST['titl'];
 			}
@@ -36,9 +49,7 @@ session_start();
 			}else {
 				$img='no-foto.png';
 			}
-		/* Connect To Database*/
-		require_once ("../config/database.php");//Contiene funcion que conecta a la base de datos
-		include("../funciones.php");
+
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$barcode=mysqli_real_escape_string($mysqli,(strip_tags($_POST["bcode"],ENT_QUOTES)));
 		$condicion=strval($_POST['condicion']);
@@ -51,11 +62,11 @@ session_start();
 		if (!empty($_POST['missing-m'])) {
 			$missing=$missing.$_POST['missing-m']." ";
 		}
-		if (!empty($_POST['missing-by'])) {
-			$missing=$missing.$_POST['missing-by']." ";
-		}
 		if (!empty($_POST['missing-w'])) {
 			$missing=$missing.$_POST['missing-w']." ";
+		}
+		if (!empty($_POST['missing-by'])) {
+			$missing=$missing.$_POST['missing-by']." ";
 		}
 		if (!empty($_POST['missing-ch'])) {
 			$missing=$missing.$_POST['missing-ch']." ";
@@ -83,18 +94,16 @@ session_start();
 
 		$ubicacion=mysqli_real_escape_string($mysqli,(strip_tags($_POST["location"],ENT_QUOTES)));
 		$comentario=mysqli_real_escape_string($mysqli,(strip_tags($_POST["coment"],ENT_QUOTES)));
-		if (empty($comentario)) {
-			$comentario="N/A";
-		}
 		$qty=intval($_POST['qty']);
 		$formato=strval($_POST['unit']);
 		if ($formato=="LB") {
 			$peso=intval($_POST['weight']);
-		}else {
+		}elseif ($formato=="OZ") {
 			$peso=$_POST['weight']*0.0625;
+		}else {
+			$peso=0;
 		}
 
-		$nu_foto=strval($_POST['nu_foto']);
 		date_default_timezone_set('America/Santo_Domingo');
 		$date_added=date("Y-m-d H:i:s");
 

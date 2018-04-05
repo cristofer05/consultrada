@@ -161,9 +161,9 @@
 													<div class="form-group col-md-4">
 														<h3>Mass Unit</h3>
 														<select class="form-control" id="unit" name="unit" required>
-															<option></option>
-															<option>LB</option>
-															<option>OZ</option>
+															<option value=""></option>
+															<option value="LB">LB</option>
+															<option value="OZ">OZ</option>
 														</select>
 													</div>
 												</div>
@@ -174,22 +174,12 @@
 														<li><button type="button" class="btn btn-danger btn-lg" data-dismiss="modal">Close</button></li>
 												</ul>
                     </div>
-										<?php
-										$query = mysqli_query($mysqli, "SELECT nu_foto FROM productos ORDER BY id_producto DESC LIMIT 1")
-																										or die('error: '.mysqli_error($mysqli));
-										$count = mysqli_num_rows($query);
-										if ($count <> 0) {
-											$data  = mysqli_fetch_assoc($query);
-											$nu_foto = $data['nu_foto']+1;
-										} else {
-											$nu_foto = "1";
-										}
-										?>
+
 										<input type="hidden" id="bcode" name="bcode" value="">
 										<input type="hidden" id="titl" name="titl" value="">
 										<input type="hidden" id="img_res" name="img_res" value="">
 										<input type="hidden" id="user" name="user" value="<?php echo substr($_SESSION['name_user'],0,1); ?>">
-										<input type="hidden" id="nu_foto" name="nu_foto" value="<?php echo $nu_foto; ?>">
+
                     <div class="tab-pane" role="tabpanel" id="complete">
 											<div id="resultados_ajax_productos"></div>
                         <h3>Almost done!</h3>
