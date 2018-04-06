@@ -43,10 +43,10 @@ if (isset($_POST['mod_id']) && $_POST['mod_id'] !=NULL) {
   }
 }
 if (isset($errors)){
-  ?>  <script> window.location.replace("main.php?module=detalles&id=<?php echo $id_producto; ?>&errors=<?php echo $errors [0]; ?>"); </script> <?php
+  ?>  <script> window.location.replace("../main.php?module=detalles&id=<?php echo $id_producto; ?>&errors=<?php echo $errors [0]; ?>"); </script> <?php
 //  header ("Location: main.php?module=consultrada?errors=".$errors);
 } else if (isset($messages)) {
-?>  <script> window.location.replace("main.php?module=detalles&id=<?php echo $id_producto; ?>&messages=<?php echo $messages[0]; ?>"); </script> <?php
+?>  <script> window.location.replace("../main.php?module=detalles&id=<?php echo $id_producto; ?>&messages=<?php echo $messages[0]; ?>"); </script> <?php
 //  header ("Location: main.php?module=consultrada?messages=1");
 }
 ?>
