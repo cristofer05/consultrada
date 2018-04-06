@@ -1,5 +1,6 @@
 <?php
- //include("funciones.php");
+// include("funciones.php");
+
 ?>
 <?php
  if (isset($_GET['id'])) {
@@ -15,7 +16,7 @@
      <i class="fa fa-edit icon-title"></i> Detalles del Articulo
    </h1>
     <a data-toggle="tooltip" data-placement="top" target="_blank" title="Print" id="imprimir" class="btn btn-primary btn-lg" onclick="qtyFunction()" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Print</a>
-    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Change Location" class="btn btn-primary btn-lg" href="bcode/vendor/spipu/html2pdf/examples/barcode.php?make_pdf=&bcode=<?php echo $data['barcode_final'];?>&ent=F&coment=<?php echo $data['comentario'];?>&location=<?php echo $data['ubicacion'];?>&pic=<?php echo $data['nu_foto'];?>&qty=3"><i style="color:#fff" class="fa fa-compass"></i> Change location</a>
+    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Editar" class="btn btn-primary btn-lg openBtn_editar"><i style="color:#fff" class="fa fa-edit"></i> Editar</a>
     <a title='Sumar y Revivir' class='btn btn-primary btn-lg openBtn_$data[id_producto]'>
       <i style='color:#fff' class='glyphicon glyphicon-edit'> ENTRADA</i></a>
     <?php
@@ -33,7 +34,7 @@
  <!-- Main content -->
  <?php
  //include("modal/entrada.php");
- //include("modal/suma.php");
+// include("modal/editar.php");
  ?>
  <section class="content">
    <div class="row">
@@ -43,7 +44,7 @@
        <div class="black-background" id="myBackground"></div>
 
        <!-- FORMULARIO DE SOLO VER -->
-         <form class="form-horizontal" id="Ver">
+         <form class="form-horizontal" id="Ver"> 
            <div class="box-body">
 
              <div class="form-group">
@@ -72,6 +73,12 @@
                </div>
              </div>
              <div class="form-group">
+               <label class="col-sm-3 control-label">QTY:</label>
+               <div class="col-sm-5">
+                <?php echo $data['qty_total']; ?>
+               </div>
+             </div>
+             <div class="form-group">
                <label class="col-sm-3 control-label"># PIC:</label>
                <div class="col-sm-5">
                 <?php echo $data['nu_foto']; ?>
@@ -91,6 +98,23 @@
              </div>
            </div><!-- /.box body -->
          </form>
+         <div class="modal fade" id="editar" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+             <div class="modal-dialog" role="document">
+                 <!-- Modal content-->
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+                         <h3 class="modal-title">Editar articulo</h3>
+                     </div>
+
+                     <div class="modal-body-edit">
+                       <?php
+                       include("modal/editar.php");
+                       ?>
+                     </div>
+                 </div>
+             </div>
+           </div>
          <div class="bgubicacion">
            <p>
              <?php echo $data['ubicacion']; ?>
@@ -159,21 +183,7 @@
    </div>   <!-- /.row -->
  </section><!-- /.content -->
    </div>   <!-- /.row -->
-   <div class="modal fade" id="sumar" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
-       <div class="modal-dialog" role="document">
-           <!-- Modal content-->
-           <div class="modal-content">
-               <div class="modal-header">
-                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-                   <h4 class="modal-title">Editando producto</h4>
-               </div>
 
-               <div class="modal-body-sum">
-
-               </div>
-           </div>
-       </div>
-     </div>
 <script type="text/javascript">
    function loading() {
        var popup = document.getElementById("myPopup");
@@ -182,4 +192,11 @@
        var background = document.getElementById("myBackground");
        background.classList.toggle("show-background");
    }
+
+  /************ MODAL EDITAR ******************/
+     $('.openBtn_editar').on('click',function(){
+      //   $('.modal-body-edit').load('modal/editar.php?id=$data[id_producto]',function(){
+             $('#editar').modal({show:true});
+    //     });
+     });
 </script>
