@@ -91,7 +91,7 @@
         if (isset($_GET['id_corte'])) {
           $id_corte=$_GET['id_corte'];
           $nombre_corte=$_GET['nombre_corte'];
-          $estado=$_GET['estado'];
+          @$estado=$_GET['estado'];
 
           echo $nombre_corte." ";
 

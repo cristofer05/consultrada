@@ -48,8 +48,8 @@
             while ($data = mysqli_fetch_assoc($query)) {
 
               echo "<tr>
-                      <td width='10' class='center'>$data[id_corte]</td>
-                      <td width='150' class='center'>$data[nombre_corte]</td>
+                      <td width='10' class='center'><a href='main.php?module=publicar&id_corte=$data[id_corte]&nombre_corte=$data[nombre_corte]&estado=$data[estado]'>$data[id_corte]</a></td>
+                      <td width='150' class='center'><a href='main.php?module=publicar&id_corte=$data[id_corte]&nombre_corte=$data[nombre_corte]&estado=$data[estado]'>$data[nombre_corte]</a></td>
                       <td width='200'>$data[fecha]</td>
                       <td width='180'>$data[num_productos]</td>
                       <td width='180'><a href='$data[fotos_link]' target='_BLANK'>$data[fotos_link]</a></td>
